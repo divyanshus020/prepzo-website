@@ -71,21 +71,7 @@ export default function Testimonials() {
     <section id="testimonials" ref={ref} className="py-28 mesh-bg relative">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Market stats */}
-        <div className="reveal mb-20">
-          <div className="bg-gradient-to-br from-purple-700 to-violet-900 rounded-3xl p-10 purple-glow">
-            <p className="text-purple-300 text-sm font-display font-600 text-center tracking-widest uppercase mb-8">Market Opportunity</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((s, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-3xl mb-2">{s.icon}</div>
-                  <div className="text-3xl md:text-4xl font-display font-800 text-white mb-1">{s.value}</div>
-                  <div className="text-purple-300 text-sm font-body">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+
 
         {/* Testimonials header */}
         <div className="text-center mb-16">
