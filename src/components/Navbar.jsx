@@ -34,15 +34,23 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <img src={prepzoLogo} alt="Prepzo" className="h-18 md:h-22 w-auto group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
+        <Link to="/" className="flex items-center gap-1 group">
+          <span className="font-display font-900 text-3xl tracking-tighter text-gray-900 flex items-baseline pointer-events-none group-hover:scale-105 transition-transform duration-300">
+            Prep<span className="text-[#ff4500]">zo</span>
+            <div className="w-2 h-2 rounded-full bg-[#ff4500] ml-1 mb-1.5" />
+          </span>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav & Action */}
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link key={item.label} to={item.href} className="nav-link text-sm font-medium">{item.label}</Link>
-          ))}
+          <div className="flex items-center gap-8 mr-4">
+            {navItems.map((item) => (
+              <Link key={item.label} to={item.href} className="nav-link text-sm font-medium uppercase tracking-wide">{item.label}</Link>
+            ))}
+          </div>
+          <Link to="/contact" className="bg-[#ff4500] text-white px-6 py-2.5 rounded-xl font-display font-700 text-xs hover:bg-[#d33a00] transition-all shadow-lg shadow-orange-600/20 active:scale-95">
+            Book Demo
+          </Link>
         </div>
 
         {/* Mobile toggle */}

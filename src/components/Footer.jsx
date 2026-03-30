@@ -13,8 +13,11 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16">
         <div className="flex flex-col items-center text-center">
           {/* Logo Section */}
-          <Link to="/" className="flex items-center gap-2.5 mb-8 group">
-            <img src={prepzoLogoFooter} alt="Prepzo" className="h-22 md:h-28 w-auto group-hover:scale-105 transition-transform duration-500 hover:brightness-110" />
+          <Link to="/" className="flex items-center gap-1 mb-8 group">
+            <span className="font-display font-900 text-4xl md:text-5xl tracking-tighter text-white flex items-baseline pointer-events-none group-hover:scale-105 transition-transform duration-500">
+              Prep<span className="text-[#ff4500]">zo</span>
+              <div className="w-2.5 h-2.5 rounded-full bg-[#ff4500] ml-1 mt-auto mb-2" />
+            </span>
           </Link>
 
           {/* Slogan */}
