@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <img src={prepzoLogo} alt="Prepzo" className="h-14 md:h-16 w-auto mix-blend-multiply group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
+          <img src={prepzoLogo} alt="Prepzo" className="h-18 md:h-22 w-auto group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
         </Link>
 
         {/* Desktop nav */}

@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center">
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2.5 mb-8 group">
-            <img src={prepzoLogoFooter} alt="Prepzo" className="h-16 md:h-20 w-auto mix-blend-screen group-hover:scale-105 transition-transform duration-500 hover:brightness-110" />
+            <img src={prepzoLogoFooter} alt="Prepzo" className="h-22 md:h-28 w-auto group-hover:scale-105 transition-transform duration-500 hover:brightness-110" />
           </Link>
 
           {/* Slogan */}
