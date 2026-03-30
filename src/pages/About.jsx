@@ -9,7 +9,7 @@ const ventures = [
     name: 'Prepzo',
     icon: <Zap size={20} />,
     role: 'Founder & CEO',
-    color: 'from-purple-600 to-violet-500',
+    color: 'from-orange-600 to-orange-500',
     desc: 'AI Career Operating System for Universities. Bridging the gap between academic output and industry readiness through AI-powered analytics.',
     link: '/',
   },
@@ -17,7 +17,7 @@ const ventures = [
     name: 'DCodecafe',
     icon: <Code2 size={20} />,
     role: 'Founder',
-    color: 'from-blue-600 to-indigo-500',
+    color: 'from-blue-600 to-primary-500',
     desc: 'A full-stack software development studio focused on building innovative digital products and production-grade technology solutions.',
     link: '#',
   },
@@ -25,7 +25,7 @@ const ventures = [
     name: 'HiringBazaar',
     icon: <ShoppingBag size={20} />,
     role: 'CTO',
-    color: 'from-violet-600 to-indigo-500',
+    color: 'from-primary-600 to-primary-500',
     desc: 'A next-generation hiring marketplace connecting job seekers with employers across India.',
     link: '#',
   },
@@ -79,7 +79,7 @@ export default function About() {
             className="text-4xl md:text-5xl lg:text-6xl font-display font-800 text-[#1a1a2e] leading-[1.1] mb-20 max-w-4xl mx-auto"
           >
             Built to bridge the gap between <br className="hidden md:block" />
-            <span className="text-purple-600">technology</span> and <span className="text-purple-600">market distribution</span>
+            <span className="text-primary-600">technology</span> and <span className="text-primary-600">market distribution</span>
           </motion.h1>
 
           {/* Founder Card — The Screenshot Design Refined */}
@@ -90,11 +90,11 @@ export default function About() {
             className="relative max-w-5xl mx-auto"
           >
             <div className="absolute inset-0 bg-black/5 blur-3xl -z-10 translate-y-8 scale-95" />
-            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-2xl shadow-purple-900/5 border border-white flex flex-col lg:flex-row items-center gap-12 text-left">
+            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-2xl shadow-primary-900/5 border border-white flex flex-col lg:flex-row items-center gap-12 text-left">
 
               {/* Left — Avatar */}
               <div className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-[#f3f4f6] overflow-hidden relative border border-gray-100 group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img
                   src={founderAvatar}
                   alt="Divyanshu Sharma"
@@ -118,7 +118,7 @@ export default function About() {
                 <div className="grid md:grid-cols-1 gap-8">
                   <div className="group">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 border border-primary-100 group-hover:bg-primary-600 group-hover:text-white transition-colors">
                         <Target size={16} />
                       </div>
                       <h4 className="text-sm font-bold text-gray-900 uppercase tracking-widest">Core Focus:</h4>
@@ -130,7 +130,7 @@ export default function About() {
 
                   <div className="group">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 border border-primary-100 group-hover:bg-primary-600 group-hover:text-white transition-colors">
                         <Eye size={16} />
                       </div>
                       <h4 className="text-sm font-bold text-gray-900 uppercase tracking-widest">The Mission:</h4>
@@ -143,7 +143,7 @@ export default function About() {
 
                 <div className="mt-10 pt-8 border-t border-gray-100 flex items-center gap-6">
                   <a href="https://www.linkedin.com/in/sharma-divyanshu/" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-purple-600 font-bold hover:text-purple-700 transition-colors group/link">
+                    className="flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700 transition-colors group/link">
                     <Linkedin size={20} /> LinkedIn <ArrowRight size={14} className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
                   <a href="mailto:connect@prepzo.space" className="flex items-center gap-2 text-gray-400 font-bold hover:text-gray-600 transition-colors">
@@ -161,13 +161,13 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div className="reveal space-y-6">
-              <div className="inline-flex items-center gap-2 bg-purple-50 text-purple-600 border border-purple-100 rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-600 border border-primary-100 rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider">
                 Our Purpose
               </div>
               <h2 className="text-3xl md:text-4xl font-display font-800 text-gray-900 leading-tight">
                 Why we are building <span className="gradient-text">Prepzo</span>
               </h2>
-              <p className="text-gray-500 text-lg leading-relaxed font-medium italic border-l-4 border-purple-200 pl-6">
+              <p className="text-gray-500 text-lg leading-relaxed font-medium italic border-l-4 border-primary-200 pl-6">
                 "India produces 5 million graduates every year — yet only ~45% are considered employable. Talented students walk into interviews unprepared because the system lacks realistic practice."
               </p>
             </div>
@@ -196,7 +196,7 @@ export default function About() {
                 <h3 className="font-display font-800 text-2xl text-gray-900 mb-2">{v.name}</h3>
                 <p className="text-gray-400 font-medium text-xs mb-4 uppercase tracking-widest">{v.role}</p>
                 <p className="text-gray-500 leading-relaxed mb-8 text-sm flex-grow">{v.desc}</p>
-                <Link to={v.link} className="inline-flex items-center gap-2 text-purple-600 font-bold group-hover:gap-4 transition-all text-sm">
+                <Link to={v.link} className="inline-flex items-center gap-2 text-primary-600 font-bold group-hover:gap-4 transition-all text-sm">
                   View Project <ArrowRight size={14} />
                 </Link>
               </div>
@@ -208,9 +208,9 @@ export default function About() {
       {/* Quote / Signoff */}
       <section className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-1 w-full max-w-[80px] bg-purple-200 mx-auto rounded-full mb-12" />
+          <div className="w-16 h-1 w-full max-w-[80px] bg-primary-200 mx-auto rounded-full mb-12" />
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-800 text-[#1a1a2e] leading-snug mb-8 lowercase">
-            "First we build the <span className="text-purple-600 font-900 italic">engine</span>, then we conquer the <span className="text-purple-600 font-900 italic">distribution</span>."
+            "First we build the <span className="text-primary-600 font-900 italic">engine</span>, then we conquer the <span className="text-primary-600 font-900 italic">distribution</span>."
           </h3>
           <div className="flex justify-center">
             <Link to="/contact" className="btn-primary scale-110">Build with me <ArrowRight size={18} /></Link>

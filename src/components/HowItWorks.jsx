@@ -7,42 +7,42 @@ const steps = [
     icon: <LogIn size={22} />,
     title: 'Platform Onboarding',
     desc: 'Student logs in through their university\'s Prepzo portal. Seamless single-sign-on with institutional credentials.',
-    color: 'from-purple-600 to-violet-500',
+    color: 'from-orange-600 to-orange-500',
   },
   {
     step: '02',
     icon: <FileText size={22} />,
     title: 'Resume Intelligence',
     desc: 'Upload your resume. Our Resume Intelligence Engine parses your background, skills, and target role to configure a personalized interview profile.',
-    color: 'from-violet-500 to-purple-400',
+    color: 'from-primary-500 to-primary-400',
   },
   {
     step: '03',
     icon: <Bot size={22} />,
     title: 'AI Mock Interview',
     desc: 'Face a hyper-realistic AI interviewer. Technical rounds, behavioral questions, and communication audits — all calibrated to your target company type.',
-    color: 'from-purple-500 to-pink-400',
+    color: 'from-primary-500 to-orange-400',
   },
   {
     step: '04',
     icon: <BarChart2 size={22} />,
     title: 'Algorithmic Evaluation',
     desc: 'Every response is evaluated across communication clarity, technical accuracy, problem-solving ability, and confidence level. Instant structured feedback report generated.',
-    color: 'from-fuchsia-500 to-purple-500',
+    color: 'from-orange-500 to-primary-500',
   },
   {
     step: '05',
     icon: <Map size={22} />,
     title: 'Personalized Roadmap',
     desc: 'Prepzo generates a step-by-step improvement roadmap specific to your weak areas. Know exactly what to fix and how to fix it.',
-    color: 'from-violet-600 to-indigo-500',
+    color: 'from-primary-600 to-primary-500',
   },
   {
     step: '06',
     icon: <Trophy size={22} />,
     title: 'Placement Ready',
     desc: 'Hit your Placement Readiness Score target. Get certified as job-ready and become visible to recruiters on the Prepzo talent network.',
-    color: 'from-purple-600 to-violet-600',
+    color: 'from-primary-600 to-primary-600',
   },
 ]
 
@@ -68,7 +68,7 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" ref={ref} className="py-28 bg-gray-50/60 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 30% 70%, rgba(124,58,237,0.05) 0%, transparent 60%)' }} />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -91,13 +91,13 @@ export default function HowItWorks() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           {/* Connecting line */}
           <div className="absolute top-16 left-0 right-0 hidden lg:block pointer-events-none">
-            <div className="h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent mx-16" />
+            <div className="h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent mx-16" />
           </div>
 
           {steps.map((s, i) => (
             <div
               key={i}
-              className="reveal relative bg-white rounded-2xl border border-gray-100 p-7 shadow-sm feature-card hover:border-purple-100"
+              className="reveal relative bg-white rounded-2xl border border-gray-100 p-7 shadow-sm feature-card hover:border-primary-100"
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
               {/* Step number */}
@@ -113,8 +113,8 @@ export default function HowItWorks() {
               {/* Arrow connector */}
               {i < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-16 -right-3 z-10">
-                  <div className="w-6 h-6 rounded-full bg-purple-100 border border-purple-200 flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                  <div className="w-6 h-6 rounded-full bg-primary-100 border border-primary-200 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
                   </div>
                 </div>
               )}
@@ -124,15 +124,15 @@ export default function HowItWorks() {
 
         {/* Loop indicator */}
         <div className="reveal mt-12 text-center">
-          <div className="inline-flex items-center gap-3 bg-purple-50 border border-purple-100 rounded-full px-6 py-3">
-            <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-            <span className="text-purple-700 text-sm font-display font-600">
+          <div className="inline-flex items-center gap-3 bg-primary-50 border border-primary-100 rounded-full px-6 py-3">
+            <div className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
+            <span className="text-primary-700 text-sm font-display font-600">
               This loop repeats continuously — preparation never stops until placement.
             </span>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
     </section>
   )
 }

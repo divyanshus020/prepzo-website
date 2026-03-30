@@ -64,14 +64,14 @@ export default function Features() {
               {/* Table header */}
               <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-100 px-6 py-4">
                 <span className="text-sm font-display font-700 text-gray-500">Feature</span>
-                <span className="text-sm font-display font-700 text-purple-600 text-center">Prepzo</span>
+                <span className="text-sm font-display font-700 text-orange-600 text-center">Prepzo</span>
                 <span className="text-sm font-display font-700 text-gray-400 text-center">Others</span>
               </div>
               {features.map((f, i) => (
                 <div key={i} className={`grid grid-cols-3 px-6 py-4 border-b border-gray-50 ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
                   <span className="text-sm text-gray-600 font-body">{f.name}</span>
                   <div className="flex justify-center">
-                    <CheckCircle size={18} className="text-purple-500" />
+                    <CheckCircle size={18} className="text-primary-500" />
                   </div>
                   <div className="flex justify-center">
                     {f.others === true ? (

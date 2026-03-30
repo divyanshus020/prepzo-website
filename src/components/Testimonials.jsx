@@ -9,7 +9,7 @@ const testimonials = [
     avatar: 'PS',
     rating: 5,
     text: 'Before Prepzo, I had no idea how to structure my answers. After 8 mock sessions, I cracked my first real interview at Infosys. The AI feedback was brutally honest — and that is exactly what I needed.',
-    color: 'from-purple-500 to-violet-400',
+    color: 'from-orange-500 to-orange-400',
   },
   {
     name: 'Dr. Rajan Mehta',
@@ -18,7 +18,7 @@ const testimonials = [
     avatar: 'RM',
     rating: 5,
     text: 'For the first time, I can see which students are ready and which are not — weeks before the placement season. Prepzo\'s cohort analytics changed how we run our entire placement program.',
-    color: 'from-violet-500 to-purple-500',
+    color: 'from-primary-500 to-primary-500',
   },
   {
     name: 'Ankit Verma',
@@ -27,7 +27,7 @@ const testimonials = [
     avatar: 'AV',
     rating: 5,
     text: 'We used to interview 80+ candidates to shortlist 3. Through Prepzo, students arrive with actual readiness scores. Our campus hiring efficiency has improved dramatically.',
-    color: 'from-fuchsia-500 to-purple-500',
+    color: 'from-fuchsia-500 to-primary-500',
   },
   {
     name: 'Sneha Patel',
@@ -36,7 +36,7 @@ const testimonials = [
     avatar: 'SP',
     rating: 5,
     text: 'The communication audit feature is incredible. I never realised how many filler words I used until Prepzo showed me the data. My confidence going into interviews is completely different now.',
-    color: 'from-purple-600 to-pink-500',
+    color: 'from-primary-600 to-pink-500',
   },
 ]
 

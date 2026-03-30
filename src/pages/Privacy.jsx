@@ -88,8 +88,8 @@ export default function Privacy() {
 
       <div className="max-w-4xl mx-auto px-6 py-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-          className="bg-purple-50 border border-purple-100 rounded-2xl p-6 mb-10">
-          <p className="text-purple-700 font-body text-sm leading-relaxed">
+          className="bg-orange-50 border border-primary-100 rounded-2xl p-6 mb-10">
+          <p className="text-primary-700 font-body text-sm leading-relaxed">
             <strong className="font-display">Your privacy matters to us.</strong> Prepzo is built on trust — with students sharing their career data, universities sharing cohort data, and recruiters sharing hiring needs. We take that responsibility seriously and are committed to being transparent about how your data is collected, used, and protected.
           </p>
         </motion.div>
@@ -107,8 +107,8 @@ export default function Privacy() {
         <div className="mt-16 pt-8 border-t border-gray-100 flex flex-wrap gap-4 items-center justify-between">
           <p className="text-gray-400 text-sm font-body">© 2026 Prepzo</p>
           <div className="flex gap-4">
-            <Link to="/terms" className="text-purple-600 text-sm font-body hover:underline">Terms of Service</Link>
-            <Link to="/contact" className="text-purple-600 text-sm font-body hover:underline">Contact Us</Link>
+            <Link to="/terms" className="text-primary-600 text-sm font-body hover:underline">Terms of Service</Link>
+            <Link to="/contact" className="text-primary-600 text-sm font-body hover:underline">Contact Us</Link>
           </div>
         </div>
       </div>

@@ -6,6 +6,24 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#ff4500',
+          50: '#fff5f0',
+          100: '#ffe6d9',
+          200: '#ffd8c4',
+          300: '#ffbca0',
+          400: '#ffa07a',
+          500: '#ff7b00',
+          600: '#ff4500',
+          700: '#d33a00',
+          800: '#b43200',
+          900: '#942b00',
+        },
+        cream: {
+          DEFAULT: '#fffefd',
+        }
+      },
       fontFamily: {
         display: ['Syne', 'sans-serif'],
         body: ['DM Sans', 'sans-serif'],

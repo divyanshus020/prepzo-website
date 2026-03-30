@@ -29,9 +29,9 @@ const problems = [
     stat: '50–100',
     statLabel: 'interviews to hire just 1–2',
     desc: 'Massive inefficiency in talent discovery. Companies waste enormous time and resources interviewing unprepared candidates, degrading the quality of campus hiring overall.',
-    color: 'from-violet-500 to-purple-400',
-    bg: 'bg-violet-50',
-    border: 'border-violet-100',
+    color: 'from-orange-500 to-orange-400',
+    bg: 'bg-primary-50',
+    border: 'border-primary-100',
   },
 ]
 
@@ -58,7 +58,7 @@ export default function Problem() {
   return (
     <section id="problem" ref={ref} className="py-28 bg-gray-50/60 relative">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 70% 30%, rgba(124,58,237,0.04) 0%, transparent 60%)' }} />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -81,8 +81,8 @@ export default function Problem() {
 
         {/* Big stat */}
         <div className="reveal mb-16">
-          <div className="relative max-w-3xl mx-auto rounded-3xl overflow-hidden bg-gradient-to-br from-purple-700 to-violet-900 p-px purple-glow">
-            <div className="bg-gradient-to-br from-purple-700 to-violet-900 rounded-3xl p-10 text-center text-white">
+          <div className="relative max-w-3xl mx-auto rounded-3xl overflow-hidden bg-gradient-to-br from-primary-700 to-primary-900 p-px primary-glow">
+            <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-10 text-center text-white">
               <div className="grid grid-cols-3 gap-6">
                 {[
                   { n: '5M', l: 'Graduates Enter' },
@@ -91,14 +91,14 @@ export default function Problem() {
                 ].map((s, i) => (
                   <div key={i} className="flex flex-col items-center">
                     <span className="text-3xl md:text-5xl font-display font-800 text-white mb-2">{s.n}</span>
-                    <span className="text-purple-200 text-sm font-body">{s.l}</span>
+                    <span className="text-primary-200 text-sm font-body">{s.l}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 h-2 rounded-full bg-purple-800/60 overflow-hidden">
-                <div className="h-full w-[45%] bg-gradient-to-r from-purple-300 to-violet-200 rounded-full" />
+              <div className="mt-6 h-2 rounded-full bg-primary-800/60 overflow-hidden">
+                <div className="h-full w-[45%] bg-gradient-to-r from-primary-300 to-primary-200 rounded-full" />
               </div>
-              <p className="text-purple-200 text-xs mt-2 font-body">Only 45% considered job-ready</p>
+              <p className="text-primary-200 text-xs mt-2 font-body">Only 45% considered job-ready</p>
             </div>
           </div>
         </div>
@@ -124,12 +124,12 @@ export default function Problem() {
         <div className="reveal mt-14 text-center">
           <p className="text-gray-400 font-body text-base max-w-xl mx-auto">
             Current tools like <span className="text-gray-600 font-medium">PrepInsta, InterviewBit</span> offer static content — no AI simulation, no institutional layer, no real feedback loop.{' '}
-            <span className="text-purple-600 font-semibold">The gap is systemic.</span>
+            <span className="text-primary-600 font-semibold">The gap is systemic.</span>
           </p>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
     </section>
   )
 }

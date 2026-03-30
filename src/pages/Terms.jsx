@@ -53,8 +53,8 @@ export default function Terms() {
         <div className="mt-16 pt-8 border-t border-gray-100 flex flex-wrap gap-4 items-center justify-between">
           <p className="text-gray-400 text-sm font-body">© 2026 Prepzo</p>
           <div className="flex gap-4">
-            <Link to="/privacy" className="text-purple-600 text-sm font-body hover:underline">Privacy Policy</Link>
-            <Link to="/contact" className="text-purple-600 text-sm font-body hover:underline">Contact Us</Link>
+            <Link to="/privacy" className="text-orange-600 text-sm font-body hover:underline">Privacy Policy</Link>
+            <Link to="/contact" className="text-primary-600 text-sm font-body hover:underline">Contact Us</Link>
           </div>
         </div>
       </div>

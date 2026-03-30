@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="bg-gray-950 text-white relative overflow-hidden">
       {/* Decorative glows */}
-      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-purple-700/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-700/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-orange-700/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-orange-700/10 blur-[120px] pointer-events-none" />
 
       {/* Main Content Area */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16">
@@ -19,7 +19,7 @@ export default function Footer() {
 
           {/* Slogan */}
           <h2 className="font-display font-800 text-2xl md:text-3xl lg:text-4xl text-white mb-6 leading-tight max-w-2xl">
-            The AI Career Operating System for <span className="text-purple-400">Universities.</span>
+            The AI Career Operating System for <span className="text-primary-400">Universities.</span>
           </h2>
 
           <p className="text-gray-400 font-body text-base md:text-lg mb-10 max-w-xl leading-relaxed">
@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Actions */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
             <Link to="/contact"
-              className="bg-white text-gray-950 px-8 py-4 rounded-full font-display font-700 text-sm hover:bg-purple-50 transition-all shadow-xl shadow-white/5 active:scale-95">
+              className="bg-white text-gray-950 px-8 py-4 rounded-full font-display font-700 text-sm hover:bg-primary-50 transition-all shadow-xl shadow-white/5 active:scale-95">
               Book a Free Demo
             </Link>
             <a href="https://www.linkedin.com/in/sharma-divyanshu/" target="_blank" rel="noopener noreferrer"
@@ -49,7 +49,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 to={link.to}
-                className="text-gray-500 hover:text-purple-400 text-sm font-medium transition-colors"
+                className="text-gray-500 hover:text-primary-400 text-sm font-medium transition-colors"
               >
                 {link.label}
               </Link>

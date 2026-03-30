@@ -15,7 +15,7 @@ function AnimatedSphere() {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1.5}>
       <Sphere ref={meshRef} args={[1.5, 64, 64]} position={[0, 0, 0]}>
         <MeshDistortMaterial
-          color="#7c3aed"
+          color="#ff4500"
           attach="material"
           distort={0.35}
           speed={2.5}
@@ -69,7 +69,7 @@ function FloatingParticles() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={0.04} color="#a855f7" transparent opacity={0.6} sizeAttenuation />
+      <pointsMaterial size={0.04} color="#ff7b00" transparent opacity={0.6} sizeAttenuation />
     </points>
   )
 }
@@ -100,19 +100,19 @@ export default function HeroScene() {
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} color="#ffffff" />
-        <pointLight position={[-4, 3, 3]} intensity={1.5} color="#a855f7" />
-        <pointLight position={[4, -3, 2]} intensity={1} color="#6d28d9" />
-        <pointLight position={[0, 0, 4]} intensity={0.8} color="#ec4899" />
+        <pointLight position={[-4, 3, 3]} intensity={1.5} color="#ff4500" />
+        <pointLight position={[4, -3, 2]} intensity={1} color="#ff7b00" />
+        <pointLight position={[0, 0, 4]} intensity={0.8} color="#ffa07a" />
 
         <AnimatedSphere />
-        <OrbitRing radius={2.5} speed={0.3} color="#a855f7" tilt={Math.PI / 4} />
-        <OrbitRing radius={3.2} speed={-0.2} color="#7c3aed" tilt={Math.PI / 3} />
-        <OrbitRing radius={4} speed={0.15} color="#c084fc" tilt={Math.PI / 6} />
+        <OrbitRing radius={2.5} speed={0.3} color="#ffa07a" tilt={Math.PI / 4} />
+        <OrbitRing radius={3.2} speed={-0.2} color="#ff4500" tilt={Math.PI / 3} />
+        <OrbitRing radius={4} speed={0.15} color="#ff7b00" tilt={Math.PI / 6} />
 
-        <SmallOrb position={[3, 1.5, 0]} color="#c084fc" size={0.2} speed={1.2} />
-        <SmallOrb position={[-3, -1, 0.5]} color="#7c3aed" size={0.15} speed={0.8} />
-        <SmallOrb position={[2.5, -2, -0.5]} color="#a855f7" size={0.25} speed={1.5} />
-        <SmallOrb position={[-2, 2, 0]} color="#ec4899" size={0.12} speed={1} />
+        <SmallOrb position={[3, 1.5, 0]} color="#ffa07a" size={0.2} speed={1.2} />
+        <SmallOrb position={[-3, -1, 0.5]} color="#ff4500" size={0.15} speed={0.8} />
+        <SmallOrb position={[2.5, -2, -0.5]} color="#ff7b00" size={0.25} speed={1.5} />
+        <SmallOrb position={[-2, 2, 0]} color="#ff8c00" size={0.12} speed={1} />
 
         <FloatingParticles />
         <Stars radius={30} depth={10} count={300} factor={2} fade speed={0.5} />

@@ -45,7 +45,7 @@ const plans = [
     price: 'Custom',
     period: 'multi-year contract',
     description: 'For large universities, consortiums, and state-level educational bodies.',
-    iconBg: 'bg-purple-700',
+    iconBg: 'bg-orange-700',
     features: [
       'Everything in University',
       'Custom AI model fine-tuning',
@@ -80,7 +80,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" ref={ref} className="py-28 bg-gray-50/60 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-20">
@@ -100,31 +100,31 @@ export default function Pricing() {
           {plans.map((plan, i) => (
             <div
               key={i}
-              className={`reveal rounded-2xl overflow-hidden ${plan.highlight ? 'purple-glow scale-[1.03]' : 'border border-gray-100 bg-white shadow-sm'}`}
+              className={`reveal rounded-2xl overflow-hidden ${plan.highlight ? 'primary-glow scale-[1.03]' : 'border border-gray-100 bg-white shadow-sm'}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className={`${plan.highlight ? 'bg-gradient-to-br from-purple-600 to-violet-700 text-white p-8' : 'p-8'}`}>
+              <div className={`${plan.highlight ? 'bg-gradient-to-br from-primary-600 to-orange-700 text-white p-8' : 'p-8'}`}>
                 <div className={`w-10 h-10 rounded-xl ${plan.iconBg} flex items-center justify-center mb-4 text-white`}>
                   {plan.icon}
                 </div>
                 <h3 className={`font-display font-700 text-xl mb-1 ${plan.highlight ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
-                <p className={`text-sm mb-5 font-body ${plan.highlight ? 'text-purple-200' : 'text-gray-400'}`}>{plan.description}</p>
+                <p className={`text-sm mb-5 font-body ${plan.highlight ? 'text-primary-200' : 'text-gray-400'}`}>{plan.description}</p>
                 <div className="mb-6">
                   <span className={`text-4xl font-display font-800 ${plan.highlight ? 'text-white' : 'gradient-text'}`}>{plan.price}</span>
-                  <span className={`text-sm ml-2 font-body ${plan.highlight ? 'text-purple-200' : 'text-gray-400'}`}>{plan.period}</span>
+                  <span className={`text-sm ml-2 font-body ${plan.highlight ? 'text-primary-200' : 'text-gray-400'}`}>{plan.period}</span>
                 </div>
                 <Link to="/contact" className={`block text-center py-3 px-6 rounded-full font-display font-600 text-sm transition-all duration-300 ${plan.highlight
-                    ? 'bg-white text-purple-700 hover:bg-purple-50'
-                    : 'border-2 border-purple-300 text-purple-600 hover:bg-purple-600 hover:text-white hover:border-purple-600'
+                    ? 'bg-white text-primary-700 hover:bg-primary-50'
+                    : 'border-2 border-primary-300 text-primary-600 hover:bg-primary-600 hover:text-white hover:border-primary-600'
                   }`}>
                   Get Started
                 </Link>
               </div>
-              <div className={`px-8 py-7 ${plan.highlight ? 'bg-purple-50/80' : ''}`}>
+              <div className={`px-8 py-7 ${plan.highlight ? 'bg-primary-50/80' : ''}`}>
                 <ul className="space-y-4">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-3">
-                      <Check size={16} className={`mt-0.5 flex-shrink-0 ${plan.highlight ? 'text-purple-600' : 'text-purple-500'}`} />
+                      <Check size={16} className={`mt-0.5 flex-shrink-0 ${plan.highlight ? 'text-primary-600' : 'text-primary-500'}`} />
                       <span className={`text-sm font-body ${plan.highlight ? 'text-gray-800 font-medium' : 'text-gray-600'}`}>{f}</span>
                     </li>
                   ))}
@@ -137,11 +137,11 @@ export default function Pricing() {
         {/* Bottom note */}
         <div className="reveal mt-12 text-center">
           <p className="text-gray-400 text-sm font-body">
-            Not sure which plan? <Link to="/contact" className="text-purple-600 font-medium hover:underline">Talk to us</Link> — we'll help you find the right fit.
+            Not sure which plan? <Link to="/contact" className="text-primary-600 font-medium hover:underline">Talk to us</Link> — we'll help you find the right fit.
           </p>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
     </section>
   )
 }

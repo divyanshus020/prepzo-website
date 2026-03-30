@@ -29,7 +29,7 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg ? 'glass shadow-lg shadow-purple-100/50' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg ? 'glass shadow-lg shadow-orange-100/50' : 'bg-transparent'
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -47,7 +47,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-purple-50 transition-colors"
+          className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-primary-50 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -60,11 +60,11 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-purple-100"
+            className="md:hidden glass border-t border-primary-100"
           >
             <div className="px-6 py-6 flex flex-col gap-5">
               {navItems.map((item) => (
-                <Link key={item.label} to={item.href} className="text-gray-700 font-medium hover:text-purple-600 transition-colors py-1" onClick={() => setMobileOpen(false)}>{item.label}</Link>
+                <Link key={item.label} to={item.href} className="text-gray-700 font-medium hover:text-primary-600 transition-colors py-1" onClick={() => setMobileOpen(false)}>{item.label}</Link>
               ))}
             </div>
           </motion.div>

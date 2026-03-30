@@ -7,20 +7,20 @@ const words = ['Universities', 'Students', 'Recruiters']
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#fffefd]">
 
       {/* Subtle grid */}
       <div className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(rgba(124,58,237,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.035) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(255,69,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,69,0,0.035) 1px, transparent 1px)`,
           backgroundSize: '72px 72px'
         }}
       />
 
       {/* Top-left radial glow */}
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-purple-100/60 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-orange-100/60 rounded-full blur-3xl pointer-events-none" />
       {/* Bottom-right radial glow */}
-      <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] bg-violet-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] bg-red-100/40 rounded-full blur-3xl pointer-events-none" />
 
       {/* 3D scene — right half */}
       <div className="absolute right-0 top-0 w-full md:w-[55%] h-full pointer-events-none opacity-95">
@@ -112,7 +112,7 @@ export default function Hero() {
         transition={{ delay: 1.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
       >
-        <ChevronDown size={20} className="text-purple-400 animate-bounce" />
+        <ChevronDown size={20} className="text-orange-400 animate-bounce" />
       </motion.div>
     </section>
   )

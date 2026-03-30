@@ -6,37 +6,37 @@ const solutions = [
     icon: <Cpu size={22} />,
     title: 'AI Interview Simulation',
     desc: 'Hyper-realistic mock interviews tailored to each student\'s resume, target role, and industry expectations. Technical, behavioral, and communication dimensions — all in one session.',
-    color: 'from-purple-600 to-violet-500',
+    color: 'from-orange-600 to-orange-500',
   },
   {
     icon: <BarChart3 size={22} />,
     title: 'Placement Analytics Dashboard',
     desc: 'Universities get a department-wide command center. Track readiness scores, identify skill gaps by cohort, and act weeks before placement season — not days after.',
-    color: 'from-violet-500 to-purple-400',
+    color: 'from-primary-500 to-primary-400',
   },
   {
     icon: <Target size={22} />,
     title: 'Precision Skill Gap Analysis',
     desc: 'After every session, Prepzo\'s algorithm produces structured reports mapping exactly where students fall short — with a personalized improvement roadmap to close those gaps.',
-    color: 'from-purple-500 to-pink-400',
+    color: 'from-primary-500 to-orange-400',
   },
   {
     icon: <Users size={22} />,
     title: 'Recruiter Intelligence Layer',
     desc: 'Recruiters access a pre-screened, readiness-verified talent pool. Stop interviewing 100 candidates to hire 2 — discover job-ready graduates with data to back it up.',
-    color: 'from-fuchsia-500 to-purple-500',
+    color: 'from-red-500 to-primary-500',
   },
   {
     icon: <Zap size={22} />,
     title: 'Continuous Readiness Loop',
     desc: 'Preparation isn\'t a one-time event. Prepzo creates an ongoing improvement cycle across 7 stages — from onboarding to placement readiness scoring — repeating all semester.',
-    color: 'from-violet-600 to-indigo-500',
+    color: 'from-primary-600 to-primary-500',
   },
   {
     icon: <Shield size={22} />,
     title: 'Intelligence Flywheel',
     desc: 'Every interview generates structured data. Over time, Prepzo compounds into the most defensible employability intelligence dataset in Indian higher education.',
-    color: 'from-purple-600 to-violet-600',
+    color: 'from-primary-600 to-primary-600',
   },
 ]
 
@@ -84,7 +84,7 @@ export default function Solution() {
         <div className="reveal mb-20">
           <div className="relative max-w-sm mx-auto h-64 flex items-center justify-center">
             {/* Center hub */}
-            <div className="relative z-10 w-28 h-28 rounded-2xl bg-gradient-to-br from-purple-600 to-violet-700 flex flex-col items-center justify-center text-white shadow-2xl purple-glow">
+            <div className="relative z-10 w-28 h-28 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 flex flex-col items-center justify-center text-white shadow-2xl primary-glow">
               <Zap size={28} fill="white" />
               <span className="text-xs font-display font-700 mt-1">Prepzo AI</span>
             </div>
@@ -98,10 +98,10 @@ export default function Solution() {
               { label: 'Recruiters', pos: 'bottom-4 left-4', icon: '💼' },
             ].map((node) => (
               <div key={node.label} className={`absolute ${node.pos} flex flex-col items-center gap-1 animate-float`}>
-                <div className="w-12 h-12 rounded-xl glass border border-purple-200 flex items-center justify-center text-xl shadow-md">
+                <div className="w-12 h-12 rounded-xl glass border border-primary-200 flex items-center justify-center text-xl shadow-md">
                   {node.icon}
                 </div>
-                <span className="text-xs font-display font-600 text-purple-700">{node.label}</span>
+                <span className="text-xs font-display font-600 text-primary-700">{node.label}</span>
               </div>
             ))}
           </div>
@@ -112,7 +112,7 @@ export default function Solution() {
           {solutions.map((s, i) => (
             <div
               key={i}
-              className="reveal feature-card rounded-2xl bg-white border border-gray-100 p-7 shadow-sm hover:border-purple-100"
+              className="reveal feature-card rounded-2xl bg-white border border-gray-100 p-7 shadow-sm hover:border-primary-100"
               style={{ transitionDelay: `${i * 0.08}s` }}
             >
               <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center text-white mb-5 shadow-md`}>
