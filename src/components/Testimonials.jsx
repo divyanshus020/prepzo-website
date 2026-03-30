@@ -27,7 +27,7 @@ const testimonials = [
     avatar: 'AV',
     rating: 5,
     text: 'We used to interview 80+ candidates to shortlist 3. Through Prepzo, students arrive with actual readiness scores. Our campus hiring efficiency has improved dramatically.',
-    color: 'from-fuchsia-500 to-primary-500',
+    color: 'from-primary-600 to-primary-500',
   },
   {
     name: 'Sneha Patel',
@@ -36,7 +36,7 @@ const testimonials = [
     avatar: 'SP',
     rating: 5,
     text: 'The communication audit feature is incredible. I never realised how many filler words I used until Prepzo showed me the data. My confidence going into interviews is completely different now.',
-    color: 'from-primary-600 to-pink-500',
+    color: 'from-primary-600 to-primary-400',
   },
 ]
 

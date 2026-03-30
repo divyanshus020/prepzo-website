@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Github } from 'lucide-react'
 export default function ContactPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-cream pt-20">
       <div className="py-16 mesh-bg border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex justify-center mb-4">

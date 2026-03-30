@@ -51,7 +51,7 @@ export default function About() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#fafaf8] pt-20 overflow-hidden font-body">
+    <div className="min-h-screen bg-cream pt-20 overflow-hidden font-body">
 
       {/* Background Blueprint Decoration */}
       <div className="fixed inset-0 pointer-events-none opacity-[0.03]"
