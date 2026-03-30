@@ -142,7 +142,7 @@ export default function About() {
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-gray-100 flex items-center gap-6">
-                  <a href="https://www.linkedin.com/in/sharma-divyanshu/" target="_blank" rel="noopener noreferrer"
+                  <a href="https://www.linkedin.com/in/divyanshu-sharma-2a0060244/" target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700 transition-colors group/link">
                     <Linkedin size={20} /> LinkedIn <ArrowRight size={14} className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>

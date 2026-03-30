@@ -35,7 +35,7 @@ export default function Footer() {
               className="bg-white text-gray-950 px-8 py-4 rounded-full font-display font-700 text-sm hover:bg-primary-50 transition-all shadow-xl shadow-white/5 active:scale-95">
               Book a Free Demo
             </Link>
-            <a href="https://www.linkedin.com/in/sharma-divyanshu/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/divyanshu-sharma-2a0060244/" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 text-white font-display font-700 text-sm hover:bg-white/5 transition-all active:scale-95">
               <Linkedin size={18} /> LinkedIn
             </a>
