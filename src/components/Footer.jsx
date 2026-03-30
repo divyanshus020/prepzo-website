@@ -1,6 +1,6 @@
 import { Zap, Linkedin, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import prepzoIcon from '../assets/prepzo_icon.png'
+import prepzoLogo from '../assets/prepzo_logo.png'
 
 export default function Footer() {
   return (
@@ -14,12 +14,7 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center">
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2.5 mb-8 group">
-            <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 overflow-hidden shadow-sm">
-              <img src={prepzoIcon} alt="Prepzo" className="w-full h-full object-cover" />
-            </div>
-            <span className="font-display font-800 text-3xl text-white tracking-tight">
-              Prep<span className="text-purple-400">zo</span>
-            </span>
+            <img src={prepzoLogo} alt="Prepzo" className="h-14 w-auto group-hover:scale-105 transition-transform duration-500 hover:brightness-110" />
           </Link>
 
           {/* Slogan */}

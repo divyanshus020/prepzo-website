@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Zap } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
-import prepzoIcon from '../assets/prepzo_icon.png'
+import prepzoLogo from '../assets/prepzo_logo.png'
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -35,12 +35,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300 overflow-hidden">
-            <img src={prepzoIcon} alt="Prepzo" className="w-full h-full object-cover" />
-          </div>
-          <span className="font-display font-800 text-xl text-gray-900 tracking-tight">
-            Prep<span className="gradient-text">zo</span>
-          </span>
+          <img src={prepzoLogo} alt="Prepzo" className="h-10 w-auto group-hover:scale-105 transition-transform duration-300" />
         </Link>
 
         {/* Desktop nav */}
