@@ -29,36 +29,41 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg ? 'glass shadow-lg shadow-orange-100/50' : 'bg-transparent'
-        }`}
+      className={`fixed top-6 left-0 right-0 z-50 flex justify-center px-6 transition-all duration-500`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-1 group">
-          <span className="font-display font-900 text-3xl tracking-tighter text-gray-900 flex items-baseline pointer-events-none group-hover:scale-105 transition-transform duration-300">
-            Prep<span className="text-[#ff4500]">zo</span>
-            <div className="w-2 h-2 rounded-full bg-[#ff4500] ml-1 mb-1.5" />
-          </span>
-        </Link>
+      <div className={`w-full max-w-[1000px] flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${navBg ? 'bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(255,69,0,0.08)] border border-orange-100/50' : 'bg-white/80 backdrop-blur-md shadow-[0_8px_30px_rgb(255,69,0,0.05)] border border-orange-50/30'
+        }`}>
 
-        {/* Desktop nav & Action */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-8 mr-4">
-            {navItems.map((item) => (
-              <Link key={item.label} to={item.href} className="nav-link text-sm font-medium uppercase tracking-wide">{item.label}</Link>
-            ))}
-          </div>
-          <Link to="/contact" className="bg-[#ff4500] text-white px-6 py-2.5 rounded-xl font-display font-700 text-xs hover:bg-[#d33a00] transition-all shadow-lg shadow-orange-600/20 active:scale-95">
+        {/* Logo (Left) */}
+        <div className="flex-1 flex justify-start">
+          <Link to="/" className="flex items-center gap-1 group">
+            <span className="font-display font-900 text-2xl tracking-tighter text-gray-900 flex items-baseline pointer-events-none group-hover:scale-105 transition-transform duration-300">
+              Prep<span className="text-[#ff4500]">zo</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-[#ff4500] ml-1 mb-1.5" />
+            </span>
+          </Link>
+        </div>
+
+        {/* Desktop nav (Center) */}
+        <div className="hidden md:flex flex-1 justify-center items-center gap-8">
+          {navItems.map((item) => (
+            <Link key={item.label} to={item.href} className="nav-link text-xs font-700 text-gray-500 hover:text-gray-900 uppercase tracking-widest transition-colors">{item.label}</Link>
+          ))}
+        </div>
+
+        {/* Action (Right) */}
+        <div className="hidden md:flex flex-1 justify-end items-center">
+          <Link to="/contact" className="bg-[#ff4500] text-white px-7 py-3 rounded-full font-display font-700 text-xs hover:bg-[#d33a00] transition-transform shadow-[0_8px_20px_rgb(255,69,0,0.3)] hover:shadow-[0_8px_25px_rgb(255,69,0,0.4)] hover:-translate-y-0.5 active:scale-95 active:translate-y-0">
             Book Demo
           </Link>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-primary-50 transition-colors"
+          className="md:hidden flex-1 flex justify-end p-2 text-gray-700 hover:bg-primary-50 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={22} className="ml-auto" /> : <Menu size={22} className="ml-auto" />}
         </button>
       </div>
 
