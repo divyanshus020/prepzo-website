@@ -1,47 +1,47 @@
 import { useEffect, useRef } from 'react'
-import { LogIn, FileText, Bot, BarChart2, Map, Trophy } from 'lucide-react'
+import { LogIn, FileText, Brain, BarChart2, Map, Trophy } from 'lucide-react'
 
 const steps = [
   {
     step: '01',
     icon: <LogIn size={22} />,
-    title: 'Platform Onboarding',
-    desc: 'Student logs in through their university\'s Prepzo portal. Seamless single-sign-on with institutional credentials.',
+    title: 'Cohort Onboarding',
+    desc: 'Students sign in through the institution\'s Prepzo portal — single sign-on with TPO-managed access. Cohorts are configured by department and year.',
     color: 'from-orange-600 to-orange-500',
   },
   {
     step: '02',
     icon: <FileText size={22} />,
-    title: 'Resume Intelligence',
-    desc: 'Upload your resume. Our Resume Intelligence Engine parses your background, skills, and target role to configure a personalized interview profile.',
+    title: 'Profile Intelligence',
+    desc: 'Resume, target role, and academic record are parsed into a baseline profile — what the student claims to know, what their cohort typically struggles with.',
     color: 'from-primary-500 to-primary-400',
   },
   {
     step: '03',
-    icon: <Bot size={22} />,
-    title: 'AI Mock Interview',
-    desc: 'Face a hyper-realistic AI interviewer. Technical rounds, behavioral questions, and communication audits — all calibrated to your target company type.',
+    icon: <Brain size={22} />,
+    title: 'Live Skill Session',
+    desc: 'Prepzo AI runs an adaptive, voice-first skill assessment. Reasoning, communication, structure, domain depth — all measured in one session.',
     color: 'from-primary-500 to-orange-400',
   },
   {
     step: '04',
     icon: <BarChart2 size={22} />,
-    title: 'Algorithmic Evaluation',
-    desc: 'Every response is evaluated across communication clarity, technical accuracy, problem-solving ability, and confidence level. Instant structured feedback report generated.',
+    title: 'Cognitive Mapping',
+    desc: 'Every signal is graded against a 14-dimension rubric and stitched into a per-student brain map — the moment an answer drifted, the concept that broke down.',
     color: 'from-orange-500 to-primary-500',
   },
   {
     step: '05',
     icon: <Map size={22} />,
-    title: 'Personalized Roadmap',
-    desc: 'Prepzo generates a step-by-step improvement roadmap specific to your weak areas. Know exactly what to fix and how to fix it.',
+    title: 'Personalised Roadmap',
+    desc: 'Prepzo returns a precise improvement plan — drills, micro-lessons, and a re-test target — tied to the exact gaps the map exposed.',
     color: 'from-primary-600 to-primary-500',
   },
   {
     step: '06',
     icon: <Trophy size={22} />,
-    title: 'Placement Ready',
-    desc: 'Hit your Placement Readiness Score target. Get certified as job-ready and become visible to recruiters on the Prepzo talent network.',
+    title: 'Readiness Profile',
+    desc: 'Track readiness across the semester. The TPO cell sees cohort-level deltas; the student sees a profile they can stand behind when the season starts.',
     color: 'from-primary-600 to-primary-600',
   },
 ]
@@ -78,12 +78,12 @@ export default function HowItWorks() {
             <span className="tag">Process</span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            From Login to{' '}
-            <span className="gradient-text">Job-Ready</span>
-            {' '}in 6 Steps
+            From login to a{' '}
+            <span className="gradient-text">brain-mapped readiness profile</span>
+            {' '}in six steps
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-xl mx-auto font-body">
-            A continuous readiness loop that dynamically adjusts to each student — all semester long.
+            One continuous loop — adaptive per student, visible to the TPO cell, running all semester.
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export default function HowItWorks() {
           <div className="inline-flex items-center gap-3 bg-primary-50 border border-primary-100 rounded-full px-6 py-3">
             <div className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
             <span className="text-primary-700 text-sm font-display font-600">
-              This loop repeats continuously — preparation never stops until placement.
+              The loop repeats every cycle — the map sharpens, the gaps shrink, the readiness profile compounds.
             </span>
           </div>
         </div>

@@ -1,33 +1,58 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Linkedin, Mail, ArrowRight, Zap, ShoppingBag, Code2, Target, Eye } from 'lucide-react'
+import { Linkedin, ArrowRight, Brain, Target, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import founderAvatar from '../assets/founder_avatar.png'
 
-const ventures = [
+const cofounders = [
   {
-    name: 'Prepzo',
-    icon: <Zap size={20} />,
-    role: 'Founder & CEO',
-    color: 'from-orange-600 to-orange-500',
-    desc: 'AI Career Operating System for Universities. Bridging the gap between academic output and industry readiness through AI-powered analytics.',
-    link: '/',
+    name: 'Divyanshu Sharma',
+    role: 'Co-founder · CEO',
+    bio: 'Sets product direction and the brain-mapping playbook. Builds the bridge between Prepzo AI and the institutions that use it.',
+    accent: 'from-primary-600 to-orange-500',
+    initials: 'DS',
+    photo: founderAvatar,
+    linkedin: 'https://www.linkedin.com/in/divyanshu-sharma-2a0060244/',
   },
   {
-    name: 'DCodecafe',
-    icon: <Code2 size={20} />,
-    role: 'Founder',
-    color: 'from-blue-600 to-primary-500',
-    desc: 'A full-stack software development studio focused on building innovative digital products and production-grade technology solutions.',
-    link: '#',
+    name: 'Akshay Bhatia',
+    role: 'Co-founder · CA',
+    bio: 'Owns finance, governance, and the institutional motion. Translates what TPO cells need into how we structure deals.',
+    accent: 'from-orange-500 to-primary-400',
+    initials: 'AB',
+    linkedin: '#',
   },
   {
-    name: 'HiringBazaar',
-    icon: <ShoppingBag size={20} />,
-    role: 'CTO',
-    color: 'from-primary-600 to-primary-500',
-    desc: 'A next-generation hiring marketplace connecting job seekers with employers across India.',
-    link: '#',
+    name: 'Arjun Singh Deep',
+    role: 'Co-founder',
+    bio: 'Drives growth and partnerships across universities. Lives inside placement cells so the product reflects how they actually work.',
+    accent: 'from-primary-500 to-red-400',
+    initials: 'AS',
+    linkedin: '#',
+  },
+]
+
+const team = [
+  {
+    name: 'Sidharth Joshi',
+    role: 'Project Manager',
+    initials: 'SJ',
+    bg: 'bg-primary-50',
+    fg: 'text-primary-700',
+  },
+  {
+    name: 'Damanpreet Singh',
+    role: 'Tech',
+    initials: 'DP',
+    bg: 'bg-gray-900',
+    fg: 'text-primary-300',
+  },
+  {
+    name: 'Gungun Sisodhiya',
+    role: 'Consultancy',
+    initials: 'GS',
+    bg: 'bg-orange-100',
+    fg: 'text-orange-700',
   },
 ]
 
@@ -62,143 +87,144 @@ export default function About() {
       />
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-12 px-6">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative pt-24 pb-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm mb-12"
+            className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm mb-10"
           >
-            <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Leadership & Vision</span>
+            <Sparkles size={14} className="text-primary-600" />
+            <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">About Prepzo</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-800 text-[#1a1a2e] leading-[1.1] mb-20 max-w-4xl mx-auto"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-800 text-[#1a1a2e] leading-[1.05] mb-6"
           >
-            Built to bridge the gap between <br className="hidden md:block" />
-            <span className="text-primary-600">technology</span> and <span className="text-primary-600">market distribution</span>
+            We're building the{' '}
+            <span className="text-primary-600">brain map</span>
+            <br className="hidden md:block" />
+            students never had.
           </motion.h1>
 
-          {/* Founder Card — The Screenshot Design Refined */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative max-w-5xl mx-auto"
+            className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed"
           >
-            <div className="absolute inset-0 bg-black/5 blur-3xl -z-10 translate-y-8 scale-95" />
-            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-2xl shadow-primary-900/5 border border-white flex flex-col lg:flex-row items-center gap-12 text-left">
-
-              {/* Left — Avatar */}
-              <div className="flex-shrink-0 w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-[#f3f4f6] overflow-hidden relative border border-gray-100 group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                <img
-                  src={founderAvatar}
-                  alt="Divyanshu Sharma"
-                  className="w-full h-full object-cover relative z-0 transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-
-              {/* Right — Content */}
-              <div className="flex-grow">
-                <div className="flex flex-wrap items-center gap-4 mb-6">
-                  <h2 className="text-3xl font-display font-800 text-[#1a1a2e]">Divyanshu Sharma</h2>
-                  <span className="text-lg text-gray-400 font-medium">— Founder, Prepzo & DCodecafe</span>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-8">
-                  <span className="bg-[#f3f4f6] text-gray-600 px-4 py-1.5 rounded-full text-sm font-semibold border border-gray-200/50">Scalable Tech</span>
-                  <span className="bg-[#f3f4f6] text-gray-600 px-4 py-1.5 rounded-full text-sm font-semibold border border-gray-200/50">Market Distribution</span>
-                  <span className="bg-[#f3f4f6] text-gray-600 px-4 py-1.5 rounded-full text-sm font-semibold border border-gray-200/50">Full-Stack Architecture</span>
-                </div>
-
-                <div className="grid md:grid-cols-1 gap-8">
-                  <div className="group">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 border border-primary-100 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-                        <Target size={16} />
-                      </div>
-                      <h4 className="text-sm font-bold text-gray-900 uppercase tracking-widest">Core Focus:</h4>
-                    </div>
-                    <p className="text-gray-500 text-lg leading-relaxed font-medium">
-                      Building scalable tech solutions to solve deeply entrenched market distribution problems in higher education and recruitment.
-                    </p>
-                  </div>
-
-                  <div className="group">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 border border-primary-100 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-                        <Eye size={16} />
-                      </div>
-                      <h4 className="text-sm font-bold text-gray-900 uppercase tracking-widest">The Mission:</h4>
-                    </div>
-                    <p className="text-gray-500 text-lg leading-relaxed font-medium">
-                      Fix the fundamental disconnect between university education and industry hiring expectations for 43M+ students in India.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-10 pt-8 border-t border-gray-100 flex items-center gap-6">
-                  <a href="https://www.linkedin.com/in/divyanshu-sharma-2a0060244/" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary-600 font-bold hover:text-primary-700 transition-colors group/link">
-                    <Linkedin size={20} /> LinkedIn <ArrowRight size={14} className="-rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </a>
-                  <a href="mailto:connect@prepzo.space" className="flex items-center gap-2 text-gray-400 font-bold hover:text-gray-600 transition-colors">
-                    <Mail size={20} /> Contact
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            Prepzo is a skill analyser and brain-mapping platform built for universities and TPO cells. Behind it sits Prepzo AI — our own 70B-parameter model, fine-tuned for cognitive assessment, not chat.
+          </motion.p>
         </div>
       </section>
 
-      {/* Detailed Mission & Vision — RESTORED DATA */}
+      {/* Mission */}
       <section data-observe className="py-24 px-6 bg-white/50 relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div className="reveal space-y-6">
               <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-600 border border-primary-100 rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider">
-                Our Purpose
+                Why we exist
               </div>
               <h2 className="text-3xl md:text-4xl font-display font-800 text-gray-900 leading-tight">
-                Why we are building <span className="gradient-text">Prepzo</span>
+                Curriculum is generic. <span className="gradient-text">Students aren't.</span>
               </h2>
               <p className="text-gray-500 text-lg leading-relaxed font-medium italic border-l-4 border-primary-200 pl-6">
-                "India produces 5 million graduates every year — yet only ~45% are considered employable. Talented students walk into interviews unprepared because the system lacks realistic practice."
+                "India produces 5 million graduates every year — yet only ~45% are considered employable. The system doesn't lack effort. It lacks a per-student map of what each one actually knows."
               </p>
             </div>
             <div className="reveal space-y-6 text-gray-500 font-body text-lg leading-relaxed">
-              <p>Prepzo is the definitive answer to this systemic gap. It's an AI operating system that gives students real practice, universities real-time data, and recruiters real confidence in who they're hiring.</p>
-              <p>Through **DCodecafe**, our technology foundation, we build the infrastructure that high-stakes placement ecosystems in India have been missing for decades. We aren't just building a tool; we're building the future of campus employability.</p>
+              <p>Prepzo is the answer to that gap. We give every student a precise, evolving map of their strengths and weak areas — and we give the TPO cell a department-wide view of where the cohort actually stands, week by week.</p>
+              <p>Behind the scenes sits <strong className="text-gray-900">Prepzo AI</strong>, our own 70B-parameter language model, tuned for structured cognitive assessment. The result is a platform that doesn't guess — it measures, maps, and tells the institution what to do next.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Ecosystem Architecture — RESTORED DCODECAFE */}
-      <section data-observe className="py-32 px-6">
+      {/* Pillars */}
+      <section data-observe className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 animate-on-scroll">
-            <h2 className="reveal text-3xl font-display font-800 text-gray-900 mb-4">Ecosystem Architecture</h2>
-            <p className="reveal text-gray-500 max-w-xl mx-auto">Scaling digital infrastructure across multiple verticals under Divyanshu Sharma's leadership.</p>
+          <div className="text-center mb-16">
+            <h2 className="reveal text-3xl md:text-4xl font-display font-800 text-gray-900 mb-4">Three pillars, <span className="text-primary-600 italic font-display">nothing more.</span></h2>
+            <p className="reveal text-gray-500 max-w-xl mx-auto">How we decide what ships and what doesn't.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {ventures.map((v, i) => (
-              <div key={i} className="reveal group p-8 bg-white border border-gray-100 rounded-[32px] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col">
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center text-white mb-6 shadow-md`}>
-                  {v.icon}
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: <Brain size={22} />, title: 'Map first, drill later', desc: 'A drill is only useful if it closes a real gap. Every interaction in Prepzo refines the per-student map before it prescribes anything.' },
+              { icon: <Target size={22} />, title: 'Honest, not nice', desc: 'A readiness profile that overstates is worse than no profile. We grade on the same rubric an institution would defend in front of a committee.' },
+              { icon: <Sparkles size={22} />, title: 'Built for the institution', desc: 'Students benefit individually. But Prepzo is designed for the TPO cell — semester-long signal, cohort-level decisions, real follow-through.' },
+            ].map((p, i) => (
+              <div key={i} className="reveal p-8 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary-600 to-orange-500 flex items-center justify-center text-white mb-5 shadow-md">
+                  {p.icon}
                 </div>
-                <h3 className="font-display font-800 text-2xl text-gray-900 mb-2">{v.name}</h3>
-                <p className="text-gray-400 font-medium text-xs mb-4 uppercase tracking-widest">{v.role}</p>
-                <p className="text-gray-500 leading-relaxed mb-8 text-sm flex-grow">{v.desc}</p>
-                <Link to={v.link} className="inline-flex items-center gap-2 text-primary-600 font-bold group-hover:gap-4 transition-all text-sm">
-                  View Project <ArrowRight size={14} />
-                </Link>
+                <h3 className="font-display font-700 text-gray-900 text-lg mb-3">{p.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Co-founders — highlighted */}
+      <section data-observe className="py-24 px-6 bg-white/50 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="reveal flex justify-center mb-4">
+              <span className="inline-flex items-center gap-2 bg-primary-50 text-primary-600 border border-primary-100 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider">
+                The Founders
+              </span>
+            </div>
+            <h2 className="reveal text-3xl md:text-4xl font-display font-800 text-gray-900 mb-4">Three people. <span className="text-primary-600 italic font-display">One mission.</span></h2>
+            <p className="reveal text-gray-500 max-w-xl mx-auto">The team building Prepzo from the ground up.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {cofounders.map((p, i) => (
+              <div key={i} className="reveal group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col">
+                <div className={`relative aspect-[4/3] bg-gradient-to-br ${p.accent} flex items-center justify-center overflow-hidden`}>
+                  {p.photo ? (
+                    <img src={p.photo} alt={p.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  ) : (
+                    <span className="font-display font-800 text-7xl text-white/95 tracking-tight">{p.initials}</span>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                </div>
+                <div className="p-7 flex-grow flex flex-col">
+                  <h3 className="font-display font-800 text-xl text-gray-900 mb-1">{p.name}</h3>
+                  <p className="text-xs font-bold text-primary-600 uppercase tracking-widest mb-4">{p.role}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">{p.bio}</p>
+                  <a href={p.linkedin} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary-600 font-bold text-sm hover:gap-3 transition-all">
+                    <Linkedin size={16} /> LinkedIn <ArrowRight size={12} className="-rotate-45" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core team */}
+      <section data-observe className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <h3 className="reveal text-2xl md:text-3xl font-display font-800 text-gray-900 mb-3">Core team</h3>
+            <p className="reveal text-gray-500 max-w-lg mx-auto">The people keeping the engine running day to day.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {team.map((p, i) => (
+              <div key={i} className="reveal bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 p-6">
+                <div className={`w-16 h-16 rounded-2xl ${p.bg} ${p.fg} flex items-center justify-center font-display font-800 text-2xl mb-5`}>
+                  {p.initials}
+                </div>
+                <h4 className="font-display font-700 text-gray-900 text-base mb-1">{p.name}</h4>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">{p.role}</p>
               </div>
             ))}
           </div>
@@ -208,12 +234,12 @@ export default function About() {
       {/* Quote / Signoff */}
       <section className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-1 w-full max-w-[80px] bg-primary-200 mx-auto rounded-full mb-12" />
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-800 text-[#1a1a2e] leading-snug mb-8 lowercase">
-            "First we build the <span className="text-primary-600 font-900 italic">engine</span>, then we conquer the <span className="text-primary-600 font-900 italic">distribution</span>."
+          <div className="w-16 h-1 max-w-[80px] bg-primary-200 mx-auto rounded-full mb-12" />
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-800 text-[#1a1a2e] leading-snug mb-10 lowercase">
+            "first we map the <em className="text-primary-600">mind</em>, then we close the <em className="text-primary-600">gap</em>."
           </h3>
           <div className="flex justify-center">
-            <Link to="/contact" className="btn-primary scale-110">Build with me <ArrowRight size={18} /></Link>
+            <Link to="/contact" className="btn-primary scale-110">Talk to us <ArrowRight size={18} /></Link>
           </div>
         </div>
       </section>

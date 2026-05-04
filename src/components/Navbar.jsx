@@ -1,20 +1,28 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Zap } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
-import prepzoLogo from '../assets/prepzo_logo.png'
+import { Menu, X, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Contact', href: '/contact' },
 ]
+
+// Coral squircle Prepzo mark — chat-bubble silhouette with AI spark
+function PrepzoMark({ size = 28 }) {
+  return (
+    <svg viewBox="0 0 160 160" width={size} height={size} aria-hidden="true">
+      <path d="M40 4 H120 a36 36 0 0 1 36 36 V120 a36 36 0 0 1 -36 36 H40 a36 36 0 0 1 -36 -36 V40 a36 36 0 0 1 36 -36 Z" fill="#FF6A3D" />
+      <path d="M44 36 H116 a16 16 0 0 1 16 16 V92 a16 16 0 0 1 -16 16 H78 L62 130 V108 H44 a16 16 0 0 1 -16 -16 V52 a16 16 0 0 1 16 -16 Z" fill="#FAF7F2" />
+      <path d="M80 56 L86 70 L100 76 L86 82 L80 96 L74 82 L60 76 L74 70 Z" fill="#FF6A3D" />
+    </svg>
+  )
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const location = useLocation()
-  const isHome = location.pathname === '/'
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 30)
@@ -22,63 +30,86 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  const navBg = scrolled || !isHome
-
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-6 left-0 right-0 z-50 flex justify-center px-6 transition-all duration-500`}
+      className="fixed top-3 left-0 right-0 z-50 flex justify-center px-6"
     >
-      <div className={`w-full max-w-[1000px] flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${navBg ? 'bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(255,69,0,0.08)] border border-orange-100/50' : 'bg-white/80 backdrop-blur-md shadow-[0_8px_30px_rgb(255,69,0,0.05)] border border-orange-50/30'
+      <div className={`w-full max-w-[1100px] flex items-center justify-between pl-5 pr-2 py-2 rounded-full transition-all duration-500 backdrop-blur-md ${scrolled
+          ? 'bg-paper/80 border border-ink/10 shadow-[0_8px_30px_rgba(14,17,22,0.06)]'
+          : 'bg-paper/60 border border-ink/5 shadow-[0_4px_24px_rgba(14,17,22,0.04)]'
         }`}>
 
-        {/* Logo (Left) */}
-        <div className="flex-1 flex justify-start">
-          <Link to="/" className="flex items-center gap-1 group">
-            <span className="font-display font-900 text-2xl tracking-tighter text-gray-900 flex items-baseline pointer-events-none group-hover:scale-105 transition-transform duration-300">
-              Prep<span className="text-[#ff4500]">zo</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-[#ff4500] ml-1 mb-1.5" />
-            </span>
-          </Link>
-        </div>
+        {/* Brand */}
+        <Link to="/" className="flex items-center gap-2 group pl-1">
+          <PrepzoMark size={28} />
+          <span className="font-display font-700 text-lg tracking-[-0.04em] text-ink group-hover:text-coral-2 transition-colors">
+            prepzo
+          </span>
+        </Link>
 
-        {/* Desktop nav (Center) */}
-        <div className="hidden md:flex flex-1 justify-center items-center gap-8">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-9">
           {navItems.map((item) => (
-            <Link key={item.label} to={item.href} className="nav-link text-xs font-700 text-gray-500 hover:text-gray-900 uppercase tracking-widest transition-colors">{item.label}</Link>
+            <Link
+              key={item.label}
+              to={item.href}
+              className="text-sm font-medium text-[#2A2F36] hover:text-coral-2 transition-colors tracking-tight"
+            >
+              {item.label}
+            </Link>
           ))}
         </div>
 
-        {/* Action (Right) */}
-        <div className="hidden md:flex flex-1 justify-end items-center">
-          <Link to="/contact" className="bg-[#ff4500] text-white px-7 py-3 rounded-full font-display font-700 text-xs hover:bg-[#d33a00] transition-transform shadow-[0_8px_20px_rgb(255,69,0,0.3)] hover:shadow-[0_8px_25px_rgb(255,69,0,0.4)] hover:-translate-y-0.5 active:scale-95 active:translate-y-0">
-            Book Demo
+        {/* CTA cluster */}
+        <div className="hidden md:flex items-center gap-2">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-ink text-paper px-5 py-2.5 rounded-full font-medium text-sm tracking-tight hover:-translate-y-0.5 transition-all shadow-[0_10px_24px_-10px_rgba(14,17,22,0.5)]"
+          >
+            Talk to us <ArrowRight size={14} />
           </Link>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden flex-1 flex justify-end p-2 text-gray-700 hover:bg-primary-50 transition-colors"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-ink hover:bg-ink/5 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={22} className="ml-auto" /> : <Menu size={22} className="ml-auto" />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-primary-100"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-[68px] left-6 right-6 glass rounded-2xl shadow-md-soft overflow-hidden"
           >
-            <div className="px-6 py-6 flex flex-col gap-5">
+            <div className="p-5 flex flex-col gap-1">
               {navItems.map((item) => (
-                <Link key={item.label} to={item.href} className="text-gray-700 font-medium hover:text-primary-600 transition-colors py-1" onClick={() => setMobileOpen(false)}>{item.label}</Link>
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="px-3 py-3 text-base font-medium text-ink hover:bg-ink/5 rounded-xl transition-colors"
+                >
+                  {item.label}
+                </Link>
               ))}
+              <Link
+                to="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-3 rounded-full font-medium text-sm"
+              >
+                Talk to us <ArrowRight size={14} />
+              </Link>
             </div>
           </motion.div>
         )}
@@ -86,4 +117,3 @@ export default function Navbar() {
     </motion.nav>
   )
 }
-

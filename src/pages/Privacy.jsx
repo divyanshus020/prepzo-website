@@ -7,9 +7,9 @@ const sections = [
     title: '1. Information We Collect',
     content: `We collect information you provide directly to us when using Prepzo. This includes:
 
-• Account Information: Name, email address, institution name, and role (student, university administrator, recruiter).
-• Resume & Profile Data: Resume content, academic background, target roles, and skills that you upload for AI interview personalisation.
-• Interview Session Data: Responses given during AI mock interviews, performance scores, feedback received, and improvement metrics.
+• Account Information: Name, email address, institution name, and role (student, university administrator, TPO officer).
+• Resume & Profile Data: Resume content, academic background, target roles, and skills that you upload for personalising your skill assessment.
+• Session Data: Responses given during skill assessment sessions, scores, feedback received, and improvement metrics.
 • Communication Data: Messages you send via our contact forms or support channels.
 • Usage Data: Pages visited, features used, session duration, and device information collected automatically.`
   },
@@ -17,10 +17,10 @@ const sections = [
     title: '2. How We Use Your Information',
     content: `We use the information we collect to:
 
-• Provide and personalise AI mock interview sessions based on your resume and target role.
-• Generate skill gap analyses, readiness scores, and improvement roadmaps.
-• Provide university placement cells with anonymised and aggregated cohort analytics.
-• Improve the accuracy and quality of our AI interview and evaluation models.
+• Provide and personalise skill assessment sessions based on your resume and target role.
+• Generate skill maps, readiness scores, and improvement roadmaps.
+• Provide university TPO cells with anonymised and aggregated cohort analytics.
+• Improve the accuracy and quality of Prepzo AI's evaluation models.
 • Communicate with you about your account, updates, and support requests.
 • Send service-related notifications (not marketing, unless you opt in).
 • Comply with legal obligations.`
@@ -29,8 +29,7 @@ const sections = [
     title: '3. Data Sharing & Disclosure',
     content: `We do not sell your personal information. We may share your data only in the following circumstances:
 
-• With Your University: Placement cells and administrators from your institution may see your readiness scores and aggregated performance data as part of the institutional dashboard. Individual detailed responses are not shared without your consent.
-• With Recruiters: Only if you explicitly opt in to the recruiter talent visibility feature.
+• With Your University: TPO cells and administrators from your institution may see your readiness scores and aggregated performance data as part of the institutional dashboard. Individual detailed responses are not shared without your consent.
 • Service Providers: We work with trusted third-party providers (cloud hosting, analytics) who process data only on our behalf and under strict data processing agreements.
 • Legal Requirements: We may disclose data when required by law, court order, or governmental authority.`
   },
@@ -90,7 +89,7 @@ export default function Privacy() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
           className="bg-orange-50 border border-primary-100 rounded-2xl p-6 mb-10">
           <p className="text-primary-700 font-body text-sm leading-relaxed">
-            <strong className="font-display">Your privacy matters to us.</strong> Prepzo is built on trust — with students sharing their career data, universities sharing cohort data, and recruiters sharing hiring needs. We take that responsibility seriously and are committed to being transparent about how your data is collected, used, and protected.
+            <strong className="font-display">Your privacy matters to us.</strong> Prepzo is built on trust — with students sharing their session data and universities sharing cohort data. We take that responsibility seriously and are committed to being transparent about how your data is collected, used, and protected.
           </p>
         </motion.div>
 

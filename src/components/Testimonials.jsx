@@ -8,7 +8,7 @@ const testimonials = [
     college: 'LNCT Bhopal',
     avatar: 'PS',
     rating: 5,
-    text: 'Before Prepzo, I had no idea how to structure my answers. After 8 mock sessions, I cracked my first real interview at Infosys. The AI feedback was brutally honest — and that is exactly what I needed.',
+    text: 'I thought I was sharp at structure — Prepzo\'s map showed me exactly where my answers drift. Eight sessions in, my readiness score jumped 22 points and I finally know what to fix next.',
     color: 'from-orange-500 to-orange-400',
   },
   {
@@ -17,16 +17,16 @@ const testimonials = [
     college: 'Amity University Jaipur',
     avatar: 'RM',
     rating: 5,
-    text: 'For the first time, I can see which students are ready and which are not — weeks before the placement season. Prepzo\'s cohort analytics changed how we run our entire placement program.',
+    text: 'For the first time, I can see which students are ready and which are not — weeks before the placement season. Prepzo\'s cohort heatmaps changed how we run our entire program.',
     color: 'from-primary-500 to-primary-500',
   },
   {
-    name: 'Ankit Verma',
-    role: 'Campus Recruiter',
-    college: 'TCS',
-    avatar: 'AV',
+    name: 'Prof. Anjali Kapoor',
+    role: 'Head of TPO Cell',
+    college: 'JECRC Jaipur',
+    avatar: 'AK',
     rating: 5,
-    text: 'We used to interview 80+ candidates to shortlist 3. Through Prepzo, students arrive with actual readiness scores. Our campus hiring efficiency has improved dramatically.',
+    text: 'The department-level skill heatmap is the single most useful artefact we\'ve added in five years. We catch weak cohorts in week three, not week thirty.',
     color: 'from-primary-600 to-primary-500',
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     college: 'JECRC Jaipur',
     avatar: 'SP',
     rating: 5,
-    text: 'The communication audit feature is incredible. I never realised how many filler words I used until Prepzo showed me the data. My confidence going into interviews is completely different now.',
+    text: 'The communication audit is incredible. I never realised how many filler words I used until Prepzo showed me the data. My confidence walking into anything is completely different now.',
     color: 'from-primary-600 to-primary-400',
   },
 ]
@@ -83,10 +83,10 @@ export default function Testimonials() {
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
             Loved by Students,{' '}
-            <span className="gradient-text">Trusted by Universities</span>
+            <span className="gradient-text">Trusted by TPO Cells</span>
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-xl mx-auto font-body">
-            Early users across students, placement officers, and recruiters — all experiencing the Prepzo difference.
+            Early users across students, placement officers, and university leaders — all seeing the same thing: a real map of where each cohort actually stands.
           </p>
         </div>
 

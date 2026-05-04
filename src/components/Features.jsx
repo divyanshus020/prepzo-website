@@ -2,21 +2,21 @@ import { useEffect, useRef } from 'react'
 import { CheckCircle, X } from 'lucide-react'
 
 const features = [
-  { name: 'AI Interview Simulation', prepzo: true, others: false },
-  { name: 'Placement Analytics Dashboard', prepzo: true, others: 'partial' },
-  { name: 'Coding Interview Environment', prepzo: true, others: false },
-  { name: 'Resume Builder & Analyzer', prepzo: true, others: 'partial' },
-  { name: 'Employer / Recruiter Integration', prepzo: true, others: false },
-  { name: 'University-Level Cohort Insights', prepzo: true, others: false },
-  { name: 'Personalized Improvement Roadmap', prepzo: true, others: false },
-  { name: 'Placement Readiness Score', prepzo: true, others: false },
+  { name: 'Adaptive Skill Sessions', prepzo: true, others: false },
+  { name: 'Per-Student Brain Map', prepzo: true, others: false },
+  { name: 'TPO Cohort Dashboard', prepzo: true, others: 'partial' },
+  { name: '14-Dimension Rubric', prepzo: true, others: false },
+  { name: 'Resume → Profile Intelligence', prepzo: true, others: 'partial' },
+  { name: 'Department-Level Heatmaps', prepzo: true, others: false },
+  { name: 'Personalised Improvement Roadmap', prepzo: true, others: false },
+  { name: 'Semester-Long Readiness Index', prepzo: true, others: false },
 ]
 
 const metrics = [
-  { value: '85+', label: 'Avg. Readiness Score', sublabel: 'achieved by active users' },
-  { value: '3x', label: 'Faster Interview Prep', sublabel: 'vs. traditional coaching' },
-  { value: '45%', label: 'More Employable', sublabel: 'target placement rate' },
-  { value: '₹500', label: 'Per Student/Year', sublabel: 'affordable for all colleges' },
+  { value: '70B', label: 'Prepzo AI Parameters', sublabel: 'our own large-language model' },
+  { value: '14', label: 'Rubric Dimensions', sublabel: 'graded per session' },
+  { value: '85+', label: 'Avg. Readiness Score', sublabel: 'achieved by active cohorts' },
+  { value: '3x', label: 'Faster Course Correction', sublabel: 'vs. semester-end audits' },
 ]
 
 export default function Features() {
@@ -48,12 +48,11 @@ export default function Features() {
             <span className="tag">Why Prepzo</span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            The Only Solution Combining{' '}
-            <span className="gradient-text">High-Fidelity AI</span>
-            <br />with Ecosystem Depth
+            Static prep portals offer drills.{' '}
+            <span className="gradient-text">Prepzo offers a brain map.</span>
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-xl mx-auto font-body">
-            Competitors solve one piece. Prepzo solves the entire placement infrastructure — for students, universities, and recruiters.
+            One platform — adaptive skill assessment, per-student cognitive mapping, and an institutional dashboard the TPO cell can actually act on.
           </p>
         </div>
 
@@ -86,15 +85,15 @@ export default function Features() {
               ))}
             </div>
             <p className="text-xs text-gray-400 mt-3 text-center font-body">
-              Compared to HireVue, InterviewBit, PrepInsta & Superset
+              Compared to legacy prep portals & generic test platforms
             </p>
           </div>
 
           {/* Metrics */}
           <div className="space-y-6">
             <div className="reveal">
-              <h3 className="font-display font-700 text-xl text-gray-900 mb-2">Built for Impact at Scale</h3>
-              <p className="text-gray-500 text-sm font-body mb-6">Prepzo doesn't just prepare students — it transforms placement outcomes for entire institutions.</p>
+              <h3 className="font-display font-700 text-xl text-gray-900 mb-2">Built on our own model</h3>
+              <p className="text-gray-500 text-sm font-body mb-6">Prepzo AI is a 70B-parameter LLM, fine-tuned for cognitive assessment — not a chat wrapper around someone else's API.</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
@@ -112,7 +111,7 @@ export default function Features() {
               <div className="bg-white rounded-2xl p-6">
                 <h4 className="font-display font-700 text-gray-900 mb-2">🔄 The Intelligence Flywheel</h4>
                 <p className="text-gray-500 text-sm font-body leading-relaxed">
-                  Every interview session generates data. More students → more data → better AI → better insights → more universities → more students. Over time, Prepzo becomes the most defensible employability intelligence dataset in Indian higher education.
+                  Every session sharpens the map. More students → more signal → a sharper Prepzo AI → better per-student profiles → more institutions onboard. Over time, Prepzo becomes the most defensible per-student readiness dataset in Indian higher education.
                 </p>
               </div>
             </div>

@@ -1,34 +1,34 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { AlertTriangle, Eye, Users, TrendingDown } from 'lucide-react'
+import { AlertTriangle, Eye, Users, Brain } from 'lucide-react'
 
 const problems = [
   {
     icon: <Users size={24} />,
-    title: 'Students — The Preparation Gap',
+    title: 'Students — The Self-Awareness Gap',
     stat: '70–80%',
-    statLabel: 'fail early interview rounds',
-    desc: 'Most students experience their very first interview during actual campus placements. They have zero realistic practice, no personalized feedback, and no visibility into their own skill gaps.',
+    statLabel: 'don\'t know their real weak areas',
+    desc: 'Most students walk into their first big assessment with no honest signal on what they actually know vs. what they think they know. There\'s no map of their strengths, no map of their gaps.',
     color: 'from-rose-500 to-red-400',
     bg: 'bg-rose-50',
     border: 'border-rose-100',
   },
   {
     icon: <Eye size={24} />,
-    title: 'Universities — The Analytics Black Hole',
+    title: 'TPO Cells — The Analytics Black Hole',
     stat: '0',
-    statLabel: 'real-time readiness data',
-    desc: 'Placement cells operate completely blind. They cannot track student readiness, identify skill weaknesses, or measure improvement across batches — until it\'s too late.',
+    statLabel: 'cohort-level readiness data',
+    desc: 'Training & Placement Officers run placement seasons blind. There\'s no semester-long view of cohort readiness, no skill heatmap by department, no way to act before the season starts.',
     color: 'from-amber-500 to-orange-400',
     bg: 'bg-amber-50',
     border: 'border-amber-100',
   },
   {
-    icon: <TrendingDown size={24} />,
-    title: 'Recruiters — The Hiring Drag',
-    stat: '50–100',
-    statLabel: 'interviews to hire just 1–2',
-    desc: 'Massive inefficiency in talent discovery. Companies waste enormous time and resources interviewing unprepared candidates, degrading the quality of campus hiring overall.',
+    icon: <Brain size={24} />,
+    title: 'The System — No Brain Map',
+    stat: '~45%',
+    statLabel: 'considered employable today',
+    desc: 'Curriculum is generic. Practice is generic. Feedback is generic. What\'s missing is a per-student cognitive map — strengths, gaps, blind spots — that adapts every week and actually drives improvement.',
     color: 'from-orange-500 to-orange-400',
     bg: 'bg-primary-50',
     border: 'border-primary-100',
@@ -71,11 +71,11 @@ export default function Problem() {
             </span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            India's Employability{' '}
-            <span className="gradient-text">Paradox</span>
+            India's Readiness{' '}
+            <span className="gradient-text">Blind Spot</span>
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-2xl mx-auto font-body leading-relaxed">
-            5 million graduates enter the workforce every year. Only ~45% are considered employable. The system is broken — and it affects everyone in the chain.
+            5 million graduates enter the workforce every year. Only ~45% are considered employable. The reason is simple — nobody actually maps what each student knows, what they don't, and how it changes over a semester.
           </p>
         </div>
 
@@ -85,9 +85,9 @@ export default function Problem() {
             <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-10 text-center text-white">
               <div className="grid grid-cols-3 gap-6">
                 {[
-                  { n: '5M', l: 'Graduates Enter' },
-                  { n: '~45%', l: 'Are Employable' },
-                  { n: '70–80%', l: 'Fail Early Rounds' },
+                  { n: '5M', l: 'Graduates Each Year' },
+                  { n: '~45%', l: 'Considered Job-Ready' },
+                  { n: '0', l: 'Have a Skill Map' },
                 ].map((s, i) => (
                   <div key={i} className="flex flex-col items-center">
                     <span className="text-3xl md:text-5xl font-display font-800 text-white mb-2">{s.n}</span>
@@ -123,7 +123,7 @@ export default function Problem() {
         {/* Bottom line */}
         <div className="reveal mt-14 text-center">
           <p className="text-gray-400 font-body text-base max-w-xl mx-auto">
-            Current tools like <span className="text-gray-600 font-medium">PrepInsta, InterviewBit</span> offer static content — no AI simulation, no institutional layer, no real feedback loop.{' '}
+            Static prep portals offer the same drills to everyone — no per-student cognitive map, no institutional dashboard, no feedback loop.{' '}
             <span className="text-primary-600 font-semibold">The gap is systemic.</span>
           </p>
         </div>

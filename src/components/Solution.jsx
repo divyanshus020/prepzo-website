@@ -1,41 +1,41 @@
 import { useEffect, useRef } from 'react'
-import { Cpu, BarChart3, Target, Users, Zap, Shield } from 'lucide-react'
+import { Cpu, BarChart3, Target, Brain, Zap, Shield } from 'lucide-react'
 
 const solutions = [
   {
-    icon: <Cpu size={22} />,
-    title: 'AI Interview Simulation',
-    desc: 'Hyper-realistic mock interviews tailored to each student\'s resume, target role, and industry expectations. Technical, behavioral, and communication dimensions — all in one session.',
+    icon: <Brain size={22} />,
+    title: 'Brain-Mapping Engine',
+    desc: 'Prepzo AI builds a per-student cognitive map across reasoning, structure, communication, and domain knowledge — refreshed every session, not once a semester.',
     color: 'from-orange-600 to-orange-500',
   },
   {
-    icon: <BarChart3 size={22} />,
-    title: 'Placement Analytics Dashboard',
-    desc: 'Universities get a department-wide command center. Track readiness scores, identify skill gaps by cohort, and act weeks before placement season — not days after.',
-    color: 'from-primary-500 to-primary-400',
-  },
-  {
     icon: <Target size={22} />,
-    title: 'Precision Skill Gap Analysis',
-    desc: 'After every session, Prepzo\'s algorithm produces structured reports mapping exactly where students fall short — with a personalized improvement roadmap to close those gaps.',
+    title: 'Precision Skill Analyser',
+    desc: 'Every session produces a structured readiness profile: where the student is sharp, where they drift, and the exact concept that broke down — backed by a 14-dimension rubric.',
     color: 'from-primary-500 to-orange-400',
   },
   {
-    icon: <Users size={22} />,
-    title: 'Recruiter Intelligence Layer',
-    desc: 'Recruiters access a pre-screened, readiness-verified talent pool. Stop interviewing 100 candidates to hire 2 — discover job-ready graduates with data to back it up.',
+    icon: <BarChart3 size={22} />,
+    title: 'TPO Command Centre',
+    desc: 'Training & Placement Officers get a department-wide dashboard — cohort heatmaps, weekly delta on readiness, and the names that need attention right now.',
+    color: 'from-primary-500 to-primary-400',
+  },
+  {
+    icon: <Cpu size={22} />,
+    title: 'Prepzo AI · 70B',
+    desc: 'Our own large-language model — fine-tuned for cognitive assessment, not chat. Built for low-latency, structured grading, and signals universities can actually trust.',
     color: 'from-red-500 to-primary-500',
   },
   {
     icon: <Zap size={22} />,
     title: 'Continuous Readiness Loop',
-    desc: 'Preparation isn\'t a one-time event. Prepzo creates an ongoing improvement cycle across 7 stages — from onboarding to placement readiness scoring — repeating all semester.',
+    desc: 'Preparation isn\'t a one-time event. Prepzo runs an adaptive loop — onboarding, mapping, drilling, re-mapping — that keeps every cohort improving all semester.',
     color: 'from-primary-600 to-primary-500',
   },
   {
     icon: <Shield size={22} />,
     title: 'Intelligence Flywheel',
-    desc: 'Every interview generates structured data. Over time, Prepzo compounds into the most defensible employability intelligence dataset in Indian higher education.',
+    desc: 'Every session generates structured signal. Over time, Prepzo compounds into the most defensible per-student readiness dataset in Indian higher education.',
     color: 'from-primary-600 to-primary-600',
   },
 ]
@@ -72,11 +72,11 @@ export default function Solution() {
             </span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            Introducing the{' '}
-            <span className="gradient-text">Prepzo Ecosystem</span>
+            One platform.{' '}
+            <span className="gradient-text">A precise mind-map per student.</span>
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-2xl mx-auto font-body leading-relaxed">
-            One AI platform. Three stakeholders served. A data flywheel that makes the entire system smarter over time.
+            Prepzo AI replaces guesswork with signal — for the student, for the TPO cell, for the university. A flywheel that gets sharper every week.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export default function Solution() {
             {[
               { label: 'Students', pos: 'top-0 left-1/2 -translate-x-1/2', icon: '🎓' },
               { label: 'Universities', pos: 'bottom-4 right-4', icon: '🏛️' },
-              { label: 'Recruiters', pos: 'bottom-4 left-4', icon: '💼' },
+              { label: 'TPO Cells', pos: 'bottom-4 left-4', icon: '🧭' },
             ].map((node) => (
               <div key={node.label} className={`absolute ${node.pos} flex flex-col items-center gap-1 animate-float`}>
                 <div className="w-12 h-12 rounded-xl glass border border-primary-200 flex items-center justify-center text-xl shadow-md">

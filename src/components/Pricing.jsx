@@ -1,65 +1,26 @@
-import { useEffect, useRef } from 'react'
-import { Check, Zap, Building2, Briefcase } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Send, CheckCircle, Sparkles } from 'lucide-react'
 
-const plans = [
-  {
-    name: 'Starter',
-    icon: <Zap size={20} />,
-    price: '₹500',
-    period: 'per student / year',
-    description: 'Perfect for pilot programs and Tier-2/3 universities getting started.',
-    iconBg: 'bg-gray-800',
-    features: [
-      'AI Mock Interviews (10/student)',
-      'Basic performance analytics',
-      'Skill gap reports',
-      'Resume ingestion',
-      'Email support',
-      'Up to 500 students',
-    ],
-    highlight: false,
-  },
-  {
-    name: 'University',
-    icon: <Building2 size={20} />,
-    price: '₹1,000',
-    period: 'per student / year',
-    description: 'Full-featured placement OS for institutions serious about placement outcomes.',
-    iconBg: 'bg-white/20',
-    features: [
-      'Unlimited AI Mock Interviews',
-      'Department-wide analytics dashboard',
-      'Cohort skill gap analysis',
-      'Resume Intelligence Engine',
-      'Personalized improvement roadmaps',
-      'Placement Readiness Scoring',
-      'Recruiter access portal',
-      'Dedicated account manager',
-    ],
-    highlight: true,
-  },
-  {
-    name: 'Enterprise',
-    icon: <Briefcase size={20} />,
-    price: 'Custom',
-    period: 'multi-year contract',
-    description: 'For large universities, consortiums, and state-level educational bodies.',
-    iconBg: 'bg-orange-700',
-    features: [
-      'Everything in University',
-      'Custom AI model fine-tuning',
-      'White-label options',
-      'Multi-campus management',
-      'API & LMS integrations',
-      'Priority SLA support',
-    ],
-    highlight: false,
-  },
-]
+async function submitToSupabase(data) {
+  try {
+    const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/contact_submissions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify(data),
+    })
+    return res.ok
+  } catch { return false }
+}
 
 export default function Pricing() {
   const ref = useRef(null)
+  const [form, setForm] = useState({ name: '', email: '', institution: '', cohort: '', role: 'university', message: '' })
+  const [status, setStatus] = useState('idle')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -78,67 +39,122 @@ export default function Pricing() {
     return () => observer.disconnect()
   }, [])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('loading')
+    const ok = await submitToSupabase({
+      name: form.name,
+      email: form.email,
+      institution: form.institution,
+      role: form.role,
+      message: `[Pricing enquiry] cohort: ${form.cohort || 'n/a'} — ${form.message}`,
+      submitted_at: new Date().toISOString(),
+    })
+    setStatus(ok ? 'success' : 'error')
+  }
+
   return (
     <section id="pricing" ref={ref} className="py-28 bg-gray-50/60 relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <div className="reveal flex justify-center mb-4">
-            <span className="tag">Pricing</span>
+            <span className="tag"><Sparkles size={12} />Pricing</span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            Simple, Transparent{' '}
-            <span className="gradient-text">Pricing</span>
+            Built for institutions.{' '}
+            <span className="gradient-text">Priced for them.</span>
           </h2>
-          <p className="reveal text-lg text-gray-500 max-w-xl mx-auto font-body">
-            Affordable for every institution. No hidden fees, no lock-in surprises.
+          <p className="reveal text-lg text-gray-500 max-w-2xl mx-auto font-body">
+            Every TPO cell is sized differently — every cohort is sized differently. Tell us a little about your institution and we'll send back a plan that actually fits.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {plans.map((plan, i) => (
-            <div
-              key={i}
-              className={`reveal rounded-2xl overflow-hidden ${plan.highlight ? 'primary-glow scale-[1.03]' : 'border border-gray-100 bg-white shadow-sm'}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              <div className={`${plan.highlight ? 'bg-gradient-to-br from-primary-600 to-orange-700 text-white p-8' : 'p-8'}`}>
-                <div className={`w-10 h-10 rounded-xl ${plan.iconBg} flex items-center justify-center mb-4 text-white`}>
-                  {plan.icon}
-                </div>
-                <h3 className={`font-display font-700 text-xl mb-1 ${plan.highlight ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
-                <p className={`text-sm mb-5 font-body ${plan.highlight ? 'text-primary-200' : 'text-gray-400'}`}>{plan.description}</p>
-                <div className="mb-6">
-                  <span className={`text-4xl font-display font-800 ${plan.highlight ? 'text-white' : 'gradient-text'}`}>{plan.price}</span>
-                  <span className={`text-sm ml-2 font-body ${plan.highlight ? 'text-primary-200' : 'text-gray-400'}`}>{plan.period}</span>
-                </div>
-                <Link to="/contact" className={`block text-center py-3 px-6 rounded-full font-display font-600 text-sm transition-all duration-300 ${plan.highlight
-                    ? 'bg-white text-primary-700 hover:bg-primary-50'
-                    : 'border-2 border-primary-300 text-primary-600 hover:bg-primary-600 hover:text-white hover:border-primary-600'
-                  }`}>
-                  Get Started
-                </Link>
+        <div className="reveal max-w-2xl mx-auto">
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 md:p-10">
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <CheckCircle size={48} className="text-primary-500 mb-4" />
+                <h3 className="font-display font-700 text-xl text-gray-900 mb-2">Request received.</h3>
+                <p className="text-gray-500 font-body text-sm max-w-sm">We'll get back to you within one business day with a tailored plan and next steps.</p>
               </div>
-              <div className={`px-8 py-7 ${plan.highlight ? 'bg-primary-50/80' : ''}`}>
-                <ul className="space-y-4">
-                  {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <Check size={16} className={`mt-0.5 flex-shrink-0 ${plan.highlight ? 'text-primary-600' : 'text-primary-500'}`} />
-                      <span className={`text-sm font-body ${plan.highlight ? 'text-gray-800 font-medium' : 'text-gray-600'}`}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <h3 className="font-display font-700 text-lg text-gray-900 mb-1">Request access</h3>
+                  <p className="text-sm text-gray-400 font-body">No tiers, no surprises. We'll come back with a plan suited to your cohort size.</p>
+                </div>
 
-        {/* Bottom note */}
-        <div className="reveal mt-12 text-center">
-          <p className="text-gray-400 text-sm font-body">
-            Not sure which plan? <Link to="/contact" className="text-primary-600 font-medium hover:underline">Talk to us</Link> — we'll help you find the right fit.
-          </p>
+                <div>
+                  <label className="text-xs font-display font-600 text-gray-400 uppercase tracking-wider mb-2 block">I'm reaching out as a...</label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { key: 'university', label: 'University' },
+                      { key: 'tpo', label: 'TPO Cell' },
+                      { key: 'student', label: 'Student' },
+                    ].map((r) => (
+                      <button key={r.key} type="button" onClick={() => setForm({ ...form, role: r.key })}
+                        className={`py-2 px-3 rounded-lg text-sm font-display font-600 border transition-all ${form.role === r.key ? 'bg-primary-600 text-white border-primary-600' : 'bg-gray-50 text-gray-500 border-gray-100 hover:border-primary-200 hover:text-primary-600'}`}>
+                        {r.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-display font-600 text-gray-400 uppercase tracking-wider mb-2 block">Full name</label>
+                    <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      placeholder="Your name" required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-800 font-body placeholder-gray-300 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all" />
+                  </div>
+                  <div>
+                    <label className="text-xs font-display font-600 text-gray-400 uppercase tracking-wider mb-2 block">Email</label>
+                    <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      placeholder="you@institution.edu" required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-800 font-body placeholder-gray-300 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-display font-600 text-gray-400 uppercase tracking-wider mb-2 block">Institution</label>
+                    <input type="text" value={form.institution} onChange={(e) => setForm({ ...form, institution: e.target.value })}
+                      placeholder="University / college name"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-800 font-body placeholder-gray-300 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all" />
+                  </div>
+                  <div>
+                    <label className="text-xs font-display font-600 text-gray-400 uppercase tracking-wider mb-2 block">Cohort size</label>
+                    <select value={form.cohort} onChange={(e) => setForm({ ...form, cohort: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-800 font-body focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all bg-white">
+                      <option value="">Select range</option>
+                      <option value="<200">Under 200 students</option>
+                      <option value="200-1000">200 – 1,000</option>
+                      <option value="1000-5000">1,000 – 5,000</option>
+                      <option value="5000+">5,000+</option>
+                      <option value="na">Not applicable</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-xs font-display font-600 text-gray-400 uppercase tracking-wider mb-2 block">What are you looking to solve?</label>
+                  <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    rows={4} placeholder="Tell us about your placement goals, current prep stack, or anything specific to your cohort." required
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-800 font-body placeholder-gray-300 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all resize-none" />
+                </div>
+
+                <button type="submit" disabled={status === 'loading'} className="btn-primary w-full justify-center">
+                  {status === 'loading'
+                    ? <span className="flex items-center gap-2"><div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />Sending...</span>
+                    : <><Send size={16} />Request a tailored plan</>}
+                </button>
+                {status === 'error' && <p className="text-rose-500 text-xs text-center font-body">Something went wrong. Please email connect@prepzo.space directly.</p>}
+                <p className="text-[11px] text-gray-400 text-center font-body pt-1">We reply within one business day. No spam, no autoresponders.</p>
+              </form>
+            )}
+          </div>
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />

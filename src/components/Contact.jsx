@@ -52,10 +52,10 @@ export default function Contact() {
             <span className="tag"><Mail size={13} />Get In Touch</span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            Let's Talk <span className="gradient-text">Placements</span>
+            Let's Talk <span className="gradient-text">Readiness</span>
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-xl mx-auto font-body">
-            Whether you're a university looking to improve outcomes, a student wanting access, or a recruiter seeking better talent — we'd love to hear from you.
+            Universities, TPO cells, and students — drop us a line. We'll get back to you within one business day.
           </p>
         </div>
 
@@ -81,12 +81,12 @@ export default function Contact() {
 
             <div className="reveal bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <h4 className="font-display font-700 text-gray-900 mb-1">Who Should Reach Out?</h4>
-              <p className="text-gray-400 text-xs font-body mb-5">Prepzo serves three key groups</p>
+              <p className="text-gray-400 text-xs font-body mb-5">Prepzo is built for institutions and the students inside them</p>
               <div className="space-y-3">
                 {[
-                  { emoji: '🏛️', title: 'Universities & Placement Cells', desc: 'Want to improve placement rates with AI-powered preparation' },
-                  { emoji: '🎓', title: 'Students', desc: 'Looking to practice interviews and track readiness before placements' },
-                  { emoji: '💼', title: 'Recruiters & Companies', desc: 'Seeking pre-screened, readiness-verified campus talent' },
+                  { emoji: '🏛️', title: 'Universities & Placement Cells', desc: 'Cohort-level readiness mapping and a TPO command centre' },
+                  { emoji: '🧭', title: 'TPO Officers', desc: 'Department heatmaps, weekly deltas, and the names that need attention' },
+                  { emoji: '🎓', title: 'Students', desc: 'Map your strengths, find your gaps, build a readiness profile that lasts' },
                 ].map((w, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-primary-50 transition-colors">
                     <span className="text-xl">{w.emoji}</span>
@@ -115,10 +115,14 @@ export default function Contact() {
                   <div>
                     <label className="text-xs font-display font-600 text-gray-400 uppercase tracking-wider mb-2 block">I am a...</label>
                     <div className="grid grid-cols-3 gap-2">
-                      {['student', 'university', 'recruiter'].map((r) => (
-                        <button key={r} type="button" onClick={() => setForm({ ...form, role: r })}
-                          className={`py-2 px-3 rounded-lg text-sm font-display font-600 border transition-all capitalize ${form.role === r ? 'bg-primary-600 text-white border-primary-600' : 'bg-gray-50 text-gray-500 border-gray-100 hover:border-primary-200 hover:text-primary-600'}`}>
-                          {r}
+                      {[
+                        { key: 'university', label: 'University' },
+                        { key: 'tpo', label: 'TPO Cell' },
+                        { key: 'student', label: 'Student' },
+                      ].map((r) => (
+                        <button key={r.key} type="button" onClick={() => setForm({ ...form, role: r.key })}
+                          className={`py-2 px-3 rounded-lg text-sm font-display font-600 border transition-all ${form.role === r.key ? 'bg-primary-600 text-white border-primary-600' : 'bg-gray-50 text-gray-500 border-gray-100 hover:border-primary-200 hover:text-primary-600'}`}>
+                          {r.label}
                         </button>
                       ))}
                     </div>

@@ -3,24 +3,22 @@ import { ArrowRight, Sparkles, ChevronDown } from 'lucide-react'
 import HeroScene from './HeroScene'
 import { Link } from 'react-router-dom'
 
-const words = ['Universities', 'Students', 'Recruiters']
-
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#fffefd]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-paper">
 
       {/* Subtle grid */}
       <div className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,69,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,69,0,0.035) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(255,106,61,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,106,61,0.05) 1px, transparent 1px)`,
           backgroundSize: '72px 72px'
         }}
       />
 
       {/* Top-left radial glow */}
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-orange-100/60 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-coral-soft/60 rounded-full blur-3xl pointer-events-none" />
       {/* Bottom-right radial glow */}
-      <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] bg-red-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] bg-coral-soft/30 rounded-full blur-3xl pointer-events-none" />
 
       {/* 3D scene — right half */}
       <div className="absolute right-0 top-0 w-full md:w-[55%] h-full pointer-events-none opacity-95">
@@ -40,7 +38,7 @@ export default function Hero() {
           >
             <span className="tag">
               <Sparkles size={12} />
-              AI-Native · Built for India's Universities
+              Powered by Prepzo AI · 70B parameter model
             </span>
           </motion.div>
 
@@ -51,9 +49,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-[68px] font-display font-800 leading-[1.04] tracking-[-0.02em] text-gray-950 mb-6">
-              The AI That Gets
+              Map the skill.
               <br />
-              <span className="gradient-text">Students Placed.</span>
+              <span className="gradient-text">Map the mind.</span>
             </h1>
           </motion.div>
 
@@ -62,9 +60,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-[500px] font-body"
+            className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-[520px] font-body"
           >
-            Prepzo gives universities an AI placement operating system — realistic mock interviews, skill gap analytics, and readiness dashboards that actually move placement numbers.
+            Prepzo is a skill analyser & brain-mapping platform built for universities and TPO cells — turning every student session into a precise readiness profile, semester after semester.
           </motion.p>
 
           {/* CTAs */}
@@ -91,9 +89,9 @@ export default function Hero() {
             className="flex flex-wrap items-center gap-6"
           >
             {[
-              { emoji: '🎓', text: '43M+ Students in India' },
-              { emoji: '🏛️', text: '42,000+ Colleges' },
-              { emoji: '🤖', text: 'AI-Powered Interviews' },
+              { emoji: '🧠', text: 'Brain-mapping engine' },
+              { emoji: '🏛️', text: 'Built with TPO cells' },
+              { emoji: '⚡', text: 'Prepzo AI · 70B' },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
                 <span className="text-base">{item.emoji}</span>
