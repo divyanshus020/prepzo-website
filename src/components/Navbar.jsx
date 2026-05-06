@@ -38,8 +38,8 @@ export default function Navbar() {
       className="fixed top-3 left-0 right-0 z-50 flex justify-center px-6"
     >
       <div className={`w-full max-w-[1100px] flex items-center justify-between pl-5 pr-2 py-2 rounded-full transition-all duration-500 backdrop-blur-md ${scrolled
-          ? 'bg-paper/80 border border-ink/10 shadow-[0_8px_30px_rgba(14,17,22,0.06)]'
-          : 'bg-paper/60 border border-ink/5 shadow-[0_4px_24px_rgba(14,17,22,0.04)]'
+        ? 'bg-paper/80 border border-ink/10 shadow-[0_8px_30px_rgba(14,17,22,0.06)]'
+        : 'bg-paper/60 border border-ink/5 shadow-[0_4px_24px_rgba(14,17,22,0.04)]'
         }`}>
 
         {/* Brand */}
@@ -49,7 +49,6 @@ export default function Navbar() {
             prepzo
           </span>
         </Link>
-
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-9">
           {navItems.map((item) => (
