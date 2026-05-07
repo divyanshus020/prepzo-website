@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const navItems = [
@@ -64,6 +64,14 @@ export default function Navbar() {
 
         {/* CTA cluster */}
         <div className="hidden md:flex items-center gap-2">
+          <a
+            href="https://beta.prepzo.space"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 bg-coral-2/10 text-coral-2 border border-coral-2/30 px-4 py-2.5 rounded-full font-semibold text-sm tracking-tight hover:bg-coral-2 hover:text-paper hover:-translate-y-0.5 transition-all"
+          >
+            <Sparkles size={14} /> Try Beta
+          </a>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 bg-ink text-paper px-5 py-2.5 rounded-full font-medium text-sm tracking-tight hover:-translate-y-0.5 transition-all shadow-[0_10px_24px_-10px_rgba(14,17,22,0.5)]"
@@ -102,10 +110,19 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href="https://beta.prepzo.space"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 inline-flex items-center justify-center gap-1.5 bg-coral-2/10 text-coral-2 border border-coral-2/30 px-5 py-3 rounded-full font-semibold text-sm"
+              >
+                <Sparkles size={14} /> Try Beta
+              </a>
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-3 rounded-full font-medium text-sm"
+                className="inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-3 rounded-full font-medium text-sm"
               >
                 Talk to us <ArrowRight size={14} />
               </Link>

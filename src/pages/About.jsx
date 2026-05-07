@@ -2,13 +2,17 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Linkedin, ArrowRight, Brain, Target, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import founderAvatar from '../assets/founder_avatar.png'
+import founderAvatar from '../assets/Divyanshu.jpeg'
+import CoAvatar from '../assets/Akshay.jpeg'
+import Arjun from '../assets/Arjun.jpeg'
+import JoshiPhoto from '../assets/Joshi.jpeg'
+import GungunPhoto from '../assets/Gungun.jpeg'
 
 const cofounders = [
   {
     name: 'Divyanshu Sharma',
-    role: 'Co-founder · CEO',
-    bio: 'Sets product direction and the brain-mapping playbook. Builds the bridge between Prepzo AI and the institutions that use it.',
+    role: 'Co-founder & CTO',
+    bio: 'I’m Divyanshu Sharma, founder of dcodecafe, passionate about building AI-driven products, automation systems, and scalable digital solutions. My work focuses on combining technology, innovation, and real-world problem solving across education, recruitment, and behavioral intelligence. I specialize in AI integrations, product development, and creating impactful platforms that improve how people learn, grow, and connect with opportunities.',
     accent: 'from-primary-600 to-orange-500',
     initials: 'DS',
     photo: founderAvatar,
@@ -16,29 +20,32 @@ const cofounders = [
   },
   {
     name: 'Akshay Bhatia',
-    role: 'Co-founder · CA',
-    bio: 'Owns finance, governance, and the institutional motion. Translates what TPO cells need into how we structure deals.',
+    role: 'Co-founder & CFO',
+    bio: 'Highly skilled Chartered Accountant with deep expertise across financial reporting, auditing, direct and indirect taxation,M&A, and business advisory. Proven track record advising startups at the intersection of finance and growth - from incorporation and compliance through to fundraising support, financial modelling, and Virtual CFO engagements. Works closely with founders, VCs, and family offices as a trusted financial partner. Recently appointed as Special Invitee Member of the Digital Accounting and Assurance Committee, NIRC of ICAI for 2025-26.',
     accent: 'from-orange-500 to-primary-400',
     initials: 'AB',
-    linkedin: '#',
+    photo: CoAvatar,
+    linkedin: 'https://www.linkedin.com/in/ca-akshay-bhatia-358bba28a?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
   },
   {
     name: 'Arjun Singh Deep',
-    role: 'Co-founder',
-    bio: 'Drives growth and partnerships across universities. Lives inside placement cells so the product reflects how they actually work.',
+    role: 'Co-founder & CSO',
+    bio: 'Arjun Singh Deep is Chief Strategy Officer at Prepzo. An ex-founder turned operator-investment professional, he’s built a consumer startup from scratch, advised deeptech founders through pre-seed rounds, and scouted deal flow across the UK and Indian venture ecosystems. At Prepzo, he leads partnerships, GTM, and capital strategy, translating the messy realities of building into a sharper edge for how the company sells, raises, and scales.',
     accent: 'from-primary-500 to-red-400',
     initials: 'AS',
-    linkedin: '#',
+    photo: Arjun,
+    linkedin: 'https://www.linkedin.com/in/arjundeep9',
   },
 ]
 
 const team = [
   {
     name: 'Sidharth Joshi',
-    role: 'Project Manager',
+    role: 'Program Manager',
     initials: 'SJ',
     bg: 'bg-primary-50',
     fg: 'text-primary-700',
+    photo: JoshiPhoto,
   },
   {
     name: 'Damanpreet Singh',
@@ -46,13 +53,15 @@ const team = [
     initials: 'DP',
     bg: 'bg-gray-900',
     fg: 'text-primary-300',
+    photo: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Damanpreet&backgroundColor=1f2937&radius=20',
   },
   {
     name: 'Gungun Sisodhiya',
-    role: 'Consultancy',
+    role: 'Social Media Handler',
     initials: 'GS',
     bg: 'bg-orange-100',
     fg: 'text-orange-700',
+    photo: GungunPhoto,
   },
 ]
 
@@ -220,9 +229,15 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {team.map((p, i) => (
               <div key={i} className="reveal bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 p-6">
-                <div className={`w-16 h-16 rounded-2xl ${p.bg} ${p.fg} flex items-center justify-center font-display font-800 text-2xl mb-5`}>
-                  {p.initials}
-                </div>
+                {p.photo ? (
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden mb-5 ring-1 ring-gray-100">
+                    <img src={p.photo} alt={p.name} className="w-full h-full object-cover" />
+                  </div>
+                ) : (
+                  <div className={`w-16 h-16 rounded-2xl ${p.bg} ${p.fg} flex items-center justify-center font-display font-800 text-2xl mb-5`}>
+                    {p.initials}
+                  </div>
+                )}
                 <h4 className="font-display font-700 text-gray-900 text-base mb-1">{p.name}</h4>
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">{p.role}</p>
               </div>
