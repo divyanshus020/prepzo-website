@@ -125,7 +125,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed"
           >
-            Prepzo is a skill analyser and brain-mapping platform built for universities and TPO cells. Behind it sits Prepzo AI — our own 70B-parameter model, fine-tuned for cognitive assessment, not chat.
+            Prepzo is a skill analyser and brain-mapping platform built for universities and TPO cells. Behind it sits Prepzo AI — our own 120B-parameter model, fine-tuned for cognitive assessment, not chat.
           </motion.p>
         </div>
       </section>

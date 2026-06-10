@@ -29,7 +29,7 @@ export default function Footer() {
           </h2>
 
           <p className="text-gray-400 font-body text-base md:text-lg mb-10 max-w-xl leading-relaxed">
-            Powered by Prepzo AI — our own 70B-parameter model. Built with TPO cells, for the cohorts they actually have to place.
+            Powered by Prepzo AI — our own 120B-parameter model. Built with TPO cells, for the cohorts they actually have to place.
           </p>
 
           {/* Actions */}

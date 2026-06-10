@@ -1,117 +1,108 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, ChevronDown } from 'lucide-react'
-import HeroScene from './HeroScene'
+import { Sparkles, Brain, GraduationCap, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-paper">
+    <section className="relative min-h-screen flex flex-col justify-end bg-black text-white overflow-hidden select-none">
+      {/* Fullscreen Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      {/* Subtle grid */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,106,61,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,106,61,0.05) 1px, transparent 1px)`,
-          backgroundSize: '72px 72px'
-        }}
+      {/* Bottom Blur Overlay (No gradient darkening, only blur) */}
+      <div
+        className="absolute inset-0 pointer-events-none backdrop-blur-xl bottom-blur-mask z-10"
       />
 
-      {/* Top-left radial glow */}
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-coral-soft/60 rounded-full blur-3xl pointer-events-none" />
-      {/* Bottom-right radial glow */}
-      <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] bg-coral-soft/30 rounded-full blur-3xl pointer-events-none" />
-
-      {/* 3D scene — right half */}
-      <div className="absolute right-0 top-0 w-full md:w-[55%] h-full pointer-events-none opacity-95">
-        <HeroScene />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
-        <div className="max-w-[600px]">
-
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-7"
+      {/* Hero Content (bottom of viewport) */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-8 md:pb-16 pt-32 flex flex-col md:flex-row items-end justify-between gap-8">
+        {/* Left Side */}
+        <div className="flex-1 w-full text-left">
+          {/* Metadata / Trust Row */}
+          <div
+            className="flex flex-wrap items-center gap-3 sm:gap-6 mb-6 md:mb-8 text-xs sm:text-sm text-gray-200 animate-blur-fade-up"
+            style={{ animationDelay: '300ms' }}
           >
-            <span className="tag">
-              <Sparkles size={12} />
-              Powered by Prepzo AI · 70B parameter model
-            </span>
-          </motion.div>
+            <div className="flex items-center gap-1.5 font-medium">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white" />
+              <span>Prepzo AI · 120B Model</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-gray-300">
+              <Brain className="w-4 h-4" />
+              <span>Brain-mapping Engine</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-gray-300">
+              <GraduationCap className="w-4 h-4" />
+              <span>Built with TPO Cells</span>
+            </div>
+          </div>
 
-          {/* Main headline */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          {/* Title */}
+          <h1
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[-0.04em] mb-4 md:mb-6 leading-none animate-blur-fade-up"
+            style={{ animationDelay: '400ms' }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-[68px] font-display font-800 leading-[1.04] tracking-[-0.02em] text-gray-950 mb-6">
-              Map the skill.
-              <br />
-              <span className="gradient-text">Map the mind.</span>
-            </h1>
-          </motion.div>
+            Map the skill. <br />
+            <span className="text-gray-400">Map the mind.</span>
+          </h1>
 
-          {/* Sub */}
-          <motion.p
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-[520px] font-body"
+          {/* Description */}
+          <p
+            className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 md:mb-12 max-w-2xl leading-relaxed animate-blur-fade-up"
+            style={{ animationDelay: '500ms' }}
           >
             Prepzo is a skill analyser & brain-mapping platform built for universities and TPO cells — turning every student session into a precise readiness profile, semester after semester.
-          </motion.p>
+          </p>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex flex-wrap gap-4 mb-14"
-          >
-            <Link to="/contact" className="btn-primary text-base px-7 py-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <Link
+              to="/contact"
+              className="bg-white text-black rounded-full font-medium px-6 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2 hover:bg-gray-200 transition-all cursor-pointer animate-blur-fade-up"
+              style={{ animationDelay: '600ms' }}
+            >
               Book a Demo
-              <ArrowRight size={18} />
+              <ArrowRight className="w-4 h-4" />
             </Link>
-            <a href="#how-it-works" className="btn-outline text-base px-7 py-4">
+            <a
+              href="#how-it-works"
+              className="rounded-full font-medium liquid-glass px-6 sm:px-8 py-2.5 sm:py-3 text-white hover:scale-[1.03] transition-transform duration-300 cursor-pointer active:scale-[0.98] animate-blur-fade-up inline-flex items-center"
+              style={{ animationDelay: '700ms' }}
+            >
               See How It Works
             </a>
-          </motion.div>
+          </div>
+        </div>
 
-          {/* Trust strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-wrap items-center gap-6"
+        {/* Right Side (Navigation Arrows) */}
+        <div
+          className="flex items-center gap-3 w-full md:w-auto justify-start md:justify-end shrink-0"
+        >
+          <button
+            className="rounded-full liquid-glass px-4 sm:px-6 py-2.5 sm:py-3 text-white hover:scale-[1.03] transition-transform duration-300 cursor-pointer active:scale-[0.98] animate-blur-fade-up flex items-center justify-center"
+            style={{ animationDelay: '800ms' }}
+            aria-label="Previous"
           >
-            {[
-              { emoji: '🧠', text: 'Brain-mapping engine' },
-              { emoji: '🏛️', text: 'Built with TPO cells' },
-              { emoji: '⚡', text: 'Prepzo AI · 70B' },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <span className="text-base">{item.emoji}</span>
-                <span className="text-sm text-gray-500 font-body">{item.text}</span>
-                {i < 2 && <span className="hidden sm:block w-px h-4 bg-gray-200 ml-3" />}
-              </div>
-            ))}
-          </motion.div>
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+          <button
+            className="rounded-full liquid-glass px-4 sm:px-6 py-2.5 sm:py-3 text-white hover:scale-[1.03] transition-transform duration-300 cursor-pointer active:scale-[0.98] animate-blur-fade-up flex items-center justify-center"
+            style={{ animationDelay: '900ms' }}
+            aria-label="Next"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
         </div>
       </div>
-
-      {/* Scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
-      >
-        <ChevronDown size={20} className="text-orange-400 animate-bounce" />
-      </motion.div>
     </section>
   )
 }

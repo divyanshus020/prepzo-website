@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://db.onlinewebfonts.com/c/e66905e07608167a84e6ad52f638c3c6?family=Helvetica+Now+Var');
 
 @tailwind base;
 @tailwind components;
@@ -8,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Helvetica Now Var', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -15,7 +17,7 @@ html {
 }
 
 body {
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: 'Inter', 'Geist', system-ui, sans-serif;
     background: #FAF7F2;
     color: #0E1116;
     -webkit-font-smoothing: antialiased;
@@ -340,3 +342,121 @@ section {
 canvas {
     display: block;
 }
+
+/* Velorah Design System & Theme */
+.theme-velorah {
+  --background: 201 100% 13%; /* deep navy blue */
+  --foreground: 0 0% 100%; /* white */
+  --muted-foreground: 240 4% 66%; /* muted gray */
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 0 0% 10%;
+  --muted: 0 0% 10%;
+  --accent: 0 0% 10%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Inter', sans-serif;
+
+  font-family: var(--font-body);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.theme-velorah .text-foreground {
+  color: hsl(var(--foreground)) !important;
+}
+
+.theme-velorah .text-muted-foreground {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.theme-velorah .bg-background {
+  background-color: hsl(var(--background)) !important;
+}
+
+.theme-velorah .border-border {
+  border-color: hsl(var(--border)) !important;
+}
+
+.theme-velorah .bg-primary {
+  background-color: hsl(var(--primary)) !important;
+}
+
+.theme-velorah .text-primary-foreground {
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+/* Liquid Glass Effect */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Cinematic Animations */
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-rise {
+  animation: fade-rise 0.8s ease-out both;
+}
+
+.animate-fade-rise-delay {
+  animation: fade-rise 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-rise-delay-2 {
+  animation: fade-rise 0.8s ease-out 0.4s both;
+}
+
+/* Bottom Blur Mask Overlay */
+.bottom-blur-mask {
+  mask-image: linear-gradient(to top, black 0%, transparent 45%);
+  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 45%);
+}
+
+/* Cinematic Blur Fade Up Animation */
+@keyframes blurFadeUp {
+  from {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.animate-blur-fade-up {
+  animation: blurFadeUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+
