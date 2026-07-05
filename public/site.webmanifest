@@ -1,0 +1,13 @@
+{
+  "name": "Prepzo — AI Learning & Human Capital Intelligence Platform",
+  "short_name": "Prepzo",
+  "description": "AI-native learning and human capital intelligence platform for schools and universities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#FAF7F2",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

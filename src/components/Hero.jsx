@@ -38,11 +38,11 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-1.5 text-gray-300">
               <Brain className="w-4 h-4" />
-              <span>Brain-mapping Engine</span>
+              <span>A helping hand for teachers</span>
             </div>
             <div className="flex items-center gap-1.5 text-gray-300">
               <GraduationCap className="w-4 h-4" />
-              <span>Built with TPO Cells</span>
+              <span>Guidance for every student</span>
             </div>
           </div>
 
@@ -51,8 +51,8 @@ export default function Hero() {
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[-0.04em] mb-4 md:mb-6 leading-none animate-blur-fade-up"
             style={{ animationDelay: '400ms' }}
           >
-            Map the skill. <br />
-            <span className="text-gray-400">Map the mind.</span>
+            An AI counsellor <br />
+            <span className="text-gray-400">for every classroom in India.</span>
           </h1>
 
           {/* Description */}
@@ -60,7 +60,7 @@ export default function Hero() {
             className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 md:mb-12 max-w-2xl leading-relaxed animate-blur-fade-up"
             style={{ animationDelay: '500ms' }}
           >
-            Prepzo is a skill analyser & brain-mapping platform built for universities and TPO cells — turning every student session into a precise readiness profile, semester after semester.
+            Prepzo shows students the career paths they are genuinely built for, and gives teachers a real helping hand with their everyday work. One platform, built for the Indian education context.
           </p>
 
           {/* CTA Buttons */}

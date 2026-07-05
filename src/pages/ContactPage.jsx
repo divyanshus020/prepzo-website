@@ -1,12 +1,23 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Contact from '../components/Contact'
+import Seo, { breadcrumbLd } from '../components/Seo'
 import { Mail, Phone, MapPin, Github } from 'lucide-react'
 
 export default function ContactPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div className="min-h-screen bg-cream pt-20">
+      <Seo
+        title="Contact Prepzo | Book a Demo of our Education AI Platform"
+        description="Book a demo of Prepzo — the AI learning and human capital intelligence platform for schools, universities, and placement cells. We reply within 24 hours."
+        path="/contact"
+        keywords="contact Prepzo, book a demo, Prepzo demo, education AI platform, AI for schools, AI for universities"
+        jsonLd={breadcrumbLd([
+          { name: 'Home', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ])}
+      />
       <div className="py-16 mesh-bg border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex justify-center mb-4">

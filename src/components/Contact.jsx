@@ -52,10 +52,10 @@ export default function Contact() {
             <span className="tag"><Mail size={13} />Get In Touch</span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            Let's Talk <span className="gradient-text">Readiness</span>
+            Let's <span className="gradient-text">talk.</span>
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-xl mx-auto font-body">
-            Universities, TPO cells, and students — drop us a line. We'll get back to you within one business day.
+            Universities, placement cells, teachers, and students, drop us a line. We'll get back to you within one business day.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export default function Contact() {
               {[
                 { icon: <Mail size={18} />, label: 'Email', value: 'connect@prepzo.space', href: 'mailto:connect@prepzo.space' },
                 { icon: <Phone size={18} />, label: 'Phone', value: '+91 6378763168', href: 'tel:+916378763168' },
-                { icon: <MapPin size={18} />, label: 'Location', value: 'India — Serving Universities Pan-India', href: null },
+                { icon: <MapPin size={18} />, label: 'Location', value: 'India, serving institutions pan-India', href: null },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center text-primary-600 flex-shrink-0">{c.icon}</div>
@@ -80,13 +80,13 @@ export default function Contact() {
             </div>
 
             <div className="reveal bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-              <h4 className="font-display font-700 text-gray-900 mb-1">Who Should Reach Out?</h4>
-              <p className="text-gray-400 text-xs font-body mb-5">Prepzo is built for institutions and the students inside them</p>
+              <h4 className="font-display font-700 text-gray-900 mb-1">Who should reach out?</h4>
+              <p className="text-gray-400 text-xs font-body mb-5">Prepzo is built for institutions, teachers, and the students inside them</p>
               <div className="space-y-3">
                 {[
-                  { emoji: '🏛️', title: 'Universities & Placement Cells', desc: 'Cohort-level readiness mapping and a TPO command centre' },
-                  { emoji: '🧭', title: 'TPO Officers', desc: 'Department heatmaps, weekly deltas, and the names that need attention' },
-                  { emoji: '🎓', title: 'Students', desc: 'Map your strengths, find your gaps, build a readiness profile that lasts' },
+                  { emoji: '🏛️', title: 'Universities & placement cells', desc: 'Cohort-level guidance and a clear command centre for your team' },
+                  { emoji: '🤝', title: 'Teachers', desc: 'A helping hand for lesson plans, content, and seeing where your class needs help' },
+                  { emoji: '🎓', title: 'Students', desc: 'Find your strengths, see your gaps, and the career paths you are built for' },
                 ].map((w, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-primary-50 transition-colors">
                     <span className="text-xl">{w.emoji}</span>

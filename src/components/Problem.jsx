@@ -61,9 +61,8 @@ export default function Problem() {
     <section id="problem" ref={ref} className="py-28 bg-gray-50/60 relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent" />
       <motion.div
-        style={{ y: bgY }}
+        style={{ y: bgY, backgroundImage: 'radial-gradient(circle at 70% 30%, rgba(255,106,61,0.06) 0%, transparent 60%)' }}
         className="absolute inset-0 pointer-events-none"
-        style={{ backgroundImage: 'radial-gradient(circle at 70% 30%, rgba(255,106,61,0.06) 0%, transparent 60%)' }}
       />
 
       <div className="max-w-7xl mx-auto px-6">

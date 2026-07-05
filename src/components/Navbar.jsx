@@ -2,23 +2,15 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import prepzoLogo from '../assets/prepzo_full_logo.png'
 
 const navItems = [
   { label: 'Home', href: '/' },
+  { label: 'For Schools', href: '/schools' },
+  { label: 'For Universities', href: '/universities' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
-
-// Coral squircle Prepzo mark — chat-bubble silhouette with AI spark
-function PrepzoMark({ size = 28 }) {
-  return (
-    <svg viewBox="0 0 160 160" width={size} height={size} aria-hidden="true">
-      <path d="M40 4 H120 a36 36 0 0 1 36 36 V120 a36 36 0 0 1 -36 36 H40 a36 36 0 0 1 -36 -36 V40 a36 36 0 0 1 36 -36 Z" fill="#FF6A3D" />
-      <path d="M44 36 H116 a16 16 0 0 1 16 16 V92 a16 16 0 0 1 -16 16 H78 L62 130 V108 H44 a16 16 0 0 1 -16 -16 V52 a16 16 0 0 1 16 -16 Z" fill="#FAF7F2" />
-      <path d="M80 56 L86 70 L100 76 L86 82 L80 96 L74 82 L60 76 L74 70 Z" fill="#FF6A3D" />
-    </svg>
-  )
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -43,11 +35,12 @@ export default function Navbar() {
         }`}>
 
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-2 group pl-1">
-          <PrepzoMark size={28} />
-          <span className="font-display font-700 text-lg tracking-[-0.04em] text-ink group-hover:text-coral-2 transition-colors">
-            prepzo
-          </span>
+        <Link to="/" className="flex items-center group pl-1" aria-label="Prepzo home">
+          <img
+            src={prepzoLogo}
+            alt="Prepzo"
+            className="h-[52px] md:h-[60px] w-auto group-hover:scale-[1.03] transition-transform duration-300"
+          />
         </Link>
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-9">

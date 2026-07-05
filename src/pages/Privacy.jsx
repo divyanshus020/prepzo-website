@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import Seo, { breadcrumbLd } from '../components/Seo'
 
 const sections = [
   {
@@ -75,6 +76,15 @@ export default function Privacy() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div className="min-h-screen bg-cream pt-20">
+      <Seo
+        title="Privacy Policy | Prepzo"
+        description="How Prepzo collects, uses, and protects your data across our AI learning and human capital intelligence platform. Read the full Prepzo privacy policy."
+        path="/privacy"
+        jsonLd={breadcrumbLd([
+          { name: 'Home', path: '/' },
+          { name: 'Privacy Policy', path: '/privacy' },
+        ])}
+      />
       <div className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>

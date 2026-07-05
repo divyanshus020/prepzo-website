@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import Seo, { breadcrumbLd } from '../components/Seo'
 
 const sections = [
   { title: '1. Acceptance of Terms', content: `By accessing or using Prepzo ("the Platform"), you agree to be bound by these Terms of Service. If you are using Prepzo on behalf of a university or organisation, you represent that you have authority to bind that organisation to these terms.\n\nPrepzo is operated from India. These terms apply to all users including students, university administrators, and placement officers (TPO cells).` },
@@ -22,6 +23,15 @@ export default function Terms() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div className="min-h-screen bg-cream pt-20">
+      <Seo
+        title="Terms of Service | Prepzo"
+        description="The terms governing your use of Prepzo — our AI learning and human capital intelligence platform for schools, universities, students, and teachers."
+        path="/terms"
+        jsonLd={breadcrumbLd([
+          { name: 'Home', path: '/' },
+          { name: 'Terms of Service', path: '/terms' },
+        ])}
+      />
       <div className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>

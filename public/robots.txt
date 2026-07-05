@@ -1,6 +1,25 @@
+# Prepzo — https://prepzo.space
+# Search engines + AI answer engines are welcome.
+
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api
+
+# Explicitly welcome major AI crawlers (AEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 Sitemap: https://prepzo.space/sitemap.xml

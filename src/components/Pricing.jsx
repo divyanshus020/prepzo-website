@@ -63,11 +63,11 @@ export default function Pricing() {
             <span className="tag"><Sparkles size={12} />Pricing</span>
           </div>
           <h2 className="reveal text-4xl md:text-5xl font-display font-800 text-gray-900 leading-tight mb-5">
-            Built for institutions.{' '}
-            <span className="gradient-text">Priced for them.</span>
+            Built for institutions. Priced for them.{' '}
+            <span className="gradient-text">Free for students.</span>
           </h2>
           <p className="reveal text-lg text-gray-500 max-w-2xl mx-auto font-body">
-            Every TPO cell is sized differently — every cohort is sized differently. Tell us a little about your institution and we'll send back a plan that actually fits.
+            Every institution is sized differently, and so is every cohort. Tell us a little about yours and we'll send back a plan that actually fits. Students never pay to use Prepzo.
           </p>
         </div>
 
