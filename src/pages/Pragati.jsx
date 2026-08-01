@@ -1,589 +1,311 @@
-import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Hexagon, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Seo, { breadcrumbLd } from '../components/Seo'
+import PragatiHero from '../components/PragatiHero'
 
-const HERO_VIDEO =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260729_102822_0e6c87e8-c141-4744-bf32-ad30db296371.mp4'
+/* What NEP 2020 asks of institutions, in plain language. */
+const NEP_ASKS = [
+  {
+    n: '01',
+    title: 'Learning by doing',
+    body: 'NEP 2020 pushes experiential and hands-on learning over rote study. A student running a real venture is the clearest form of it.',
+  },
+  {
+    n: '02',
+    title: 'Incubation on campus',
+    body: 'It asks universities to host start-up incubation centres, technology development centres and real industry linkage — not just lectures about them.',
+  },
+  {
+    n: '03',
+    title: 'Entrepreneurship as a skill',
+    body: 'Vocational and skill exposure is meant to start early and continue through college, with entrepreneurship treated as a core capability.',
+  },
+  {
+    n: '04',
+    title: 'Credit for real work',
+    body: 'With multiple entry–exit and the Academic Bank of Credits, projects, internships and ventures can carry academic credit — if the work is documented.',
+  },
+]
 
-const PORTRAIT =
-  'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260728_050334_5b076e26-0ce7-4898-b432-d764190e448f.png&w=1280&q=85'
+/* NEP / NISP ask → what Pragati does → what the institution can show. */
+const MAPPING = [
+  {
+    ask: 'Experiential, hands-on learning',
+    does: 'Every student works on their own venture, week after week, instead of submitting a theory assignment.',
+    shows: 'Active student ventures, with a dated record of work.',
+  },
+  {
+    ask: 'Campus incubation and pre-incubation',
+    does: 'Gives the Innovation Lab a structured intake, a stage ladder and an AI mentor available at 2 a.m.',
+    shows: 'How many ideas entered, and how many moved a stage.',
+  },
+  {
+    ask: 'Entrepreneurship skilling',
+    does: 'Workshops that end in an assignment against the student’s own venture, not a generic quiz.',
+    shows: 'Workshops held, attendance, and what changed after.',
+  },
+  {
+    ask: 'Mentorship hours',
+    does: 'An AI board reviews each venture weekly and sets three commitments; faculty mentors step in on top.',
+    shows: 'Mentorship sessions and review history per student.',
+  },
+  {
+    ask: 'Credit-worthy documentation',
+    does: 'Every claim, number and piece of proof is stored with a date and a source.',
+    shows: 'An auditable file per venture — enough to justify credit.',
+  },
+  {
+    ask: 'Annual innovation reporting',
+    does: 'Keeps the data live all year instead of reconstructing it in March.',
+    shows: 'CSV export shaped for IIC and NISP reporting.',
+  },
+]
 
-/* --------------------------------------------------- scroll-scrub video --- */
+const CELLS = [
+  {
+    title: 'Innovation Lab',
+    lead: 'Where ideas become something testable.',
+    points: [
+      'Structured intake so an idea arrives with a problem, a user and a first proof — not a slide.',
+      'A stage ladder: idea → prototype → pilot → revenue, with workshops gated to the stage a student has reached.',
+      'An honest picture of the portfolio, so the lab knows which teams are actually moving.',
+    ],
+  },
+  {
+    title: 'E-Cell',
+    lead: 'Where students learn to run the thing.',
+    points: [
+      'A weekly board review that asks what changed, not what looks good.',
+      'Unit economics taught on the student’s own numbers — their price, their cost, their customer.',
+      'Proof logs: an LOI, a pilot, a first paying user — the evidence investors and juries actually ask for.',
+    ],
+  },
+]
 
-/**
- * Fixed full-bleed background whose playhead is driven by page scroll.
- * Poster → <video> → <canvas>: the canvas takes over once a frame cache of
- * decoded ImageBitmaps exists, because seeking a <video> per frame stutters.
- */
-function ScrollVideo() {
-  const videoRef = useRef(null)
-  const canvasRef = useRef(null)
-  const framesRef = useRef([])
-  const [hasFrame, setHasFrame] = useState(false)
-  const [cacheReady, setCacheReady] = useState(false)
+const FRAMEWORKS = [
+  { name: 'IIC', body: 'The Institution’s Innovation Council mandated on AICTE/UGC campuses — activities, participation and outcomes stay recorded as they happen.' },
+  { name: 'NISP', body: 'The National Innovation and Startup Policy for students and faculty — pre-incubation, mentorship and venture records in one place.' },
+  { name: 'NIRF / innovation ranking', body: 'Idea counts, stage progression and student venture outcomes, ready to submit rather than reconstructed.' },
+  { name: 'AIM / Atal ecosystem', body: 'Tinkering and incubation efforts on campus get a common record instead of scattered spreadsheets.' },
+]
 
-  // Build the frame cache from an offscreen copy of the same file.
-  useEffect(() => {
-    let cancelled = false
-    const visible = videoRef.current
-    if (!visible) return
+const LOOP = [
+  { n: '01', title: 'Student applies', body: 'A guided form turns a rough idea into a real profile: the problem, the user, the money, the proof.' },
+  { n: '02', title: 'AI mentor asks', body: 'It opens on the weakest part of the idea and asks one sharp question at a time.' },
+  { n: '03', title: 'Numbers get built', body: 'The student’s assumptions go into a calculator, not a chatbot — so the projections hold up to scrutiny.' },
+  { n: '04', title: 'Proof gets logged', body: 'An interview, a pilot, a first sale. The weekly review grades what moved and sets the next three commitments.' },
+]
 
-    const start = () => {
-      const off = document.createElement('video')
-      off.src = HERO_VIDEO
-      off.crossOrigin = 'anonymous'
-      off.muted = true
-      off.playsInline = true
-      off.preload = 'auto'
+/* Shared surface tokens — the hero's glass card, restated for opaque sections. */
+const CARD = 'rounded-[36px] border-2 border-white bg-white shadow-[0_0_4px_0_rgba(0,0,0,0.15)]'
+const PAPER = 'bg-[#f7f3ec]'
 
-      off.addEventListener('loadeddata', async () => {
-        if (cancelled) return
-        const duration = off.duration
-        if (!Number.isFinite(duration) || duration <= 0) return
-
-        const count = Math.min(90, Math.max(24, Math.round(duration * 12)))
-        const scale = Math.min(1, 960 / (off.videoWidth || 960))
-        const w = Math.round((off.videoWidth || 960) * scale)
-        const h = Math.round((off.videoHeight || 540) * scale)
-        const scratch = document.createElement('canvas')
-        scratch.width = w
-        scratch.height = h
-        const sctx = scratch.getContext('2d')
-        const frames = []
-
-        for (let i = 0; i < count; i++) {
-          if (cancelled) return
-          const t = (i / (count - 1)) * (duration - 0.05)
-          // eslint-disable-next-line no-await-in-loop
-          const ok = await new Promise((resolve) => {
-            // A seek to the position the video already holds fires no 'seeked'
-            // event, so the timeout keeps extraction from stalling on frame 0.
-            const timer = setTimeout(() => finish(true), 400)
-            const finish = (v) => {
-              clearTimeout(timer)
-              off.removeEventListener('seeked', onSeeked)
-              resolve(v)
-            }
-            const onSeeked = () => finish(true)
-            off.addEventListener('seeked', onSeeked)
-            try {
-              off.currentTime = t
-            } catch {
-              finish(false)
-            }
-          })
-          if (!ok) return
-          sctx.drawImage(off, 0, 0, w, h)
-          try {
-            // eslint-disable-next-line no-await-in-loop
-            frames.push(await createImageBitmap(scratch))
-          } catch {
-            // Canvas tainted (no CORS headers on the CDN) — keep the
-            // <video>-seek fallback instead of a half-built cache.
-            return
-          }
-        }
-
-        if (cancelled) return
-        framesRef.current = frames
-        setCacheReady(true)
-      })
-    }
-
-    // Give the visible video a head start before competing for bandwidth.
-    const kick = () => setTimeout(start, 300)
-    if (visible.readyState >= 2) kick()
-    else visible.addEventListener('loadeddata', kick, { once: true })
-
-    return () => {
-      cancelled = true
-      framesRef.current.forEach((f) => f.close?.())
-      framesRef.current = []
-    }
-  }, [])
-
-  // Always enter the page at scroll 0 so the scrub starts at frame 0 — a
-  // restored scroll position drops the visitor into the middle of the video.
-  useEffect(() => {
-    const prev = window.history.scrollRestoration
-    if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual'
-    window.scrollTo(0, 0)
-    return () => {
-      if ('scrollRestoration' in window.history) window.history.scrollRestoration = prev || 'auto'
-    }
-  }, [])
-
-  // Scroll → smoothed progress → canvas draw (or <video> seek as fallback).
-  useEffect(() => {
-    let raf
-    let smoothed = 0
-    let target = 0
-    let seeded = false
-
-    const readScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight
-      target = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0
-    }
-
-    const sizeCanvas = () => {
-      const canvas = canvasRef.current
-      if (!canvas) return
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
-      canvas.width = Math.round(window.innerWidth * dpr)
-      canvas.height = Math.round(window.innerHeight * dpr)
-    }
-
-    const drawCover = (src, sw, sh) => {
-      const canvas = canvasRef.current
-      if (!canvas || !sw || !sh) return
-      const ctx = canvas.getContext('2d')
-      const scale = Math.max(canvas.width / sw, canvas.height / sh)
-      const w = sw * scale
-      const h = sh * scale
-      ctx.drawImage(src, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h)
-    }
-
-    const tick = () => {
-      // First frame snaps to the real position; after that it eases, so the
-      // playhead never sweeps the whole clip on load.
-      if (!seeded) {
-        smoothed = target
-        seeded = true
-      } else {
-        smoothed += (target - smoothed) * 0.12
-      }
-      const frames = framesRef.current
-      if (frames.length) {
-        const i = Math.min(frames.length - 1, Math.round(smoothed * (frames.length - 1)))
-        const f = frames[i]
-        drawCover(f, f.width, f.height)
-      } else {
-        const v = videoRef.current
-        if (v && Number.isFinite(v.duration) && v.duration > 0) {
-          const t = smoothed * (v.duration - 0.05)
-          if (Math.abs(v.currentTime - t) > 0.04) {
-            try {
-              v.currentTime = t
-            } catch {
-              /* seek not ready yet */
-            }
-          }
-        }
-      }
-      raf = requestAnimationFrame(tick)
-    }
-
-    readScroll()
-    sizeCanvas()
-    raf = requestAnimationFrame(tick)
-    window.addEventListener('scroll', readScroll, { passive: true })
-    window.addEventListener('resize', () => {
-      readScroll()
-      sizeCanvas()
-    })
-
-    return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', readScroll)
-    }
-  }, [])
-
+/** Section heading: typewriter kicker, tight headline, muted lede. */
+function Head({ kicker, title, lede }) {
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden bg-[#0a0a0a] pointer-events-none">
-      <video
-        ref={videoRef}
-        src={HERO_VIDEO}
-        muted
-        playsInline
-        preload="auto"
-        onLoadedData={() => setHasFrame(true)}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-          hasFrame && !cacheReady ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
-      <canvas
-        ref={canvasRef}
-        className={`absolute inset-0 h-full w-full transition-opacity duration-500 ${
-          cacheReady ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
+    <>
+      <p className="font-typewriter text-[15px] uppercase tracking-[0.12em] text-wandor-prompt">{kicker}</p>
+      <h2 className="mt-4 max-w-[820px] font-sans text-[clamp(32px,4.5vw,52px)] font-medium leading-[1.05] tracking-[-0.04em] text-wandor-text">
+        {title}
+      </h2>
+      {lede && (
+        <p className="mt-5 max-w-[620px] font-sans text-xl font-medium leading-relaxed text-wandor-muted">{lede}</p>
+      )}
+    </>
+  )
+}
+
+/** Numbered card used by the NEP-asks and how-it-works strips. */
+function StepCard({ n, title, body }) {
+  return (
+    <div className={`${CARD} px-7 py-8 max-md:px-6`}>
+      <span className="font-typewriter text-[17px] text-wandor-prompt">{n}</span>
+      <h3 className="mt-3 font-sans text-lg font-semibold tracking-[-0.02em] text-wandor-text">{title}</h3>
+      <p className="mt-2 font-sans text-[15px] leading-relaxed text-wandor-muted">{body}</p>
     </div>
   )
 }
 
-/* ------------------------------------------------------------- reveal --- */
-
-/** Fade-up on first intersection, threshold 0.15, per-element delay in ms. */
-function Reveal({ delay = 0, className = '', as: Tag = 'div', children }) {
-  const ref = useRef(null)
-  const [shown, setShown] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShown(true)
-          io.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [])
-
-  return (
-    <Tag
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms`, willChange: 'transform' }}
-      className={`transition-all duration-700 ease-out ${
-        shown ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-      } ${className}`}
-    >
-      {children}
-    </Tag>
-  )
-}
-
-/** Left-accent frosted badge with a mono uppercase label. */
-function Badge({ children }) {
-  return (
-    <span className="inline-block border-l-2 border-white bg-white/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-white backdrop-blur-md">
-      {children}
-    </span>
-  )
-}
-
-/* --------------------------------------------------------------- data --- */
-
-const SERVICES = ['/ VENTURE GENOME', '/ DETERMINISTIC FINANCIALS', '/ WEEKLY BOARD REVIEW']
-
-const STEPS = [
-  { n: '01', title: 'Apply', body: 'A 7-step application seeds ten genome strands — problem, ICP, unit economics, moat, traction.' },
-  { n: '02', title: 'Interrogate', body: 'The Chair opens on your weakest strand and reduces every claim to unit level. One question at a time.' },
-  { n: '03', title: 'Compute', body: 'Accept an assumption and a formula engine rebuilds 36 months of P&L, cash flow and 12 KPIs. The AI never does the arithmetic.' },
-  { n: '04', title: 'Prove', body: 'Log an LOI, a pilot, real revenue. Evidence lifts confidence, and the weekly board review grades the delta.' },
-]
-
-const NUMBERS = [
-  { value: '10', label: 'Genome strands' },
-  { value: '30', label: 'Assumption keys' },
-  { value: '36', label: 'Months modelled' },
-  { value: '12', label: 'KPIs computed' },
-]
-
-const CAPABILITIES = [
-  {
-    n: '01',
-    title: 'Venture Genome',
-    body: 'Ten strands with confidence, provenance and decay — a guess and a signed LOI never look the same on screen.',
-  },
-  {
-    n: '02',
-    title: 'Deterministic financials',
-    body: 'The model proposes assumptions from a closed vocabulary; a formula engine computes every figure.',
-  },
-  {
-    n: '03',
-    title: 'Weekly board review',
-    body: 'A grade, the delta since last week, and three commitments you get held to.',
-  },
-]
-
-/* --------------------------------------------------------------- page --- */
-
 export default function Pragati() {
   return (
-    <div className="relative bg-[#0a0a0a] font-sans text-white antialiased">
+    <div className="bg-white font-sans">
       <Seo
-        title="Pragati AI by Prepzo — a system of record for your venture"
-        description="Pragati AI holds a student venture in memory: a ten-strand genome with confidence and provenance, financials computed by a deterministic engine, and a weekly board review that holds founders to what they claimed."
+        title="Pragati AI by Prepzo — an NEP-aligned innovation lab for your campus"
+        description="Pragati AI turns NEP 2020's push for experiential learning, campus incubation and entrepreneurship into something a college can actually run and report — powering the Innovation Lab, the E-Cell, and IIC/NISP reporting."
         path="/pragati"
-        keywords="Pragati AI, Prepzo, student startup, innovation lab, venture genome, deterministic financial engine, AI board review, IIC, NISP"
+        keywords="Pragati AI, Prepzo, NEP 2020, innovation lab, entrepreneurship cell, E-Cell, IIC, NISP, student startup, campus incubation, AICTE, UGC"
         jsonLd={breadcrumbLd([
           { name: 'Home', path: '/' },
           { name: 'Pragati AI', path: '/pragati' },
         ])}
       />
 
-      <ScrollVideo />
+      <PragatiHero />
 
-      <div className="relative z-10">
-        {/* ================================================== Navbar ===== */}
-        <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/15">
-          <div className="flex items-center justify-between px-5 py-4 sm:px-8 md:px-12">
-            <Reveal delay={0} as="div">
-              <Link to="/" className="flex items-center gap-2" aria-label="Prepzo home">
-                <Hexagon size={24} strokeWidth={1.5} />
-                <span className="text-lg font-medium tracking-tight sm:text-xl">pragati</span>
-              </Link>
-            </Reveal>
+      {/* ================================================= In one line ===== */}
+      <section className="mx-auto max-w-[1360px] px-20 py-24 max-md:px-6 max-md:py-16">
+        <Head
+          kicker="In one line"
+          title="An innovation lab your campus can actually run."
+          lede="NEP 2020 asks colleges to teach by doing, incubate real ventures and build entrepreneurs. Pragati is the software that makes that a weekly habit — and leaves a record you can report."
+        />
+      </section>
 
-            <div className="hidden items-center gap-8 md:flex lg:gap-10">
-              {[
-                { label: 'Genome', href: '#genome', sup: '10' },
-                { label: 'For Universities', href: '/universities' },
-                { label: 'About', href: '/about' },
-                { label: 'Contact', href: '/contact' },
-              ].map((l, i) => (
-                <Reveal key={l.label} delay={100 + i * 100} as="div">
-                  {l.href.startsWith('#') ? (
-                    <a href={l.href} className="text-sm text-white/85 transition-colors duration-300 hover:text-white">
-                      {l.label}
-                      {l.sup && <sup className="ml-0.5 font-mono text-[10px] text-white/60">{l.sup}</sup>}
-                    </a>
-                  ) : (
-                    <Link to={l.href} className="text-sm text-white/85 transition-colors duration-300 hover:text-white">
-                      {l.label}
-                    </Link>
-                  )}
-                </Reveal>
-              ))}
-            </div>
+      {/* ================================================== What NEP asks ===== */}
+      <section id="nep" className={PAPER}>
+        <div className="mx-auto max-w-[1360px] px-20 py-24 max-md:px-6 max-md:py-16">
+          <Head
+            kicker="NEP 2020"
+            title="What the policy asks for."
+            lede="Four themes run through the National Education Policy for higher education. Each one is hard to deliver with lectures alone."
+          />
 
-            <Reveal delay={500} as="div">
-              <Link
-                to="/contact?subject=Pragati AI"
-                className="rounded-md border border-white/20 bg-white/15 px-4 py-2 text-xs backdrop-blur-md transition-colors duration-300 hover:bg-white/25 sm:px-5 sm:text-sm"
-              >
-                Get Free Consultation
-              </Link>
-            </Reveal>
+          <div className="mt-14 grid grid-cols-4 gap-5 max-md:grid-cols-1">
+            {NEP_ASKS.map((a) => (
+              <StepCard key={a.n} n={a.n} title={a.title} body={a.body} />
+            ))}
           </div>
-        </nav>
+        </div>
+      </section>
 
-        <main>
-          {/* =========================================== Section One ===== */}
-          <section className="flex min-h-screen flex-col justify-between px-5 pt-24 pb-12 supports-[height:100svh]:min-h-[100svh] sm:px-8 sm:pt-28 md:px-12 md:pb-16">
-            {/* Top row */}
-            <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
-              <div className="flex flex-col gap-2">
-                {SERVICES.map((s, i) => (
-                  <Reveal
-                    key={s}
-                    delay={150 + i * 120}
-                    className="font-mono text-xs uppercase tracking-[0.15em] text-white/90 drop-shadow-md"
-                  >
-                    {s}
-                  </Reveal>
+      {/* ===================================================== Mapping ===== */}
+      <section id="mapping">
+        <div className="mx-auto max-w-[1360px] px-20 py-24 max-md:px-6 max-md:py-16">
+          <Head
+            kicker="How it connects"
+            title="Policy on one side. Proof on the other."
+            lede="The same table a coordinator can take into an IIC or NAAC conversation."
+          />
+
+          <div className={`mt-14 overflow-x-auto ${CARD}`}>
+            <table className="w-full min-w-[860px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-black/10 bg-[#f7f3ec] font-typewriter text-[13px] uppercase tracking-[0.12em] text-wandor-prompt">
+                  <th className="px-8 py-5 font-normal max-md:px-5">What NEP / NISP asks</th>
+                  <th className="px-8 py-5 font-normal max-md:px-5">What Pragati does</th>
+                  <th className="px-8 py-5 font-normal max-md:px-5">What the institution can show</th>
+                </tr>
+              </thead>
+              <tbody>
+                {MAPPING.map((m) => (
+                  <tr key={m.ask} className="border-b border-black/[0.06] last:border-b-0">
+                    <td className="px-8 py-5 align-top text-[15px] font-medium text-wandor-text max-md:px-5">{m.ask}</td>
+                    <td className="px-8 py-5 align-top text-[15px] leading-relaxed text-wandor-muted max-md:px-5">{m.does}</td>
+                    <td className="px-8 py-5 align-top text-[15px] leading-relaxed text-wandor-prompt max-md:px-5">{m.shows}</td>
+                  </tr>
                 ))}
-              </div>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-              <Reveal
-                delay={300}
-                className="max-w-xs text-lg leading-relaxed text-white drop-shadow-md sm:text-right sm:text-xl"
-              >
-                We build the system of record for a student venture — memory, evidence and accountability a chat window
-                cannot hold.
-              </Reveal>
-            </div>
+      {/* ======================================= Innovation Lab & E-Cell ===== */}
+      <section id="cells" className={PAPER}>
+        <div className="mx-auto max-w-[1360px] px-20 py-24 max-md:px-6 max-md:py-16">
+          <Head
+            kicker="On campus"
+            title="One system behind both."
+            lede="Most colleges already have an Innovation Lab and an E-Cell. Usually they run on enthusiasm, a WhatsApp group and one overworked faculty coordinator."
+          />
 
-            {/* Bottom row */}
-            <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-              <div>
-                <Reveal delay={150} className="mb-5">
-                  <Badge>An AI-run innovation lab</Badge>
-                </Reveal>
-                <Reveal
-                  delay={280}
-                  as="h1"
-                  className="text-5xl font-normal leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl"
-                >
-                  Clear. Precise.
-                  <br />
-                  Accountable.
-                </Reveal>
-              </div>
-
-              <Reveal delay={420}>
-                <div className="flex items-center gap-4 rounded-xl bg-white/15 p-3 backdrop-blur-md">
-                  <img
-                    src={PORTRAIT}
-                    alt="A Pragati AI programme lead"
-                    className="h-24 w-20 rounded-lg object-cover"
-                  />
-                  <div className="flex flex-col gap-1.5 pr-2">
-                    <span className="text-sm font-medium text-white">Talk with the team</span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/60">
-                      Pragati AI by Prepzo
-                    </span>
-                    <Link
-                      to="/contact?subject=Pragati AI"
-                      className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-xs font-medium text-black transition-colors duration-300 hover:bg-white/85"
-                    >
-                      Book 15-mins call <ChevronRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </section>
-
-          {/* Scrub room between the two sections */}
-          <div className="h-[80vh]" aria-hidden="true" />
-
-          {/* =========================================== Section Two ===== */}
-          <section
-            id="genome"
-            className="flex min-h-screen flex-col justify-between px-5 pt-24 pb-12 supports-[height:100svh]:min-h-[100svh] sm:px-8 sm:pt-28 md:px-12 md:pb-16"
-          >
-            {/* Top row */}
-            <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
-              <Reveal delay={120}>
-                <Badge>Proof On Demand</Badge>
-              </Reveal>
-              <Reveal
-                delay={220}
-                className="max-w-sm text-lg leading-relaxed text-white drop-shadow-md sm:text-right sm:text-xl"
-              >
-                Pragati doesn't just answer — it computes the number, names the assumption behind it, and shows what
-                changed since last week.
-              </Reveal>
-            </div>
-
-            {/* Bottom area */}
-            <div className="flex flex-1 flex-col justify-end gap-12 md:flex-row md:items-end md:justify-between md:gap-16">
-              <div className="max-w-xl">
-                <Reveal
-                  delay={180}
-                  as="h2"
-                  className="text-5xl font-normal leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl"
-                >
-                  Know what
-                  <br />
-                  actually moved.
-                </Reveal>
-
-                <Reveal
-                  delay={320}
-                  className="mt-6 max-w-md text-sm leading-relaxed text-white/80 drop-shadow-md sm:text-base"
-                >
-                  From the first claim to the final model, Pragati turns what a founder asserts into figures a dean or an
-                  investor can audit — quietly, precisely, every week.
-                </Reveal>
-
-                <Reveal delay={420} className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href="https://pragati.prepzo.space"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-full bg-white px-5 py-2.5 text-xs font-medium text-black transition-colors duration-300 hover:bg-white/85 sm:text-sm"
-                  >
-                    See the product <ChevronRight size={14} />
-                  </a>
-                  <Link
-                    to="/contact?subject=Pragati AI"
-                    className="rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-xs backdrop-blur-md transition-colors duration-300 hover:bg-white/20 sm:text-sm"
-                  >
-                    Free consultation
-                  </Link>
-                </Reveal>
-              </div>
-
-              {/* Frosted capability panel */}
-              <div className="w-full max-w-md rounded-2xl border border-white/15 bg-white/10 px-5 backdrop-blur-md sm:px-6">
-                {CAPABILITIES.map((c, i) => (
-                  <Reveal
-                    key={c.n}
-                    delay={300 + i * 110}
-                    className={`flex gap-5 py-5 ${i < CAPABILITIES.length - 1 ? 'border-b border-white/15' : ''}`}
-                  >
-                    <span className="font-mono text-[11px] tracking-[0.15em] text-white/55">{c.n}</span>
-                    <div className="group flex-1">
-                      <div className="flex items-center gap-2 text-base font-medium text-white sm:text-lg">
-                        {c.title}
-                        <ChevronRight
-                          size={16}
-                          className="text-white/40 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white"
-                        />
-                      </div>
-                      <p className="mt-1.5 text-sm leading-relaxed text-white/70">{c.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* More scrub room before the closing section */}
-          <div className="h-[60vh]" aria-hidden="true" />
-
-          {/* ========================================= Section Three ===== */}
-          <section
-            id="how"
-            className="flex min-h-screen flex-col justify-between px-5 pt-24 pb-12 supports-[height:100svh]:min-h-[100svh] sm:px-8 sm:pt-28 md:px-12 md:pb-16"
-          >
-            <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
-              <Reveal delay={120}>
-                <Badge>The Loop</Badge>
-              </Reveal>
-              <Reveal
-                delay={220}
-                className="max-w-sm text-lg leading-relaxed text-white drop-shadow-md sm:text-right sm:text-xl"
-              >
-                Four moves a week. Each one leaves a record the next one is judged against.
-              </Reveal>
-            </div>
-
-            <div className="flex flex-1 flex-col justify-end gap-12">
-              <Reveal
-                delay={180}
-                as="h2"
-                className="max-w-xl text-5xl font-normal leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl"
-              >
-                Claim. Compute.
-                <br />
-                Prove.
-              </Reveal>
-
-              {/* Four-step loop */}
-              <div className="grid w-full grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md md:grid-cols-4">
-                {STEPS.map((s, i) => (
-                  <Reveal
-                    key={s.n}
-                    delay={260 + i * 110}
-                    className={`px-5 py-6 sm:px-6 ${
-                      i < STEPS.length - 1 ? 'border-b border-white/15 md:border-b-0 md:border-r' : ''
-                    }`}
-                  >
-                    <span className="font-mono text-[11px] tracking-[0.15em] text-white/55">{s.n}</span>
-                    <h3 className="mt-2 text-base font-medium text-white sm:text-lg">{s.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-white/70">{s.body}</p>
-                  </Reveal>
-                ))}
-              </div>
-
-              {/* What the system actually holds */}
-              <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-                <div className="flex flex-wrap gap-8 sm:gap-12">
-                  {NUMBERS.map((n, i) => (
-                    <Reveal key={n.label} delay={200 + i * 90}>
-                      <div className="text-4xl font-normal tracking-tight text-white drop-shadow-lg sm:text-5xl">
-                        {n.value}
-                      </div>
-                      <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-white/60">
-                        {n.label}
-                      </div>
-                    </Reveal>
+          <div className="mt-14 grid grid-cols-2 gap-6 max-md:grid-cols-1">
+            {CELLS.map((c) => (
+              <div key={c.title} className={`${CARD} px-9 py-11 max-md:px-6`}>
+                <h3 className="font-typewriter text-[clamp(26px,3.2vw,36px)] leading-[1.1] text-wandor-text">
+                  {c.title}
+                </h3>
+                <p className="mt-3 font-sans text-lg font-medium text-wandor-prompt">{c.lead}</p>
+                <ul className="mt-6 space-y-4">
+                  {c.points.map((p) => (
+                    <li key={p} className="flex gap-3 font-sans text-[15px] leading-relaxed text-wandor-muted">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-wandor-prompt" />
+                      {p}
+                    </li>
                   ))}
-                </div>
-
-                <Reveal delay={560} className="flex flex-wrap gap-3">
-                  <Link
-                    to="/contact?subject=Pragati AI"
-                    className="inline-flex items-center gap-1 rounded-full bg-white px-5 py-2.5 text-xs font-medium text-black transition-colors duration-300 hover:bg-white/85 sm:text-sm"
-                  >
-                    Bring it to your campus <ChevronRight size={14} />
-                  </Link>
-                </Reveal>
+                </ul>
               </div>
-            </div>
-          </section>
-        </main>
-      </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================== How it works ===== */}
+      <section id="loop">
+        <div className="mx-auto max-w-[1360px] px-20 py-24 max-md:px-6 max-md:py-16">
+          <Head
+            kicker="How it works"
+            title="Four steps, every week."
+            lede="Simple enough to explain to a first-year student in one minute."
+          />
+
+          <div className="mt-14 grid grid-cols-4 gap-5 max-md:grid-cols-1">
+            {LOOP.map((s) => (
+              <StepCard key={s.n} n={s.n} title={s.title} body={s.body} />
+            ))}
+          </div>
+
+          <p className="mt-10 max-w-[720px] font-sans text-[15px] leading-relaxed text-wandor-muted">
+            Under the hood: a venture profile that ages if it isn’t updated, financials produced by a calculator rather
+            than a language model, and a proof log where a signed letter of intent counts for more than a screenshot.
+            The student never has to think about any of that.
+          </p>
+        </div>
+      </section>
+
+      {/* =================================================== Reporting ===== */}
+      <section id="reporting" className={PAPER}>
+        <div className="mx-auto max-w-[1360px] px-20 py-24 max-md:px-6 max-md:py-16">
+          <Head
+            kicker="Reporting"
+            title="The year-end file writes itself."
+            lede="Innovation reporting is usually rebuilt from memory in a single panicked week. Pragati keeps it current because the students are the ones filling it in."
+          />
+
+          <div className="mt-14 grid grid-cols-4 gap-5 max-md:grid-cols-1">
+            {FRAMEWORKS.map((f) => (
+              <div key={f.name} className={`${CARD} px-7 py-8 max-md:px-6`}>
+                <h3 className="font-typewriter text-[19px] text-wandor-text">{f.name}</h3>
+                <p className="mt-3 font-sans text-[15px] leading-relaxed text-wandor-muted">{f.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= CTA ===== */}
+      <section className="relative overflow-hidden bg-gray-950 text-white">
+        {/* Same warm glow the footer carries, so the two read as one block */}
+        <div className="pointer-events-none absolute -top-24 left-1/4 h-[400px] w-[400px] bg-orange-700/10 blur-[120px]" />
+
+        <div className="relative mx-auto max-w-[1360px] px-20 py-28 text-center max-md:px-6 max-md:py-20">
+          <p className="font-typewriter text-[15px] uppercase tracking-[0.12em] text-wandor-prompt">Get started</p>
+          <h2 className="mx-auto mt-5 max-w-[820px] font-sans text-[clamp(30px,4vw,46px)] font-medium leading-[1.08] tracking-[-0.04em]">
+            Run a pilot cohort this semester.
+          </h2>
+          <p className="mx-auto mt-5 max-w-[520px] font-sans text-lg leading-relaxed text-white/60">
+            Students get a mentor that remembers everything. Your IIC gets a record it doesn’t have to rebuild.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/contact?subject=Pragati AI"
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-sans text-[15px] font-medium text-gray-950 shadow-xl shadow-white/5 transition-all hover:bg-white/90 active:scale-95"
+            >
+              Bring it to your campus
+              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+            <a
+              href="https://pragati.prepzo.space"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full border border-white/15 px-7 py-4 font-sans text-[15px] font-medium text-white transition-all hover:bg-white/5 active:scale-95"
+            >
+              See the product
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

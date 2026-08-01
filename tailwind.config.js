@@ -34,13 +34,23 @@ export default {
           50:       '#FAF7F2',
           100:      '#F2EDE5',
         },
+        // Pragati hero palette
+        wandor: {
+          dark:   '#0a0a0a',
+          text:   '#1a1a1a',
+          muted:  '#767676',
+          prompt: '#905831',
+        },
       },
       fontFamily: {
         // Geist for everything; Instrument Serif for italic em emphasis; JetBrains Mono for kickers
+        sans:    ['Geist', 'sans-serif'],
         display: ['Geist', 'system-ui', 'sans-serif'],
         body:    ['Geist', 'system-ui', 'sans-serif'],
         serif:   ['"Instrument Serif"', 'Georgia', 'serif'],
         mono:    ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        // Typewriter wordmark — hero only
+        typewriter: ['"Special Elite"', 'Georgia', 'serif'],
       },
       borderRadius: {
         sm:   '10px',

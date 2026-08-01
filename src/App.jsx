@@ -20,14 +20,10 @@ function ScrollToTop() {
   return null
 }
 
-// Pragati ships its own dark fixed navbar and full-bleed scroll video, so the
-// light site chrome is suppressed on that route.
 function Shell() {
-  const { pathname } = useLocation()
-  const bare = pathname === '/pragati'
   return (
     <>
-      {!bare && <Navbar />}
+      <Navbar />
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -40,7 +36,7 @@ function Shell() {
           <Route path="/terms" element={<Terms />} />
         </Routes>
       </main>
-      {!bare && <Footer />}
+      <Footer />
     </>
   )
 }
