@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="87106edf-7e3e-488a-beab-ea9430dae45a"></script>
+<script src="bcec0b0e-e217-4dbe-bebe-f95f5c6600fc"></script>
+</head>
+<body>
+
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("1f03dc62-f156-4a81-a20d-b6821f1c2f84") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("82f83335-d57c-4ac6-9cf4-e4b0e814ffbe") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("9a2e9c31-349c-425e-9f64-2fe638bac0b5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("98f14eb4-0b92-42a9-90dd-5cb2e6c07c6e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("abc6295b-c65c-459d-a561-22c1c432f02b") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("9c8092f7-3e37-4cb3-bd37-ecddbb51c3b2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("4f1ed952-a598-4375-8ace-8b841798d507") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("9c82197e-bbd2-4cbb-8cb0-3706e97dd47f") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("b37f9d02-2e18-453a-81b2-e21f0523564c") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("50f317b7-00cb-4612-99f2-b2243362d19f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("e0f35e3d-921e-4e39-a8b8-7d9116f7d9f4") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("abc6295b-c65c-459d-a561-22c1c432f02b") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("9c8092f7-3e37-4cb3-bd37-ecddbb51c3b2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("4f1ed952-a598-4375-8ace-8b841798d507") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("9c82197e-bbd2-4cbb-8cb0-3706e97dd47f") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("b37f9d02-2e18-453a-81b2-e21f0523564c") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("50f317b7-00cb-4612-99f2-b2243362d19f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("e0f35e3d-921e-4e39-a8b8-7d9116f7d9f4") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("abc6295b-c65c-459d-a561-22c1c432f02b") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("9c8092f7-3e37-4cb3-bd37-ecddbb51c3b2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("4f1ed952-a598-4375-8ace-8b841798d507") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("9c82197e-bbd2-4cbb-8cb0-3706e97dd47f") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("b37f9d02-2e18-453a-81b2-e21f0523564c") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("50f317b7-00cb-4612-99f2-b2243362d19f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("e0f35e3d-921e-4e39-a8b8-7d9116f7d9f4") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("abc6295b-c65c-459d-a561-22c1c432f02b") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("9c8092f7-3e37-4cb3-bd37-ecddbb51c3b2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("4f1ed952-a598-4375-8ace-8b841798d507") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("9c82197e-bbd2-4cbb-8cb0-3706e97dd47f") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("b37f9d02-2e18-453a-81b2-e21f0523564c") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("50f317b7-00cb-4612-99f2-b2243362d19f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("e0f35e3d-921e-4e39-a8b8-7d9116f7d9f4") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("c67d17e6-faf4-4221-bc4f-f3173c733df8") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("bf35bed8-0bae-4a91-9368-1fae776a3844") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("2a4fcfb2-3ec9-4b4f-a351-43c519770a53") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("f11c8b20-040e-4774-93c5-ed1559587dd2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("abf8e388-1b89-442b-a401-ac66d3179818") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("6a2827e8-3b63-4016-bf27-2e6e91dca1b1") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("c67d17e6-faf4-4221-bc4f-f3173c733df8") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("bf35bed8-0bae-4a91-9368-1fae776a3844") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("2a4fcfb2-3ec9-4b4f-a351-43c519770a53") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f11c8b20-040e-4774-93c5-ed1559587dd2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("abf8e388-1b89-442b-a401-ac66d3179818") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("6a2827e8-3b63-4016-bf27-2e6e91dca1b1") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("c67d17e6-faf4-4221-bc4f-f3173c733df8") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("bf35bed8-0bae-4a91-9368-1fae776a3844") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("2a4fcfb2-3ec9-4b4f-a351-43c519770a53") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("f11c8b20-040e-4774-93c5-ed1559587dd2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("abf8e388-1b89-442b-a401-ac66d3179818") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("6a2827e8-3b63-4016-bf27-2e6e91dca1b1") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#000;color:#fff;font-family:'Inter',sans-serif}
+@keyframes pzUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pzMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pzPulse{0%,100%{opacity:.5}50%{opacity:1}}
+.liquid-glass{background:rgba(255,255,255,.01);background-blend-mode:luminosity;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);position:relative;overflow:hidden}
+.liquid-glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+</style>
+</helmet>
+
+<!-- nav -->
+<div style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(24px,6vw,112px);background:rgba(0,0,0,.55);backdrop-filter:blur(14px)">
+  <div style="display:flex;align-items:center;gap:64px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:26px;height:26px;border-radius:7px;background:#7b39fc;display:grid;place-items:center;font:700 13px 'Manrope',sans-serif;color:#fff">P</div>
+      <span style="font:700 20px 'Manrope',sans-serif;letter-spacing:-.02em">PrepzoLM</span>
+    </div>
+    <div style="display:flex;gap:28px;font:500 14px 'Manrope',sans-serif;color:#fff">
+      <a href="#bench" style="color:#fff;text-decoration:none;opacity:.9">Benchmarks</a>
+      <a href="#model" style="color:#fff;text-decoration:none;opacity:.9">Model</a>
+      <a href="#usecases" style="color:#fff;text-decoration:none;opacity:.9;white-space:nowrap">Use cases</a>
+      <a href="#safety" style="color:#fff;text-decoration:none;opacity:.9">Safety</a>
+      <a href="#research" style="color:#fff;text-decoration:none;opacity:.9">Research</a>
+    </div>
+  </div>
+  <a href="#cta" style="padding:10px 22px;background:#fff;color:#000;border-radius:8px;font:600 14px 'Manrope',sans-serif;text-decoration:none;white-space:nowrap;flex:none">Read the report</a>
+</div>
+
+<!-- hero -->
+<div style="position:relative;overflow:hidden;padding:88px 24px 0;text-align:center">
+  <div data-hero-group="1" style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:10">
+    <div class="liquid-glass" style="display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;margin-bottom:24px;animation:pzUp .5s both">
+      <span style="background:#fff;color:#000;border-radius:6px;padding:2px 8px;font:500 13px 'Inter',sans-serif">New</span>
+      <span style="font:500 14px 'Inter',sans-serif;color:#a6a6a6">Say hello to PrepzoLM 120B v1.0</span>
+    </div>
+    <h1 style="margin:0 0 14px;font:500 84px/1.12 'Inter',sans-serif;letter-spacing:-2px;animation:pzUp .6s .1s both">Specialist intelligence.<br>Education &amp; <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">Healthcare.</span></h1>
+    <p style="margin:0 0 32px;font:400 18px/1.5 'Inter',sans-serif;color:#eef1f4;opacity:.9;max-width:640px;animation:pzUp .6s .2s both">A 120B-parameter model pretrained only on curated pedagogical and clinical corpora.<br>Every benchmark published, every number reproducible — MIT licensed.</p>
+    <div style="display:flex;gap:14px;justify-content:center;animation:pzUp .6s .3s both">
+      <a href="#cta" style="padding:14px 32px;background:#fff;color:#000;border-radius:100px;font:500 16px 'Inter',sans-serif;text-decoration:none">Read the technical report</a>
+      <a href="#cta" style="padding:14px 32px;background:#2b2344;color:#f6f7f9;border-radius:100px;font:500 16px 'Inter',sans-serif;text-decoration:none">Get API access</a>
+    </div>
+  </div>
+
+  <!-- video + dashboard area -->
+  <div style="position:relative;width:100vw;margin-left:calc(-50vw + 50%);aspect-ratio:16/9;margin-top:56px;animation:pzUp .8s .4s both">
+    <video src="cb680982-6bac-45f7-9f73-4262b50488e0" autoplay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsinline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+    <div data-dash-parallax="1" style="position:absolute;inset:0;display:grid;place-items:center">
+      <x-import component-from-global-scope="image-slot" id="dashboard-shot" shape="rounded" radius="20" placeholder="Drop your product / dashboard screenshot" hint-size="900px,506px" style="width:62%;aspect-ratio:16/9;mix-blend-mode:luminosity"></x-import>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(to top,#000,transparent);z-index:30;pointer-events:none"></div>
+  </div>
+</div>
+
+<!-- marquee -->
+<div style="overflow:hidden;border-top:1px solid #262626;border-bottom:1px solid #262626;padding:16px 0">
+  <div style="display:flex;width:max-content;animation:pzMarquee 30s linear infinite;font:500 13px 'Inter',sans-serif;color:#a6a6a6;white-space:nowrap;letter-spacing:.08em">
+    <span style="padding:0 28px">120B PARAMETERS</span><span>·</span><span style="padding:0 28px">MIT LICENSED</span><span>·</span><span style="padding:0 28px">2.1T DOMAIN TOKENS</span><span>·</span><span style="padding:0 28px">128K CONTEXT</span><span>·</span><span style="padding:0 28px">46 LANGUAGES</span><span>·</span><span style="padding:0 28px">13 PROGRAMMING LANGUAGES</span><span>·</span><span style="padding:0 28px">HIPAA + FERPA</span><span>·</span><span style="padding:0 28px">120B PARAMETERS</span><span>·</span><span style="padding:0 28px">MIT LICENSED</span><span>·</span><span style="padding:0 28px">2.1T DOMAIN TOKENS</span><span>·</span><span style="padding:0 28px">128K CONTEXT</span><span>·</span><span style="padding:0 28px">46 LANGUAGES</span><span>·</span><span style="padding:0 28px">13 PROGRAMMING LANGUAGES</span><span>·</span><span style="padding:0 28px">HIPAA + FERPA</span><span>·</span>
+  </div>
+</div>
+
+<!-- testimonial word reveal -->
+<div style="min-height:70vh;display:grid;align-items:center;padding:120px 24px">
+  <div style="max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:40px;align-items:flex-start">
+    <span style="font:400 96px/0.5 'Instrument Serif',serif;color:#7b39fc">“</span>
+    <div id="quote-words" style="display:flex;flex-wrap:wrap;font:500 42px/1.25 'Inter',sans-serif;letter-spacing:-1px">
+      <sc-for list="{{ quoteWords }}" as="w" hint-placeholder-count="16"><span style="margin-right:.3em;opacity:.2">{{ w }}</span></sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <x-import component-from-global-scope="image-slot" id="testimonial-avatar" shape="circle" placeholder="photo" hint-size="56px,56px" style="width:56px;height:56px;border:3px solid #fff;border-radius:50%"></x-import>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <span style="font:600 16px 'Inter',sans-serif">Name</span>
+        <span style="font:400 14px 'Inter',sans-serif;color:#a6a6a6">Chief Medical Information Officer · [ pilot partner ]</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- benchmarks -->
+<div id="bench" style="max-width:1200px;margin:0 auto;padding:96px 24px">
+  <div data-reveal="1" style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:48px">
+    <h2 style="margin:0;font:500 52px 'Inter',sans-serif;letter-spacing:-1.5px">The <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">proof.</span></h2>
+    <span style="font:500 12px 'Inter',sans-serif;color:#a6a6a6;letter-spacing:.08em">DOMAIN-SPLIT EVALS · VS {{ baselineLabel }}</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:24px">
+    <div data-reveal="1" style="background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:40px;min-width:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:28px">
+        <div style="font:600 26px 'Inter',sans-serif;letter-spacing:-.5px">Education Intelligence</div>
+        <span style="font:500 11px 'Inter',sans-serif;color:#7b39fc;letter-spacing:.08em">DOMAIN 01</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:20px;margin-bottom:32px">
+        <div><div data-count="92.4" style="font:600 40px/1 'Inter',sans-serif;letter-spacing:-1px;color:#7b39fc">92.4</div><div style="font:500 13px 'Inter',sans-serif;margin-top:8px">Tutoring helpfulness</div><div style="font:400 11px 'Inter',sans-serif;color:#a6a6a6;margin-top:3px">internal eval · +21.7</div></div>
+        <div><div data-count="89.7" style="font:600 40px/1 'Inter',sans-serif;letter-spacing:-1px;color:#7b39fc">89.7</div><div style="font:500 13px 'Inter',sans-serif;margin-top:8px">Curriculum alignment</div><div style="font:400 11px 'Inter',sans-serif;color:#a6a6a6;margin-top:3px">question-gen · +18.2</div></div>
+        <div><div data-count="94.1" style="font:600 40px/1 'Inter',sans-serif;letter-spacing:-1px;color:#7b39fc">94.1</div><div style="font:500 13px 'Inter',sans-serif;margin-top:8px">Academic summarization</div><div style="font:400 11px 'Inter',sans-serif;color:#a6a6a6;margin-top:3px">rubric-scored · +12.9</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:13px;border-top:1px solid #262626;padding-top:22px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Personalized tutoring</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Question &amp; assessment generation</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Student feedback generation</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Curriculum-grounded retrieval (RAG)</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Learning analytics</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#2b2344"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Assignment evaluation</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#7b39fc"></span><span style="width:18px;height:7px;border-radius:2px;background:#2b2344"></span></span></div>
+      </div>
+    </div>
+    <div data-reveal="1" style="background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:40px;min-width:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:28px">
+        <div style="font:600 26px 'Inter',sans-serif;letter-spacing:-.5px">Healthcare Intelligence</div>
+        <span style="font:500 11px 'Inter',sans-serif;color:#a78bfa;letter-spacing:.08em">DOMAIN 02</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:20px;margin-bottom:32px">
+        <div><div data-count="61.4" style="font:600 40px/1 'Inter',sans-serif;letter-spacing:-1px;color:#a78bfa">61.4</div><div style="font:500 13px 'Inter',sans-serif;margin-top:8px">MedQA-USMLE</div><div style="font:400 11px 'Inter',sans-serif;color:#a6a6a6;margin-top:3px">baseline 47.8 · +13.6</div></div>
+        <div><div data-count="76.2" style="font:600 40px/1 'Inter',sans-serif;letter-spacing:-1px;color:#a78bfa">76.2</div><div style="font:500 13px 'Inter',sans-serif;margin-top:8px">PubMedQA</div><div style="font:400 11px 'Inter',sans-serif;color:#a6a6a6;margin-top:3px">reasoning-req · +9.4</div></div>
+        <div><div data-count="93.8" style="font:600 40px/1 'Inter',sans-serif;letter-spacing:-1px;color:#a78bfa">93.8</div><div style="font:500 13px 'Inter',sans-serif;margin-top:8px">Clinical summarization</div><div style="font:400 11px 'Inter',sans-serif;color:#a6a6a6;margin-top:3px">clinician-scored · +15.1</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:13px;border-top:1px solid #262626;padding-top:22px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Medical documentation (SOAP, discharge)</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Clinical note summarization</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Biomedical literature search</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Patient education material</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Medical question answering</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#2b2344"></span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font:400 14px 'Inter',sans-serif;color:#e5e5e5">Drug information retrieval</span><span style="display:flex;gap:4px"><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#a78bfa"></span><span style="width:18px;height:7px;border-radius:2px;background:#2b2344"></span></span></div>
+      </div>
+    </div>
+  </div>
+  <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:10px 36px;margin-top:36px;font:500 12px 'Inter',sans-serif;color:#a6a6a6;letter-spacing:.06em">
+    <span style="color:#fff">GENERAL:</span><span>MMLU 39.1</span><span>HellaSwag 73.6</span><span>LAMBADA 67.2</span><span>WinoGrande 72.1</span><span>ARC-C 45.1</span>
+  </div>
+  <p data-reveal="1" style="margin:20px 0 0;font:400 12px/1.6 'Inter',sans-serif;color:#a6a6a6">Domain scores measured after domain alignment, with retrieval enabled. All configs, prompts and seeds published — technical report §4.</p>
+</div>
+
+<!-- model -->
+<div id="model" style="max-width:1200px;margin:0 auto;padding:96px 24px;border-top:1px solid #262626">
+  <h2 data-reveal="1" style="margin:0 0 48px;font:500 52px 'Inter',sans-serif;letter-spacing:-1.5px">How it <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">works.</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+    <div data-reveal="1" style="background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:32px"><div style="font:600 14px 'Inter',sans-serif;color:#7b39fc;margin-bottom:12px">01 — Curated pretraining</div><p style="margin:0;font:400 15px/1.6 'Inter',sans-serif;color:#a6a6a6">2.1T tokens of vetted textbooks, clinical guidelines and pedagogical dialogue. No web sludge.</p></div>
+    <div data-reveal="1" style="background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:32px"><div style="font:600 14px 'Inter',sans-serif;color:#7b39fc;margin-bottom:12px">02 — Expert alignment</div><p style="margin:0;font:400 15px/1.6 'Inter',sans-serif;color:#a6a6a6">Preference data written by educators and clinicians. Refusals tuned for classrooms and care settings.</p></div>
+    <div data-reveal="1" style="background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:32px"><div style="font:600 14px 'Inter',sans-serif;color:#7b39fc;margin-bottom:12px">03 — Grounded serving</div><p style="margin:0;font:400 15px/1.6 'Inter',sans-serif;color:#a6a6a6">Retrieval over your curriculum or formulary, with citation-level attribution on every answer.</p></div>
+  </div>
+  <div data-reveal="1" style="margin-top:48px">
+    <div style="font:500 12px 'Inter',sans-serif;color:#a6a6a6;letter-spacing:.08em;margin-bottom:16px">INSIDE ONE FORWARD PASS</div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:500 13px 'Inter',sans-serif">
+      <span style="padding:9px 16px;border:1px solid #333;border-radius:100px">Tokenizer</span><span style="color:#a6a6a6">→</span>
+      <span style="padding:9px 16px;border:1px solid #333;border-radius:100px">Embeddings</span><span style="color:#a6a6a6">→</span>
+      <span style="padding:9px 16px;border:1px solid #333;border-radius:100px">ALiBi attention</span><span style="color:#a6a6a6">→</span>
+      <span style="padding:9px 16px;background:#7b39fc;border:1px solid #7b39fc;border-radius:100px">96 × transformer blocks</span><span style="color:#a6a6a6">→</span>
+      <span style="padding:9px 16px;border:1px solid #333;border-radius:100px">LM head</span><span style="color:#a6a6a6">→</span>
+      <span style="padding:9px 16px;border:1px solid #333;border-radius:100px">Softmax</span><span style="color:#a6a6a6">→</span>
+      <span style="padding:9px 16px;border:1px solid #333;border-radius:100px">Next token</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:20px;font:500 12px 'Inter',sans-serif;color:#a6a6a6;letter-spacing:.06em">
+      <span>DECODER-ONLY TRANSFORMER</span><span>·</span><span>46 NATURAL LANGUAGES</span><span>·</span><span>13 PROGRAMMING LANGUAGES</span><span>·</span><span>128K CONTEXT</span><span>·</span><span>2.1T DOMAIN TOKENS</span>
+    </div>
+  </div>
+</div>
+
+<!-- use cases -->
+<div id="usecases" style="max-width:1200px;margin:0 auto;padding:96px 24px;border-top:1px solid #262626">
+  <h2 data-reveal="1" style="margin:0 0 48px;font:500 52px 'Inter',sans-serif;letter-spacing:-1.5px">Two domains, zero <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">compromise.</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:24px">
+    <div data-reveal="1" style="background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:36px;min-width:0">
+      <div style="font:600 22px 'Inter',sans-serif;letter-spacing:-.5px;margin-bottom:18px">Education</div>
+      <x-import component-from-global-scope="image-slot" id="edu-shot" shape="rounded" radius="12" placeholder="Drop a tutoring UI screenshot" hint-size="100%,200px" style="width:100%;height:200px;margin-bottom:22px"></x-import>
+      <div style="display:flex;flex-direction:column;gap:10px;font:400 15px/1.5 'Inter',sans-serif;color:#a6a6a6">
+        <div style="display:flex;gap:10px"><span style="color:#7b39fc">→</span>Socratic tutoring that adapts to student misconceptions</div>
+        <div style="display:flex;gap:10px"><span style="color:#7b39fc">→</span>Curriculum-aligned item generation &amp; grading rubrics</div>
+        <div style="display:flex;gap:10px"><span style="color:#7b39fc">→</span>Exam prep with step-level reasoning feedback</div>
+      </div>
+    </div>
+    <div data-reveal="1" style="background:#0d0d0d;border:1px solid #262626;border-radius:16px;padding:36px;min-width:0">
+      <div style="font:600 22px 'Inter',sans-serif;letter-spacing:-.5px;margin-bottom:18px">Healthcare</div>
+      <x-import component-from-global-scope="image-slot" id="clinical-shot" shape="rounded" radius="12" placeholder="Drop a clinical assistant screenshot" hint-size="100%,200px" style="width:100%;height:200px;margin-bottom:22px"></x-import>
+      <div style="display:flex;flex-direction:column;gap:10px;font:400 15px/1.5 'Inter',sans-serif;color:#a6a6a6">
+        <div style="display:flex;gap:10px"><span style="color:#7b39fc">→</span>Clinical documentation drafting with guideline citations</div>
+        <div style="display:flex;gap:10px"><span style="color:#7b39fc">→</span>Medical education &amp; USMLE-style case walkthroughs</div>
+        <div style="display:flex;gap:10px"><span style="color:#7b39fc">→</span>Patient-facing explanations at controlled reading levels</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- safety + results -->
+<div id="safety" style="max-width:1200px;margin:0 auto;padding:96px 24px;border-top:1px solid #262626;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:56px">
+  <div data-reveal="1">
+    <h3 style="margin:0 0 24px;font:500 34px 'Inter',sans-serif;letter-spacing:-1px">Compliance is the <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">floor.</span></h3>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px">
+      <span style="padding:9px 18px;background:#7b39fc;border-radius:100px;font:500 13px 'Inter',sans-serif">MIT LICENSE</span>
+      <span style="padding:9px 18px;border:1px solid #333;border-radius:100px;font:500 13px 'Inter',sans-serif;color:#e5e5e5">HIPAA + BAA</span>
+      <span style="padding:9px 18px;border:1px solid #333;border-radius:100px;font:500 13px 'Inter',sans-serif;color:#e5e5e5">FERPA</span>
+      <span style="padding:9px 18px;border:1px solid #333;border-radius:100px;font:500 13px 'Inter',sans-serif;color:#e5e5e5">SOC 2 TYPE II</span>
+      <span style="padding:9px 18px;border:1px solid #333;border-radius:100px;font:500 13px 'Inter',sans-serif;color:#e5e5e5">VPC / ON-PREM</span>
+    </div>
+    <p style="margin:0;font:400 15px/1.65 'Inter',sans-serif;color:#a6a6a6">Weights and code under MIT — inspect, audit, self-host. PHI and student records never enter training. Published harm evals with every release, tenant-level isolation and full audit trails.</p>
+  </div>
+  <div data-reveal="1">
+    <h3 style="margin:0 0 24px;font:500 34px 'Inter',sans-serif;letter-spacing:-1px">Field <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">results.</span></h3>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;gap:20px;align-items:baseline"><span style="font:600 40px 'Inter',sans-serif;letter-spacing:-1px;color:#7b39fc;min-width:120px">+18%</span><span style="font:400 15px/1.5 'Inter',sans-serif;color:#a6a6a6">exam pass-rate lift, 3,000-student pilot [ your data ]</span></div>
+      <div style="display:flex;gap:20px;align-items:baseline"><span style="font:600 40px 'Inter',sans-serif;letter-spacing:-1px;color:#7b39fc;min-width:120px">−41%</span><span style="font:400 15px/1.5 'Inter',sans-serif;color:#a6a6a6">documentation time, 2-hospital deployment [ your data ]</span></div>
+      <div style="display:flex;gap:20px;align-items:baseline"><span style="font:600 40px 'Inter',sans-serif;letter-spacing:-1px;color:#7b39fc;min-width:120px">96%</span><span style="font:400 15px/1.5 'Inter',sans-serif;color:#a6a6a6">citation-attribution accuracy on grounded answers [ your data ]</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- research + faq -->
+<div id="research" style="max-width:1200px;margin:0 auto;padding:96px 24px;border-top:1px solid #262626;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:56px">
+  <div data-reveal="1">
+    <h3 style="margin:0 0 24px;font:500 34px 'Inter',sans-serif;letter-spacing:-1px">Research<span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">.</span></h3>
+    <div style="display:flex;flex-direction:column">
+      <div style="padding:18px 0;border-top:1px solid #262626;display:flex;justify-content:space-between;gap:16px"><span style="font:500 15px 'Inter',sans-serif">PrepzoLM: A 120B Domain-Specialized Language Model</span><span style="color:#7b39fc;font:500 13px 'Inter',sans-serif;flex:none">PDF ↗</span></div>
+      <div style="padding:18px 0;border-top:1px solid #262626;display:flex;justify-content:space-between;gap:16px"><span style="font:500 15px 'Inter',sans-serif">Curriculum-Grounded Retrieval for Tutoring Systems</span><span style="color:#7b39fc;font:500 13px 'Inter',sans-serif;flex:none">PDF ↗</span></div>
+      <div style="padding:18px 0;border-top:1px solid #262626;border-bottom:1px solid #262626;display:flex;justify-content:space-between;gap:16px"><span style="font:500 15px 'Inter',sans-serif">Safety Evaluation of Clinical LLM Assistants</span><span style="color:#7b39fc;font:500 13px 'Inter',sans-serif;flex:none">PDF ↗</span></div>
+    </div>
+  </div>
+  <div data-reveal="1">
+    <h3 style="margin:0 0 24px;font:500 34px 'Inter',sans-serif;letter-spacing:-1px">FAQ<span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">.</span></h3>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div><div style="font:600 15px 'Inter',sans-serif;margin-bottom:6px">Is it a fine-tune of an open model?</div><p style="margin:0;font:400 14px/1.6 'Inter',sans-serif;color:#a6a6a6">No — pretrained from scratch on domain corpora. Data mixture in the report.</p></div>
+      <div><div style="font:600 15px 'Inter',sans-serif;margin-bottom:6px">Can we run it in our VPC or on-prem?</div><p style="margin:0;font:400 14px/1.6 'Inter',sans-serif;color:#a6a6a6">Yes — managed cloud, dedicated instances, or on-prem for strict data boundaries.</p></div>
+      <div><div style="font:600 15px 'Inter',sans-serif;margin-bottom:6px">How are hallucinations handled clinically?</div><p style="margin:0;font:400 14px/1.6 'Inter',sans-serif;color:#a6a6a6">Citation-required grounding; unattributable claims are flagged, abstention over guessing.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- footer cta -->
+<div id="cta" style="border-top:1px solid #262626;padding:120px 24px;text-align:center">
+  <h2 data-reveal="1" style="margin:0 0 16px;font:500 72px/1.1 'Inter',sans-serif;letter-spacing:-2px">Read the <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400">receipts.</span></h2>
+  <p data-reveal="1" style="margin:0 0 36px;font:400 17px 'Inter',sans-serif;color:#a6a6a6">Every claim on this page is a citation in the technical report.</p>
+  <div data-reveal="1" style="display:flex;gap:14px;justify-content:center">
+    <span style="padding:14px 32px;background:#fff;color:#000;border-radius:100px;font:500 16px 'Inter',sans-serif">Download technical report ↗</span>
+    <span style="padding:14px 32px;background:#2b2344;color:#f6f7f9;border-radius:100px;font:500 16px 'Inter',sans-serif">Talk to the team</span>
+  </div>
+  <div style="display:flex;justify-content:space-between;max-width:1200px;margin:96px auto 0;padding-top:24px;border-top:1px solid #262626;font:400 12px 'Inter',sans-serif;color:#a6a6a6;letter-spacing:.06em">
+    <span>© 2026 PREPZO</span><span>BENCHMARKS · MODEL · SAFETY · RESEARCH · CONTACT</span>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;baselineLabel&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;A 175B GENERAL-PURPOSE BASELINE&quot;,&quot;options&quot;:[&quot;A 175B GENERAL-PURPOSE BASELINE&quot;,&quot;A GPT-3.5-CLASS MODEL&quot;,&quot;AN OPEN 70B MODEL&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    // scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = "1";
+          e.target.style.transform = "translateY(0)";
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    const hidden = [];
+    document.querySelectorAll("[data-reveal]").forEach((el) => {
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(26px)";
+        el.style.transition = "opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)";
+        hidden.push(el);
+        io.observe(el);
+      }
+    });
+    // fail-safe: scroll-position backup + hard timeout so content can never stay hidden
+    const revealNow = (el) => { el.style.opacity = "1"; el.style.transform = "translateY(0)"; };
+    this._revealBackup = () => {
+      hidden.forEach((el) => {
+        if (el.style.opacity === "0" && el.getBoundingClientRect().top < window.innerHeight * 0.92) revealNow(el);
+      });
+    };
+    window.addEventListener("scroll", this._revealBackup, { passive: true });
+    this._revealTimer = setTimeout(() => hidden.forEach(revealNow), 4000);
+    // counters
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        const el = e.target, target = parseFloat(el.getAttribute("data-count"));
+        const t0 = performance.now(), dur = 1200;
+        const tick = (t) => {
+          const p = Math.min(1, (t - t0) / dur);
+          el.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(1);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll("[data-count]").forEach((el) => cio.observe(el));
+    // parallax + word reveal on scroll
+    this._onScroll = () => {
+      const y = window.scrollY, wh = window.innerHeight;
+      const hero = document.querySelector("[data-hero-group]");
+      if (hero) {
+        hero.style.transform = "translateY(" + (-y * 0.35) + "px)";
+        hero.style.opacity = String(Math.max(0, 1 - y / (wh * 0.55)));
+      }
+      const dash = document.querySelector("[data-dash-parallax]");
+      if (dash) dash.style.transform = "translateY(" + (-y * 0.08) + "px)";
+      const q = document.getElementById("quote-words");
+      if (q) {
+        const r = q.getBoundingClientRect();
+        const p = (wh * 0.9 - r.top) / (r.height + wh * 0.4);
+        const words = q.children;
+        for (let i = 0; i < words.length; i++) {
+          const local = Math.max(0, Math.min(1, p * words.length - i));
+          words[i].style.opacity = String(0.2 + 0.8 * local);
+        }
+      }
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    this._onScroll();
+    // ensure hero video autoplays
+    const vid = document.querySelector("video");
+    if (vid) { vid.muted = true; vid.play().catch(() => {}); }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._onScroll);
+    window.removeEventListener("scroll", this._revealBackup);
+    clearTimeout(this._revealTimer);
+  }
+  renderVals() {
+    return {
+      baselineLabel: this.props.baselineLabel ?? "A 175B GENERAL-PURPOSE BASELINE",
+      quoteWords: "The first model our clinical review board approved without a single escalation in the eval set.”".split(" "),
+    };
+  }
+}
+</script>
+
+
+</body></html>

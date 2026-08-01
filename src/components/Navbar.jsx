@@ -8,6 +8,7 @@ const navItems = [
   { label: 'Home', href: '/' },
   { label: 'For Schools', href: '/schools' },
   { label: 'For Universities', href: '/universities' },
+  { label: 'Pragati AI', href: '/pragati' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]

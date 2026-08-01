@@ -9,6 +9,7 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Schools from './pages/Schools'
 import Universities from './pages/Universities'
+import Pragati from './pages/Pragati'
 
 // Reset scroll position on every route change (SPA has no native reset).
 function ScrollToTop() {
@@ -17,6 +18,31 @@ function ScrollToTop() {
     window.scrollTo(0, 0)
   }, [pathname])
   return null
+}
+
+// Pragati ships its own dark fixed navbar and full-bleed scroll video, so the
+// light site chrome is suppressed on that route.
+function Shell() {
+  const { pathname } = useLocation()
+  const bare = pathname === '/pragati'
+  return (
+    <>
+      {!bare && <Navbar />}
+      <main id="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/schools" element={<Schools />} />
+          <Route path="/universities" element={<Universities />} />
+          <Route path="/pragati" element={<Pragati />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+      </main>
+      {!bare && <Footer />}
+    </>
+  )
 }
 
 function App() {
@@ -30,19 +56,7 @@ function App() {
       >
         Skip to content
       </a>
-      <Navbar />
-      <main id="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/schools" element={<Schools />} />
-          <Route path="/universities" element={<Universities />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-        </Routes>
-      </main>
-      <Footer />
+      <Shell />
     </BrowserRouter>
   )
 }

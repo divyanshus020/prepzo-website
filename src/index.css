@@ -466,4 +466,17 @@ canvas {
   opacity: 0;
 }
 
+/* PrepzoLM Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+
 
