@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>Prepzo | An AI Counsellor For Every Classroom In India</title>
+  <meta name="description"
+    content="Prepzo shows students the career paths they are genuinely built for, and gives teachers a real helping hand with their everyday work. One platform, built for the Indian education context." />
+  <link rel="icon" type="image/webp" href="assets/logo.webp" />
+  <link rel="canonical" href="https://prepzo.space/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://db.onlinewebfonts.com" />
+  <link rel="dns-prefetch" href="https://d8j0ntlcm91z4.cloudfront.net" />
+
+  <!-- Inter (UI) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- BubbledotICG-FinePos (display / dot-matrix) -->
+  <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos"
+    rel="stylesheet" />
+  <!-- Font Awesome 6.5.2 (trust icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
+        type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="page">
+    <!-- 1) HEADER -->
+    <header class="header">
+      <a class="logo" href="/" aria-label="Prepzo home">
+        <img src="assets/logo.webp" alt="" width="52" height="52" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link is-active" href="/" aria-current="page">Home</a>
+        <a class="nav-link" href="/schools">For Schools</a>
+        <a class="nav-link" href="/universities">For Universities</a>
+        <a class="nav-link" href="/pragati">Pragati AI</a>
+      </nav>
+
+      <a class="sign-in" href="/contact">Talk to us</a>
+
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- 2) HERO -->
+    <main class="hero">
+      <div class="trust anim" style="--d: 0.05s">
+        <span class="avatar a1"><span class="avatar-inner"><i class="fa-solid fa-school"></i></span></span>
+        <span class="avatar a2"><span class="avatar-inner"><i class="fa-solid fa-building-columns"></i></span></span>
+        <span class="avatar a3"><span class="avatar-inner"><i class="fa-solid fa-graduation-cap"></i></span></span>
+        <span class="trust-pill">Trusted by schools &amp; universities</span>
+      </div>
+
+      <h1 class="headline anim">
+        <span style="--d: 0.12s">An AI counsellor</span>
+        <span style="--d: 0.3s">for every classroom in India.</span>
+      </h1>
+
+      <p class="subhead anim" style="--d: 0.28s">
+        Prepzo shows students the career paths they are genuinely built for, and gives teachers a real helping hand with
+        their everyday work.
+      </p>
+
+      <a class="cta anim" style="--d: 0.4s" href="/contact">Book a Demo</a>
+    </main>
+
+    <!-- 3) STATS -->
+    <section class="stats" aria-label="Prepzo in numbers">
+      <div class="stat anim" style="--d: 0.5s">
+        <span class="stat-icon">#</span>
+        <span class="stat-value" data-target="120" data-suffix="B" data-decimals="0">0</span>
+        <span class="stat-label">Model Parameters</span>
+      </div>
+      <div class="stat anim" style="--d: 0.58s">
+        <span class="stat-icon">*</span>
+        <span class="stat-value" data-target="6" data-suffix="" data-decimals="0">0</span>
+        <span class="stat-label">Steps To Readiness</span>
+      </div>
+      <div class="stat anim" style="--d: 0.66s">
+        <span class="stat-icon">%</span>
+        <span class="stat-value" data-target="35" data-suffix="K+" data-decimals="0">0</span>
+        <span class="stat-label">Students, Jodhpur</span>
+      </div>
+      <div class="stat anim" style="--d: 0.74s">
+        <span class="stat-icon">&lt;</span>
+        <span class="stat-value" data-target="1" data-suffix=" day" data-decimals="0">0</span>
+        <span class="stat-label">Response Time</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="menu-overlay" id="menu-overlay" hidden></div>
+  <div class="menu-sheet" id="mobile-menu" hidden>
+    <a class="menu-link is-active" href="/" aria-current="page">Home</a>
+    <a class="menu-link" href="/schools">For Schools</a>
+    <a class="menu-link" href="/universities">For Universities</a>
+    <a class="menu-link" href="/pragati">Pragati AI</a>
+    <a class="menu-link" href="/about">About</a>
+    <a class="menu-link" href="/contact">Contact</a>
+    <a class="menu-cta" href="/contact">Talk to us</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
