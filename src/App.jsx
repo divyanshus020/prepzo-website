@@ -21,13 +21,9 @@ function ScrollToTop() {
 }
 
 function Shell() {
-  // Home has its own in-hero header, so the global Navbar is hidden there.
-  const { pathname } = useLocation()
-  const showNavbar = pathname !== '/'
-
   return (
     <>
-      {showNavbar && <Navbar />}
+      <Navbar />
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
