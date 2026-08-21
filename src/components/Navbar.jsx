@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight, Sparkles } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import prepzoLogo from '../assets/prepzo_full_logo.png'
 
 const navItems = [
@@ -16,6 +16,9 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { pathname } = useLocation()
+  // Home opens on the dark video hero, so links invert until the page scrolls past it.
+  const onDarkHero = pathname === '/' && !scrolled
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 30)
@@ -30,10 +33,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="fixed top-3 left-0 right-0 z-50 flex justify-center px-6"
     >
-      <div className={`w-full max-w-[1100px] flex items-center justify-between pl-5 pr-2 py-2 rounded-full transition-all duration-500 backdrop-blur-md ${scrolled
-        ? 'bg-paper/80 border border-ink/10 shadow-[0_8px_30px_rgba(14,17,22,0.06)]'
-        : 'bg-paper/60 border border-ink/5 shadow-[0_4px_24px_rgba(14,17,22,0.04)]'
-        }`}>
+      <div className="w-full max-w-[1100px] flex items-center justify-between pl-5 pr-2 py-2 rounded-full bg-transparent border-0 shadow-none">
 
         {/* Brand */}
         <Link to="/" className="flex items-center group pl-1" aria-label="Prepzo home">
@@ -49,7 +49,8 @@ export default function Navbar() {
             <Link
               key={item.label}
               to={item.href}
-              className="text-sm font-medium text-[#2A2F36] hover:text-coral-2 transition-colors tracking-tight"
+              className={`text-sm font-medium hover:text-coral-2 transition-colors tracking-tight ${onDarkHero ? 'text-white/90 [text-shadow:0_1px_3px_rgba(0,0,0,0.55)]' : 'text-[#2A2F36]'
+                }`}
             >
               {item.label}
             </Link>
@@ -76,7 +77,8 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-ink hover:bg-ink/5 transition-colors"
+          className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full transition-colors ${onDarkHero ? 'text-white hover:bg-white/10' : 'text-ink hover:bg-ink/5'
+            }`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >

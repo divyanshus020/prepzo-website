@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './hero.css'
 
 export default function Hero() {
-  // One-shot entrance timeline; cleared on the demo card's animationend
+  // One-shot entrance timeline; cleared on the CTA's animationend
   // (3500ms fallback in case the animation never fires).
   const [motionPending, setMotionPending] = useState(true)
   const fallbackRef = useRef(null)
@@ -51,7 +51,7 @@ export default function Hero() {
           One platform, built for the Indian education context.
         </p>
 
-        <Link className="vt-primary-cta" to="/contact">
+        <Link className="vt-primary-cta" to="/contact" onAnimationEnd={endMotion}>
           <span className="vt-cta-label">Book a Demo</span>
           <span className="vt-arrow-box" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -66,18 +66,6 @@ export default function Hero() {
           </span>
         </Link>
       </div>
-
-      <article className="vt-demo-card" onAnimationEnd={endMotion}>
-        <div className="vt-demo-visual">
-          <div className="vt-demo-smoke" role="img" aria-label="Abstract red and blue smoke" />
-          <button className="vt-play" type="button" aria-label="Play demo">
-            <svg viewBox="0 0 12 14" fill="none" aria-hidden="true">
-              <path d="M1 1.2 11 7 1 12.8V1.2Z" fill="#fff" />
-            </svg>
-          </button>
-        </div>
-        <a className="vt-watch-button" href="#how-it-works">Watch Demo</a>
-      </article>
     </section>
   )
 }
