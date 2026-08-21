@@ -1,108 +1,225 @@
-import { Sparkles, Brain, GraduationCap, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import './hero.css'
+
+const NAV_ITEMS = [
+  { label: 'Home', href: '/', active: true },
+  { label: 'For Schools', href: '/schools' },
+  { label: 'For Universities', href: '/universities' },
+  { label: 'Pragati AI', href: '/pragati' },
+]
+
+const MENU_ITEMS = [
+  ...NAV_ITEMS,
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+]
+
+// Real Prepzo metrics (same source as the Features comparison strip).
+const STATS = [
+  { icon: '#', target: 120, suffix: 'B', decimals: 0, label: 'Model Parameters' },
+  { icon: '*', target: 6, suffix: '', decimals: 0, label: 'Steps To Readiness' },
+  { icon: '%', target: 35, suffix: 'K+', decimals: 0, label: 'Students, Jodhpur' },
+  { icon: '<', target: 1, suffix: ' day', decimals: 0, label: 'Response Time' },
+]
+
+function StatValue({ target, suffix, decimals, index }) {
+  const ref = useRef(null)
+  const [display, setDisplay] = useState((0).toFixed(decimals) + suffix)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const format = (n) => n.toFixed(decimals) + suffix
+    let frameId = null
+    let timeoutId = null
+
+    const run = () => {
+      if (reduceMotion) {
+        setDisplay(format(target))
+        return
+      }
+      const duration = 1500 + index * 80
+      const startDelay = 480 + index * 90
+      let startTime = null
+
+      const frame = (now) => {
+        if (startTime === null) startTime = now
+        const t = Math.min((now - startTime) / duration, 1)
+        const eased = 1 - Math.pow(1 - t, 3) // easeOutCubic
+        setDisplay(format(target * eased))
+        if (t < 1) frameId = requestAnimationFrame(frame)
+        else setDisplay(format(target))
+      }
+
+      timeoutId = setTimeout(() => {
+        frameId = requestAnimationFrame(frame)
+      }, startDelay)
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      run()
+      return
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          io.unobserve(entry.target)
+          run()
+        })
+      },
+      { threshold: 0.25 }
+    )
+    io.observe(el)
+
+    return () => {
+      io.disconnect()
+      if (frameId) cancelAnimationFrame(frameId)
+      if (timeoutId) clearTimeout(timeoutId)
+    }
+  }, [target, suffix, decimals, index])
+
+  return <span ref={ref} className="pz-stat-value">{display}</span>
+}
 
 export default function Hero() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    const onResize = () => {
+      if (window.innerWidth > 720) setMenuOpen(false)
+    }
+
+    document.body.classList.add('pz-menu-open')
+    document.addEventListener('keydown', onKey)
+    window.addEventListener('resize', onResize)
+
+    return () => {
+      document.body.classList.remove('pz-menu-open')
+      document.removeEventListener('keydown', onKey)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [menuOpen])
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-end bg-black text-white overflow-hidden select-none">
-      {/* Fullscreen Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4"
-          type="video/mp4"
-        />
-      </video>
+    <section className="pz-hero">
+      <div className="pz-bg">
+        <video className="pz-bg-video" autoPlay muted loop playsInline>
+          <source
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
 
-      {/* Bottom Blur Overlay (No gradient darkening, only blur) */}
-      <div
-        className="absolute inset-0 pointer-events-none backdrop-blur-xl bottom-blur-mask z-10"
-      />
+      <div className="pz-page">
+        {/* Header */}
+        <header className="pz-header">
+          <Link className="pz-logo" to="/" aria-label="Prepzo home">
+            <img src="/favicon.png" alt="" width="52" height="52" />
+          </Link>
 
-      {/* Hero Content (bottom of viewport) */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-8 md:pb-16 pt-32 flex flex-col md:flex-row items-end justify-between gap-8">
-        {/* Left Side */}
-        <div className="flex-1 w-full text-left">
-          {/* Metadata / Trust Row */}
-          <div
-            className="flex flex-wrap items-center gap-3 sm:gap-6 mb-6 md:mb-8 text-xs sm:text-sm text-gray-200 animate-blur-fade-up"
-            style={{ animationDelay: '300ms' }}
+          <nav className="pz-nav" aria-label="Primary">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                className={`pz-nav-link${item.active ? ' is-active' : ''}`}
+                aria-current={item.active ? 'page' : undefined}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <Link className="pz-sign-in" to="/contact">Talk to us</Link>
+
+          <button
+            type="button"
+            className="pz-burger"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-controls="pz-mobile-menu"
+            onClick={() => setMenuOpen((v) => !v)}
           >
-            <div className="flex items-center gap-1.5 font-medium">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white" />
-              <span>Prepzo AI · 120B Model</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-gray-300">
-              <Brain className="w-4 h-4" />
-              <span>A helping hand for teachers</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-gray-300">
-              <GraduationCap className="w-4 h-4" />
-              <span>Guidance for every student</span>
-            </div>
+            <span /><span /><span />
+          </button>
+        </header>
+
+        {/* Hero */}
+        <div className="pz-hero-body">
+          <div className="pz-trust pz-anim" style={{ '--d': '0.05s' }}>
+            <span className="pz-avatar a1">
+              <span className="pz-avatar-inner"><i className="fa-solid fa-school" /></span>
+            </span>
+            <span className="pz-avatar a2">
+              <span className="pz-avatar-inner"><i className="fa-solid fa-building-columns" /></span>
+            </span>
+            <span className="pz-avatar a3">
+              <span className="pz-avatar-inner"><i className="fa-solid fa-graduation-cap" /></span>
+            </span>
+            <span className="pz-trust-pill">Trusted by schools &amp; universities</span>
           </div>
 
-          {/* Title */}
-          <h1
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-[-0.04em] mb-4 md:mb-6 leading-none animate-blur-fade-up"
-            style={{ animationDelay: '400ms' }}
-          >
-            An AI counsellor <br />
-            <span className="text-gray-400">for every classroom in India.</span>
+          <h1 className="pz-headline pz-anim">
+            <span style={{ '--d': '0.12s' }}>An AI counsellor</span>
+            <span style={{ '--d': '0.3s' }}>for every classroom in India.</span>
           </h1>
 
-          {/* Description */}
-          <p
-            className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 md:mb-12 max-w-2xl leading-relaxed animate-blur-fade-up"
-            style={{ animationDelay: '500ms' }}
-          >
-            Prepzo shows students the career paths they are genuinely built for, and gives teachers a real helping hand with their everyday work. One platform, built for the Indian education context.
+          <p className="pz-subhead pz-anim" style={{ '--d': '0.28s' }}>
+            Prepzo shows students the career paths they are genuinely built for, and gives teachers a real helping hand
+            with their everyday work.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            <Link
-              to="/contact"
-              className="bg-white text-black rounded-full font-medium px-6 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2 hover:bg-gray-200 transition-all cursor-pointer animate-blur-fade-up"
-              style={{ animationDelay: '600ms' }}
-            >
-              Book a Demo
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="#how-it-works"
-              className="rounded-full font-medium liquid-glass px-6 sm:px-8 py-2.5 sm:py-3 text-white hover:scale-[1.03] transition-transform duration-300 cursor-pointer active:scale-[0.98] animate-blur-fade-up inline-flex items-center"
-              style={{ animationDelay: '700ms' }}
-            >
-              See How It Works
-            </a>
-          </div>
+          <Link className="pz-cta pz-anim" style={{ '--d': '0.4s' }} to="/contact">
+            Book a Demo
+          </Link>
         </div>
 
-        {/* Right Side (Navigation Arrows) */}
-        <div
-          className="flex items-center gap-3 w-full md:w-auto justify-start md:justify-end shrink-0"
-        >
-          <button
-            className="rounded-full liquid-glass px-4 sm:px-6 py-2.5 sm:py-3 text-white hover:scale-[1.03] transition-transform duration-300 cursor-pointer active:scale-[0.98] animate-blur-fade-up flex items-center justify-center"
-            style={{ animationDelay: '800ms' }}
-            aria-label="Previous"
-          >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
-          <button
-            className="rounded-full liquid-glass px-4 sm:px-6 py-2.5 sm:py-3 text-white hover:scale-[1.03] transition-transform duration-300 cursor-pointer active:scale-[0.98] animate-blur-fade-up flex items-center justify-center"
-            style={{ animationDelay: '900ms' }}
-            aria-label="Next"
-          >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
+        {/* Stats */}
+        <div className="pz-stats" aria-label="Prepzo in numbers">
+          {STATS.map((s, i) => (
+            <div key={s.label} className="pz-stat pz-anim" style={{ '--d': `${0.5 + i * 0.08}s` }}>
+              <span className="pz-stat-icon">{s.icon}</span>
+              <StatValue target={s.target} suffix={s.suffix} decimals={s.decimals} index={i} />
+              <span className="pz-stat-label">{s.label}</span>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <>
+          <div className="pz-menu-overlay" onClick={() => setMenuOpen(false)} />
+          <div className="pz-menu-sheet" id="pz-mobile-menu">
+            {MENU_ITEMS.map((item, i) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={`pz-menu-link${item.active ? ' is-active' : ''}`}
+                style={{ '--d': `${0.06 + i * 0.04}s` }}
+                aria-current={item.active ? 'page' : undefined}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link className="pz-menu-cta" to="/contact" onClick={() => setMenuOpen(false)}>
+              Talk to us
+            </Link>
+          </div>
+        </>
+      )}
     </section>
   )
 }
